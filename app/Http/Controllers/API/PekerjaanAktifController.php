@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\PekerjaanAktif;
 use App\Models\RiwayatPekerjaan;
+use App\Models\Keuangan;
 
 class PekerjaanAktifController extends Controller
 {
@@ -24,6 +25,12 @@ class PekerjaanAktifController extends Controller
             ],
             200
         );
+    }
+
+    public function getJumlah()
+    {
+        $jumlah = PekerjaanAktif::count();
+        return response()->json($jumlah);
     }
 
     //menambahkan data baru
@@ -86,6 +93,17 @@ class PekerjaanAktifController extends Controller
             "tanggal_selesai" => $request->tanggal_selesai,
         ]);
         $riwayatPekerjaan->save();
+
+        $nama_transaksi =
+            $request->nama_pekerjaan . " atas nama " . $request->nama_pelanggan;
+
+        //save ke tabel keuangan
+        $keuangan = new Keuangan([
+            "nama_transaksi" => $nama_transaksi,
+            "keterangan_transaksi" => "Pemasukan",
+            "jumlah_transaksi" => $request->harga,
+        ]);
+        $keuangan->save();
 
         //hapus data
         $hapusData = PekerjaanAktif::find($id);

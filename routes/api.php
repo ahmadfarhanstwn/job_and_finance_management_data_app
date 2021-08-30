@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\PekerjaanAktifController;
+use App\Http\Controllers\API\PengeluaranController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,10 @@ Route::post("login", [UserController::class, "login"]);
 Route::post("register", [UserController::class, "register"]);
 Route::post("add", [PekerjaanAktifController::class, "add"]);
 Route::get("get", [PekerjaanAktifController::class, "get"]);
+Route::get("getJumlahPekerjaan", [
+    PekerjaanAktifController::class,
+    "getJumlah",
+]);
 Route::get("show/{id}", [PekerjaanAktifController::class, "show"]);
 Route::post("update/{id}", [PekerjaanAktifController::class, "update"]);
 Route::delete("delete/{id}", [PekerjaanAktifController::class, "delete"]);
@@ -36,3 +41,10 @@ Route::get("showHarga/{id}", [HargaJasaController::class, "show"]);
 Route::post("updateHarga/{id}", [HargaJasaController::class, "update"]);
 Route::delete("deleteHarga/{id}", [HargaJasaController::class, "delete"]);
 Route::post("import", [HargaJasaController::class, "import"]);
+Route::post("search", [HargaJasaController::class, "search"]);
+Route::get("getPengeluaran", [PengeluaranController::class, "get"]);
+Route::post("addPengeluaran", [PengeluaranController::class, "add"]);
+Route::get("pengeluaranBulanIni", [
+    PengeluaranController::class,
+    "pengeluaranBulanIni",
+]);
