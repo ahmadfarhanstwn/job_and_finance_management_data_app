@@ -7,12 +7,14 @@ use Illuminate\Http\Request;
 use App\Models\Pengeluaran;
 use App\Models\Keuangan;
 use Carbon\Carbon;
+use App\Exports\PengeluaranExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PengeluaranController extends Controller
 {
     public function get()
     {
-        $data = Pengeluaran::all()->toArray();
+        $data = Pengeluaran::paginate(10)->toArray();
         return response()->json([
             "success" => true,
             "data" => $data,
@@ -49,5 +51,11 @@ class PengeluaranController extends Controller
             ->sum("jumlah_pengeluaran");
 
         return response()->json($pengeluaran);
+    }
+
+    public function exportExcel()
+    {
+        // prettier-ignore
+        return Excel::download(new PengeluaranExport, 'data-pengeluaran.xlsx');
     }
 }

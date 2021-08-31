@@ -113,4 +113,11 @@ class PekerjaanAktifController extends Controller
             "Data Telah Ditambahkan Ke Riwayat dan Dihapus dari Pekerjaan Aktif"
         );
     }
+
+    public function mendekatiDeadline()
+    {
+        $data = PekerjaanAktif::paginate(3);
+
+        return response()->json($data);
+    }
 }
