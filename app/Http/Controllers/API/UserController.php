@@ -8,6 +8,7 @@ use App\Models\User;
 use Session;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Pengguna;
 
 class UserController extends Controller
 {
@@ -33,6 +34,14 @@ class UserController extends Controller
             "success" => $success,
             "message" => $message,
         ];
+
+        $pengguna = new Pengguna([
+            "nama_pengguna" => $request->nama,
+            "jabatan" => $request->jabatan,
+            "email" => $request->email,
+            "role" => $request->role,
+        ]);
+        $pengguna->save();
 
         return response()->json($response);
     }
