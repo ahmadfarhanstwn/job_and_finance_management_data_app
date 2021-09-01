@@ -40,6 +40,7 @@
                         "
                         type="text"
                         id="nama"
+                        v-model="nama"
                         placeholder="Masukkan Nama"
                         required
                         autofocus
@@ -64,6 +65,7 @@
                         "
                         type="text"
                         id="email"
+                        v-model="email"
                         placeholder="Masukkan Email"
                         required
                     />
@@ -87,6 +89,7 @@
                         "
                         type="password"
                         id="password"
+                        v-model="password"
                         placeholder="Masukkan Password"
                         required
                         autofocus
@@ -109,6 +112,7 @@
                             leading-tight
                             focus:outline-none focus:shadow-outline
                         "
+                        v-model="role"
                         aria-placeholder="Pilih Role"
                     >
                         <option value="Admin">Admin</option>
@@ -135,6 +139,7 @@
                         "
                         type="text"
                         id="jabatan"
+                        v-model="jabatan"
                         placeholder="Masukkan Jabatan"
                         required
                         autofocus
@@ -151,9 +156,27 @@
                         py-2
                         px-3
                     "
+                    @click="handleSubmit"
                 >
                     Buat Akun
                 </button>
+                <div
+                    role="alert"
+                    class="
+                        mt-2
+                        w-full
+                        bg-alert
+                        border border-borderalert
+                        text-red-700
+                        px-3
+                        py-2
+                        rounded
+                        relative
+                    "
+                    v-if="error != null"
+                >
+                    <p class="font-bold text-center">{{ error }}</p>
+                </div>
                 <p class="text-center mt-4 text-sm">
                     Sudah Punya Akun? Login
                     <router-link class="text-maroon" :to="{ name: 'login' }"
@@ -167,3 +190,51 @@
         Copyright @2021 - Bengkel Las & Bubut "SEKAWAN"
     </footer>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            nama: "",
+            email: "",
+            password: "",
+            role: "",
+            jabatan: "",
+            error: null,
+        };
+    },
+    methods: {
+        handleSubmit(e) {
+            e.preventDefault();
+            if (this.password.length > 0) {
+                this.$axios.get("/sanctum/csrf-cookie").then((response) => {
+                    this.$axios
+                        .post("api/register", {
+                            nama: this.nama,
+                            email: this.email,
+                            password: this.password,
+                            role: this.role,
+                            jabatan: this.jabatan,
+                        })
+                        .then((response) => {
+                            if (response.data.success) {
+                                window.location.href = "/";
+                            } else {
+                                this.error = response.data.message;
+                            }
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                });
+            }
+        },
+    },
+    beforeRouteEnter(to, from, next) {
+        if (window.Laravel.isLoggedin) {
+            return next("home");
+        }
+        next();
+    },
+};
+</script>

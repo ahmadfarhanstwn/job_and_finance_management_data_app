@@ -150,7 +150,7 @@ export default {
         },
     },
     beforeRouteEnter(to, from, next) {
-        if (window.Laravel.isLoggedIn) {
+        if (window.Laravel.isLoggedin) {
             return next("home");
         }
         next();
