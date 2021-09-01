@@ -19298,11 +19298,45 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "login",
   data: function data() {
     return {
-      myLogo: __webpack_require__(/*! ../assets/logo.svg */ "./resources/js/assets/logo.svg")
+      email: "",
+      password: "",
+      error: null
     };
+  },
+  methods: {
+    handleSubmit: function handleSubmit(e) {
+      var _this = this;
+
+      e.preventDefault();
+
+      if (this.password.length > 0) {
+        this.$axios.get("/sanctum/csrf-cookie").then(function (response) {
+          _this.$axios.post("api/login", {
+            email: _this.email,
+            password: _this.password
+          }).then(function (response) {
+            console.log(response.data);
+
+            if (response.data.success) {
+              _this.$router.go("/home");
+            } else {
+              _this.error = response.data.message;
+            }
+          })["catch"](function (error) {
+            console.log(error);
+          });
+        });
+      }
+    }
+  },
+  beforeRouteEnter: function beforeRouteEnter(to, from, next) {
+    if (window.Laravel.isLoggedIn) {
+      return next("home");
+    }
+
+    next();
   }
 });
 
@@ -19341,14 +19375,203 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _assets_logo_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/logo.svg */ "./resources/js/assets/logo.svg");
 
-var _hoisted_1 = ["src"];
+
+
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "flex justify-center mt-8 mb-8"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "object-contain h-20",
+  src: _assets_logo_svg__WEBPACK_IMPORTED_MODULE_1__.default
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "text-center"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "text-xl font-black"
+}, "Selamat Datang!"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", null, "Silahkan Login Untuk Melanjutkan")], -1
+/* HOISTED */
+);
+
+var _hoisted_3 = {
+  "class": "flex justify-center m-4"
+};
+var _hoisted_4 = {
+  "class": "\r\n                container\r\n                max-w-sm\r\n                bg-loginbox\r\n                rounded-xl\r\n                p-4\r\n                overflow-hidden\r\n                place-self-center\r\n                shadow-xl\r\n            "
+};
+var _hoisted_5 = {
+  "class": "mb-2"
+};
+
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "block text-gray-700 text-sm font-bold mb-2",
+  "for": "email"
+}, "Email :", -1
+/* HOISTED */
+);
+
+var _hoisted_7 = {
+  "class": "mb-4"
+};
+
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "class": "block text-gray-700 text-sm font-bold mb-2",
+  "for": "password"
+}, "Password :", -1
+/* HOISTED */
+);
+
+var _hoisted_9 = {
+  key: 0,
+  role: "alert",
+  "class": "\r\n                    mt-2\r\n                    w-full\r\n                    bg-alert\r\n                    border border-borderalert\r\n                    text-red-700\r\n                    px-3\r\n                    py-2\r\n                    rounded\r\n                    relative\r\n                "
+};
+var _hoisted_10 = {
+  "class": "font-bold text-center"
+};
+var _hoisted_11 = {
+  "class": "text-center mt-4 text-sm"
+};
+
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Belum Punya Akun? Register ");
+
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Disini");
+
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("footer", {
+  "class": "font-bold text-center"
+}, " Copyright @2021 - Bengkel Las & Bubut \"SEKAWAN\" ", -1
+/* HOISTED */
+);
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", {
-    src: $data.myLogo
-  }, null, 8
-  /* PROPS */
-  , _hoisted_1);
+  var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "class": "\r\n                            border-2 border-opacity-75\r\n                            rounded-lg\r\n                            w-full\r\n                            py-2\r\n                            px-3\r\n                            text-gray-700\r\n                            leading-tight\r\n                            focus:outline-none focus:shadow-outline\r\n                        ",
+    type: "text",
+    id: "email",
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $data.email = $event;
+    }),
+    placeholder: "Masukkan Email",
+    required: "",
+    autofocus: ""
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.email]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "class": "\r\n                            border-solid border-2\r\n                            rounded-lg\r\n                            w-full\r\n                            py-2\r\n                            px-3\r\n                            text-gray-700\r\n                            leading-tight\r\n                            focus:outline-none focus:shadow-outline\r\n                        ",
+    type: "password",
+    id: "password",
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+      return $data.password = $event;
+    }),
+    placeholder: "Masukkan Password",
+    required: ""
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.password]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    "class": "\r\n                        w-full\r\n                        bg-maroon\r\n                        focus:bg-red-700\r\n                        text-white\r\n                        font-bold\r\n                        rounded-lg\r\n                        py-2\r\n                        px-3\r\n                    ",
+    onClick: _cache[2] || (_cache[2] = function () {
+      return $options.handleSubmit && $options.handleSubmit.apply($options, arguments);
+    })
+  }, " Sign In ")]), $data.error != null ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.error), 1
+  /* TEXT */
+  )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_11, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    "class": "text-maroon",
+    to: {
+      name: 'register'
+    }
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_13];
+    }),
+    _: 1
+    /* STABLE */
+
+  })])])]), _hoisted_14], 64
+  /* STABLE_FRAGMENT */
+  );
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/Register.vue?vue&type=template&id=364a2fac":
+/*!*************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/Register.vue?vue&type=template&id=364a2fac ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _assets_logo_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/logo.svg */ "./resources/js/assets/logo.svg");
+
+
+
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "flex justify-center mt-4 mb-4"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  "class": "object-contain h-20",
+  src: _assets_logo_svg__WEBPACK_IMPORTED_MODULE_1__.default
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "text-center"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "text-base font-black"
+}, " Silahkan Register Untuk Melakukan Login ")], -1
+/* HOISTED */
+);
+
+var _hoisted_3 = {
+  "class": "flex justify-center m-4"
+};
+var _hoisted_4 = {
+  "class": "\r\n                container\r\n                max-w-sm\r\n                bg-loginbox\r\n                rounded-xl\r\n                p-4\r\n                overflow-hidden\r\n                place-self-center\r\n                shadow-xl\r\n            "
+};
+
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"mb-2\"><label for=\"nama\" class=\"block text-gray-700 text-sm font-bold mb-2\">Nama :</label><input class=\"\r\n                            border-2 border-opacity-75\r\n                            rounded-lg\r\n                            w-full\r\n                            py-2\r\n                            px-3\r\n                            text-gray-700\r\n                            leading-tight\r\n                            focus:outline-none focus:shadow-outline\r\n                        \" type=\"text\" id=\"nama\" placeholder=\"Masukkan Nama\" required autofocus></div><div class=\"mb-2\"><label for=\"email\" class=\"block text-gray-700 text-sm font-bold mb-2\">Email :</label><input class=\"\r\n                            border-2 border-opacity-75\r\n                            rounded-lg\r\n                            w-full\r\n                            py-2\r\n                            px-3\r\n                            text-gray-700\r\n                            leading-tight\r\n                            focus:outline-none focus:shadow-outline\r\n                        \" type=\"text\" id=\"email\" placeholder=\"Masukkan Email\" required></div><div class=\"mb-2\"><label for=\"password\" class=\"block text-gray-700 text-sm font-bold mb-2\">Password :</label><input class=\"\r\n                            border-2 border-opacity-75\r\n                            rounded-lg\r\n                            w-full\r\n                            py-2\r\n                            px-3\r\n                            text-gray-700\r\n                            leading-tight\r\n                            focus:outline-none focus:shadow-outline\r\n                        \" type=\"password\" id=\"password\" placeholder=\"Masukkan Password\" required autofocus></div><div class=\"mb-2\"><label for=\"role\" class=\"block text-gray-700 text-sm font-bold mb-2\">Role :</label><select class=\"\r\n                            border-2 border-opacity-75\r\n                            rounded-lg\r\n                            w-full\r\n                            py-2\r\n                            px-3\r\n                            text-gray-700\r\n                            leading-tight\r\n                            focus:outline-none focus:shadow-outline\r\n                        \" aria-placeholder=\"Pilih Role\"><option value=\"Admin\">Admin</option><option value=\"Pekerja\">Pekerja</option><option value=\"Pemilik\">Pemilik</option></select></div><div class=\"mb-4\"><label for=\"jabatan\" class=\"block text-gray-700 text-sm font-bold mb-2\">Jabatan :</label><input class=\"\r\n                            border-2 border-opacity-75\r\n                            rounded-lg\r\n                            w-full\r\n                            py-2\r\n                            px-3\r\n                            text-gray-700\r\n                            leading-tight\r\n                            focus:outline-none focus:shadow-outline\r\n                        \" type=\"text\" id=\"jabatan\" placeholder=\"Masukkan Jabatan\" required autofocus></div><button class=\"\r\n                        w-full\r\n                        bg-maroon\r\n                        focus:bg-red-700\r\n                        text-white\r\n                        font-bold\r\n                        rounded-lg\r\n                        py-2\r\n                        px-3\r\n                    \"> Buat Akun </button>", 6);
+
+var _hoisted_11 = {
+  "class": "text-center mt-4 text-sm"
+};
+
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Sudah Punya Akun? Login ");
+
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Disini");
+
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("footer", {
+  "class": "font-bold text-center"
+}, " Copyright @2021 - Bengkel Las & Bubut \"SEKAWAN\" ", -1
+/* HOISTED */
+);
+
+function render(_ctx, _cache) {
+  var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", null, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_11, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    "class": "text-maroon",
+    to: {
+      name: 'login'
+    }
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_13];
+    }),
+    _: 1
+    /* STABLE */
+
+  })])])])]), _hoisted_14], 64
+  /* STABLE_FRAGMENT */
+  );
 }
 
 /***/ }),
@@ -19389,17 +19612,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "routes": () => (/* binding */ routes),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
 /* harmony import */ var _pages_Login__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../pages/Login */ "./resources/js/pages/Login.vue");
+/* harmony import */ var _pages_Register__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../pages/Register */ "./resources/js/pages/Register.vue");
+
 
 
 var routes = [{
   name: "login",
   path: "/",
   component: _pages_Login__WEBPACK_IMPORTED_MODULE_0__.default
+}, {
+  name: "register",
+  path: "/register",
+  component: _pages_Register__WEBPACK_IMPORTED_MODULE_1__.default
 }];
-var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_1__.createRouter)({
-  history: (0,vue_router__WEBPACK_IMPORTED_MODULE_1__.createWebHistory)(),
+var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_2__.createRouter)({
+  history: (0,vue_router__WEBPACK_IMPORTED_MODULE_2__.createWebHistory)(),
   routes: routes
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (router);
@@ -20103,6 +20332,30 @@ _Login_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.__file =
 
 /***/ }),
 
+/***/ "./resources/js/pages/Register.vue":
+/*!*****************************************!*\
+  !*** ./resources/js/pages/Register.vue ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Register_vue_vue_type_template_id_364a2fac__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Register.vue?vue&type=template&id=364a2fac */ "./resources/js/pages/Register.vue?vue&type=template&id=364a2fac");
+
+const script = {}
+script.render = _Register_vue_vue_type_template_id_364a2fac__WEBPACK_IMPORTED_MODULE_0__.render
+/* hot reload */
+if (false) {}
+
+script.__file = "resources/js/pages/Register.vue"
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (script);
+
+/***/ }),
+
 /***/ "./resources/js/pages/Login.vue?vue&type=script&lang=js":
 /*!**************************************************************!*\
   !*** ./resources/js/pages/Login.vue?vue&type=script&lang=js ***!
@@ -20147,6 +20400,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Login_vue_vue_type_template_id_3b6adb30__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Login_vue_vue_type_template_id_3b6adb30__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Login.vue?vue&type=template&id=3b6adb30 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/Login.vue?vue&type=template&id=3b6adb30");
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/Register.vue?vue&type=template&id=364a2fac":
+/*!***********************************************************************!*\
+  !*** ./resources/js/pages/Register.vue?vue&type=template&id=364a2fac ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Register_vue_vue_type_template_id_364a2fac__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Register_vue_vue_type_template_id_364a2fac__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Register.vue?vue&type=template&id=364a2fac */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/Register.vue?vue&type=template&id=364a2fac");
 
 
 /***/ }),

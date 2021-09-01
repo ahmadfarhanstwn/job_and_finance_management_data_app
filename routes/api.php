@@ -24,7 +24,7 @@ use App\Models\RiwayatPekerjaan;
 Route::post("login", [UserController::class, "login"]);
 Route::post("register", [UserController::class, "register"]);
 Route::post("logout", [UserController::class, "logout"])->middleware(
-    "auth:santum"
+    "auth:sanctum"
 );
 
 Route::post("getUser", [UserController::class, "get"]);
