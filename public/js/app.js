@@ -19457,6 +19457,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var _assets_logo_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../assets/logo.svg */ "./resources/js/assets/logo.svg");
+/* harmony import */ var _assets_home_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../assets/home.png */ "./resources/js/assets/home.png");
+/* harmony import */ var _assets_dashboard_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../assets/dashboard.png */ "./resources/js/assets/dashboard.png");
+/* harmony import */ var _assets_pekerjaan_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../assets/pekerjaan.png */ "./resources/js/assets/pekerjaan.png");
+/* harmony import */ var _assets_harga_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../assets/harga.png */ "./resources/js/assets/harga.png");
+/* harmony import */ var _assets_pengeluaran_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../assets/pengeluaran.png */ "./resources/js/assets/pengeluaran.png");
+/* harmony import */ var _assets_pengguna_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../assets/pengguna.png */ "./resources/js/assets/pengguna.png");
+/* harmony import */ var _assets_logout_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../assets/logout.png */ "./resources/js/assets/logout.png");
+
+
+
+
+
+
+
 
 
 var _hoisted_1 = {
@@ -19464,7 +19478,7 @@ var _hoisted_1 = {
 };
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "\r\n                container\r\n                max-w-xs\r\n                bg-madrid\r\n                rounded-xl\r\n                p-2\r\n                overflow-hidden\r\n                fixed\r\n            "
+  "class": "\r\n                container\r\n                w-72\r\n                bg-madrid\r\n                rounded-xl\r\n                p-2\r\n                overflow-hidden\r\n                fixed\r\n            "
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", {
   "class": "flex flex-col py-2 space-y-1"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
@@ -19481,8 +19495,98 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "font-bold"
 }, "AHMAD FARHAN S"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
-  "class": "text-xs"
-}, "ADMIN")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr")])], -1
+  "class": "text-xs text-admin"
+}, "ADMIN")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "\r\n                            h-9\r\n                            w-30\r\n                            bg-maroon bg-opacity-60\r\n                            rounded-lg\r\n                            my-1\r\n                            mr-2\r\n                            cursor-pointer\r\n                            hover:bg-maroon hover:bg-opacity-60\r\n                            text-navbar\r\n                            hover:text-black\r\n                        "
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "flex flex-row px-2 py-1"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: _assets_home_png__WEBPACK_IMPORTED_MODULE_2__.default,
+  "class": "",
+  alt: ""
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "ml-3 my-0.5 text-sm font-bold"
+}, "HOME")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "\r\n                            h-9\r\n                            w-30\r\n                            bg-abu\r\n                            rounded-lg\r\n                            my-1\r\n                            mr-2\r\n                            cursor-pointer\r\n                            hover:bg-maroon hover:bg-opacity-60\r\n                            text-navbar\r\n                            hover:text-black\r\n                        "
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "flex flex-row px-2 py-1"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: _assets_dashboard_png__WEBPACK_IMPORTED_MODULE_3__.default,
+  "class": "h-6",
+  alt: ""
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "ml-3 my-0.5 text-sm font-extrabold"
+}, " DASHBOARD ")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "\r\n                            h-9\r\n                            w-30\r\n                            bg-abu\r\n                            rounded-lg\r\n                            my-1\r\n                            mr-2\r\n                            cursor-pointer\r\n                            hover:bg-maroon hover:bg-opacity-60\r\n                            text-navbar\r\n                            hover:text-black\r\n                        "
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "flex flex-row px-2 py-1"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: _assets_pekerjaan_png__WEBPACK_IMPORTED_MODULE_4__.default,
+  "class": "h-6",
+  alt: ""
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "ml-3 my-0.5 text-sm font-extrabold"
+}, " PEKERJAAN AKTIF ")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "\r\n                            h-9\r\n                            w-30\r\n                            bg-abu\r\n                            rounded-lg\r\n                            my-1\r\n                            mr-2\r\n                            cursor-pointer\r\n                            hover:bg-maroon hover:bg-opacity-60\r\n                            text-navbar\r\n                            hover:text-black\r\n                        "
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "flex flex-row px-2 py-1"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: _assets_harga_png__WEBPACK_IMPORTED_MODULE_5__.default,
+  "class": "h-6",
+  alt: ""
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "ml-3 my-0.5 text-sm font-extrabold"
+}, " HARGA PEKERJAAN ")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "\r\n                            h-9\r\n                            w-30\r\n                            bg-abu\r\n                            rounded-lg\r\n                            my-1\r\n                            mr-2\r\n                            cursor-pointer\r\n                            hover:bg-maroon hover:bg-opacity-60\r\n                            text-navbar\r\n                            hover:text-black\r\n                        "
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "flex flex-row px-2 py-1"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: _assets_pengeluaran_png__WEBPACK_IMPORTED_MODULE_6__.default,
+  "class": "h-6",
+  alt: ""
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "ml-3 my-0.5 text-sm font-extrabold"
+}, " PENGELUARAN ")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "\r\n                            h-9\r\n                            w-30\r\n                            bg-abu\r\n                            rounded-lg\r\n                            my-1\r\n                            mr-2\r\n                            cursor-pointer\r\n                            hover:bg-maroon hover:bg-opacity-60\r\n                            text-navbar\r\n                            hover:text-black\r\n                        "
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "flex flex-row px-2 py-1"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: _assets_pekerjaan_png__WEBPACK_IMPORTED_MODULE_4__.default,
+  "class": "h-6",
+  alt: ""
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "ml-3 my-0.5 text-sm font-extrabold"
+}, " LAPORAN PEKERJAAN ")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "\r\n                            h-9\r\n                            w-30\r\n                            bg-abu\r\n                            rounded-lg\r\n                            my-1\r\n                            mr-2\r\n                            cursor-pointer\r\n                            hover:bg-maroon hover:bg-opacity-60\r\n                            text-navbar\r\n                            hover:text-black\r\n                        "
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "flex flex-row px-2 py-1"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: _assets_pengeluaran_png__WEBPACK_IMPORTED_MODULE_6__.default,
+  "class": "h-6",
+  alt: ""
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "ml-3 my-0.5 text-sm font-extrabold"
+}, " LAPORAN KEUANGAN ")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "\r\n                            h-9\r\n                            w-30\r\n                            bg-abu\r\n                            rounded-lg\r\n                            my-1\r\n                            mr-2\r\n                            cursor-pointer\r\n                            hover:bg-maroon hover:bg-opacity-60\r\n                            text-navbar\r\n                            hover:text-black\r\n                        "
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "flex flex-row px-2 py-1"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: _assets_pengguna_png__WEBPACK_IMPORTED_MODULE_7__.default,
+  "class": "h-6",
+  alt: ""
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "ml-3 my-0.5 text-sm font-extrabold"
+}, " PENGGUNA ")])])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "\r\n                            h-9\r\n                            w-30\r\n                            bg-abu\r\n                            rounded-lg\r\n                            my-1\r\n                            mr-2\r\n                            cursor-pointer\r\n                            hover:bg-maroon hover:bg-opacity-60\r\n                            text-navbar\r\n                            hover:text-black\r\n                        "
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "flex flex-row px-2 py-1"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: _assets_logout_png__WEBPACK_IMPORTED_MODULE_8__.default,
+  "class": "h-6",
+  alt: ""
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "ml-3 my-0.5 text-sm font-extrabold"
+}, " LOGOUT ")])])])])], -1
 /* HOISTED */
 );
 
@@ -19859,20 +19963,123 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _assets_dashboard_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../assets/dashboard.png */ "./resources/js/assets/dashboard.png");
+/* harmony import */ var _assets_pekerjaan_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../assets/pekerjaan.png */ "./resources/js/assets/pekerjaan.png");
+/* harmony import */ var _assets_harga_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../assets/harga.png */ "./resources/js/assets/harga.png");
+/* harmony import */ var _assets_pengeluaran_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../assets/pengeluaran.png */ "./resources/js/assets/pengeluaran.png");
+/* harmony import */ var _assets_pengguna_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../assets/pengguna.png */ "./resources/js/assets/pengguna.png");
+
+
+
+
+
 
 var _hoisted_1 = {
-  "class": "min-h-screen flex flex-row antialiased bg-gray-50 text-gray-800"
+  "class": "flex"
 };
 var _hoisted_2 = {
-  "class": "flex-auto"
+  "class": "flex flex-col justify-between w-1/4 h-screen"
 };
 
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"flex-auto mt-4\"><h1>ajahjshjshj</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1><h1>ahjahjahjshjas</h1></div>", 1);
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "flex flex-col justify-start w-3/4 bg-red-400 mr-4 my-8 p-2"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "max-w-full rounded-lg bg-madrid p-6 mb-10"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "font-bold text-xl mb-3"
+}, " SELAMAT DATANG AHMAD FARHAN ! "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "text-base text-navbar mb-3"
+}, "Selamat Bekerja!"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "text-base text-navbar"
+}, " Gunakan sistem ini untuk mengelola data-data pekerjaan dan keuangan. Anda bisa menginputkan data-data berupa data pekerjaan dan data keuangan dalam sistem ini. ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "\r\n                    max-w-full\r\n                    rounded-lg\r\n                    bg-madrid\r\n                    p-6\r\n                    max-h-72\r\n                    overflow-y-scroll\r\n                "
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "font-extrabold text-2xl mb-3"
+}, " PETUNJUK PENGGUNAAN SISTEM "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "max-w-full rounded-lg border-2 border-black p-3 mb-4"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "flex justify-center"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: _assets_dashboard_png__WEBPACK_IMPORTED_MODULE_1__.default,
+  alt: ""
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "text-navbar font-bold mt-2 mb-4 text-center"
+}, " DASHBOARD "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "text-navbar"
+}, " Menu Dashboard merupakan menu yang menampilkan data berupa jumlah pekerjaan yang sedang aktif, jumlah pemasukan hari ini, jumlah pemasukan bulan ini, dan pekerjaan yang sedang mendekati deadline. Kunjungi menu ini untuk melihat data-data penting yang dapat dilihat secara singkat. ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "max-w-full rounded-lg border-2 border-black p-3 mb-4"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "flex justify-center"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: _assets_pekerjaan_png__WEBPACK_IMPORTED_MODULE_2__.default,
+  alt: ""
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "text-navbar font-bold mt-2 mb-4 text-center"
+}, " PEKERJAAN AKTIF "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "text-navbar"
+}, " Menu Pekerjaan Aktif merupakan menu yang menampilkan data berupa jumlah pekerjaan yang sedang aktif, tertera juga atribut-atribut data seperti Nama Pekerjaan, Deskripsi Pekerjaan, Nama Pelanggan, Kontak Pelanggan, Harga Pekerjaan, dan Tenggat Waktu Pekerjaan. Selain menampilkan data, anda juga bisa menambah data baru, mengupdate data, dan juga menghapus data yang ada. Kunjungi menu ini untuk melihat data-data pekerjaan aktif dan menambahkan data pekerjaan baru. ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "max-w-full rounded-lg border-2 border-black p-3 mb-4"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "flex justify-center"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: _assets_harga_png__WEBPACK_IMPORTED_MODULE_3__.default,
+  alt: ""
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "text-navbar font-bold mt-2 mb-4 text-center"
+}, " HARGA PEKERJAAN "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "text-navbar"
+}, " Menu Harga Pekerjaan merupakan menu yang menampilkan data berupa jenis-jenis pekerjaan yang bisa dikerjakan di Bengkel Las & Bubut \"SEKAWAN\", tertera juga atribut-atribut data seperti Nama Pekerjaan, Deskripsi Pekerjaan, Estimasi Harga Pekerjaan, dan Estimasi Tenggat Waktu Pekerjaan. Selain menampilkan data, anda juga bisa menambah data baru, mengimport data dari Excel, mengupdate data, dan juga menghapus data yang ada. Kunjungi menu ini untuk melihat data pekerjaan yang dapat dikerjakan di Bengkel Las & Bubut \"SEKAWAN\", melihat estimasi harga, serta melihat estimasi tenggat waktu pekerjaan. ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "max-w-full rounded-lg border-2 border-black p-3 mb-4"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "flex justify-center"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: _assets_pengeluaran_png__WEBPACK_IMPORTED_MODULE_4__.default,
+  alt: ""
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "text-navbar font-bold mt-2 mb-4 text-center"
+}, " PENGELUARAN "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "text-navbar"
+}, " Menu Pengeluaran merupakan menu yang menampilkan data pengeluaran yang telah dikeluarkan untuk berbagai keperluan operasional, tertera juga atribut-atribut data seperti Nama Pengeluaran, Detail Pengeluaran, Kategori Pengeluaran, Jumlah Pengeluaran, Penanggungjawab, dan Tanggal Dilakukannya Transaksi Pengeluaran. Hati-hati ketika menginput data pengeluaran, karena data pengeluaran yang telah diinputkan tidak bisa anda hapus atau update, dan data yang telah diinputkan langsung akan terekam di database. Kunjungi menu ini untuk menginputkan data pengeluaran perusahaan. ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "max-w-full rounded-lg border-2 border-black p-3 mb-4"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "flex justify-center"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: _assets_pekerjaan_png__WEBPACK_IMPORTED_MODULE_2__.default,
+  alt: ""
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "text-navbar font-bold mt-2 mb-4 text-center"
+}, " LAPORAN PEKERJAAN "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "text-navbar"
+}, " Menu Laporan Pekerjaan merupakan menu yang menampilkan data -data pekerjaan yang telah selesai dikerjakan dan dibayar oleh pelanggan. Kunjungi menu ini untuk melihat data-data riwayat pekerjaan yang telah selesai untuk kepentingan genting, seperti komplain dari pelanggan dan mencetak kembali nota. ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "max-w-full rounded-lg border-2 border-black p-3 mb-4"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "flex justify-center"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: _assets_pengeluaran_png__WEBPACK_IMPORTED_MODULE_4__.default,
+  alt: ""
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "text-navbar font-bold mt-2 mb-4 text-center"
+}, " LAPORAN KEUANGAN "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "text-navbar"
+}, " Menu Laporan Keuangan merupakan menu yang menampilkan data keuangan perusahaan, seperti data pemasukan dan juga data pengeluaran perusahaan. Anda bisa melihat secara luas kondisi keuangan perusahaan melalui menu ini. Kunjungi menu ini untuk melihat secara keseluruhan bagaimana kondisi keuangan perusahaan. ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "max-w-full rounded-lg border-2 border-black p-3 mb-4"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "flex justify-center"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: _assets_pengguna_png__WEBPACK_IMPORTED_MODULE_5__.default,
+  alt: ""
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "text-navbar font-bold mt-2 mb-4 text-center"
+}, " PENGGUNA "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "text-navbar"
+}, " Menu Pengguna merupakan menu yang menampilkan data pengguna yang terdaftar dalam sistem dan yang bisa menggunakan sistem ini. Melalui menu ini, anda bisa melihat data pengguna seperti Nama Pengguna, Role Pengguna, dan Jabatan Pengguna secara lengkap. Kunjungi menu ini untuk melihat pengguna yang terdaftar dalam sistem. ")])])], -1
+/* HOISTED */
+);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_SideMenu = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("SideMenu");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SideMenu)]), _hoisted_3]);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("main", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SideMenu)]), _hoisted_3]);
 }
 
 /***/ }),
@@ -20042,6 +20249,51 @@ module.exports = function (cssWithMappingToString) {
 
 /***/ }),
 
+/***/ "./resources/js/assets/dashboard.png":
+/*!*******************************************!*\
+  !*** ./resources/js/assets/dashboard.png ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/dashboard.png?c41c0b7f348d20c04af255d88ea59afb");
+
+/***/ }),
+
+/***/ "./resources/js/assets/harga.png":
+/*!***************************************!*\
+  !*** ./resources/js/assets/harga.png ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/harga.png?92820f43afcebbc77ed1d9e8344fd3ea");
+
+/***/ }),
+
+/***/ "./resources/js/assets/home.png":
+/*!**************************************!*\
+  !*** ./resources/js/assets/home.png ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/home.png?b487ad2e4347d0b20bfe12457903536e");
+
+/***/ }),
+
 /***/ "./resources/js/assets/logo.svg":
 /*!**************************************!*\
   !*** ./resources/js/assets/logo.svg ***!
@@ -20054,6 +20306,66 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/logo.svg?0958b782b26997aed412bbebfc216f97");
+
+/***/ }),
+
+/***/ "./resources/js/assets/logout.png":
+/*!****************************************!*\
+  !*** ./resources/js/assets/logout.png ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/logout.png?60104afb63e0eb1c523cace53aeabe07");
+
+/***/ }),
+
+/***/ "./resources/js/assets/pekerjaan.png":
+/*!*******************************************!*\
+  !*** ./resources/js/assets/pekerjaan.png ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/pekerjaan.png?767823ff949be5820b5a4286d96572fb");
+
+/***/ }),
+
+/***/ "./resources/js/assets/pengeluaran.png":
+/*!*********************************************!*\
+  !*** ./resources/js/assets/pengeluaran.png ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/pengeluaran.png?2a4d4e29617933cc6c9672fb8d18d31f");
+
+/***/ }),
+
+/***/ "./resources/js/assets/pengguna.png":
+/*!******************************************!*\
+  !*** ./resources/js/assets/pengguna.png ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/pengguna.png?071e73e37289c2ed13e9946a04f49730");
 
 /***/ }),
 

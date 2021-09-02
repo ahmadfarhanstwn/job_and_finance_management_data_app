@@ -3,7 +3,7 @@
         <div
             class="
                 container
-                max-w-xs
+                w-72
                 bg-madrid
                 rounded-xl
                 p-2
@@ -39,11 +39,258 @@
                         </div>
                         <div class="py-1">
                             <h1 class="font-bold">AHMAD FARHAN S</h1>
-                            <h1 class="text-xs">ADMIN</h1>
+                            <h1 class="text-xs text-admin">ADMIN</h1>
                         </div>
                     </div>
                 </li>
                 <hr />
+                <li>
+                    <div
+                        class="
+                            h-9
+                            w-30
+                            bg-maroon bg-opacity-60
+                            rounded-lg
+                            my-1
+                            mr-2
+                            cursor-pointer
+                            hover:bg-maroon hover:bg-opacity-60
+                            text-navbar
+                            hover:text-black
+                        "
+                    >
+                        <div class="flex flex-row px-2 py-1">
+                            <span
+                                ><img src="../assets/home.png" class="" alt=""
+                            /></span>
+                            <h1 class="ml-3 my-0.5 text-sm font-bold">HOME</h1>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div
+                        class="
+                            h-9
+                            w-30
+                            bg-abu
+                            rounded-lg
+                            my-1
+                            mr-2
+                            cursor-pointer
+                            hover:bg-maroon hover:bg-opacity-60
+                            text-navbar
+                            hover:text-black
+                        "
+                    >
+                        <div class="flex flex-row px-2 py-1">
+                            <span
+                                ><img
+                                    src="../assets/dashboard.png"
+                                    class="h-6"
+                                    alt=""
+                            /></span>
+                            <h1 class="ml-3 my-0.5 text-sm font-extrabold">
+                                DASHBOARD
+                            </h1>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div
+                        class="
+                            h-9
+                            w-30
+                            bg-abu
+                            rounded-lg
+                            my-1
+                            mr-2
+                            cursor-pointer
+                            hover:bg-maroon hover:bg-opacity-60
+                            text-navbar
+                            hover:text-black
+                        "
+                    >
+                        <div class="flex flex-row px-2 py-1">
+                            <span
+                                ><img
+                                    src="../assets/pekerjaan.png"
+                                    class="h-6"
+                                    alt=""
+                            /></span>
+                            <h1 class="ml-3 my-0.5 text-sm font-extrabold">
+                                PEKERJAAN AKTIF
+                            </h1>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div
+                        class="
+                            h-9
+                            w-30
+                            bg-abu
+                            rounded-lg
+                            my-1
+                            mr-2
+                            cursor-pointer
+                            hover:bg-maroon hover:bg-opacity-60
+                            text-navbar
+                            hover:text-black
+                        "
+                    >
+                        <div class="flex flex-row px-2 py-1">
+                            <span
+                                ><img
+                                    src="../assets/harga.png"
+                                    class="h-6"
+                                    alt=""
+                            /></span>
+                            <h1 class="ml-3 my-0.5 text-sm font-extrabold">
+                                HARGA PEKERJAAN
+                            </h1>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div
+                        class="
+                            h-9
+                            w-30
+                            bg-abu
+                            rounded-lg
+                            my-1
+                            mr-2
+                            cursor-pointer
+                            hover:bg-maroon hover:bg-opacity-60
+                            text-navbar
+                            hover:text-black
+                        "
+                    >
+                        <div class="flex flex-row px-2 py-1">
+                            <span
+                                ><img
+                                    src="../assets/pengeluaran.png"
+                                    class="h-6"
+                                    alt=""
+                            /></span>
+                            <h1 class="ml-3 my-0.5 text-sm font-extrabold">
+                                PENGELUARAN
+                            </h1>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div
+                        class="
+                            h-9
+                            w-30
+                            bg-abu
+                            rounded-lg
+                            my-1
+                            mr-2
+                            cursor-pointer
+                            hover:bg-maroon hover:bg-opacity-60
+                            text-navbar
+                            hover:text-black
+                        "
+                    >
+                        <div class="flex flex-row px-2 py-1">
+                            <span
+                                ><img
+                                    src="../assets/pekerjaan.png"
+                                    class="h-6"
+                                    alt=""
+                            /></span>
+                            <h1 class="ml-3 my-0.5 text-sm font-extrabold">
+                                LAPORAN PEKERJAAN
+                            </h1>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div
+                        class="
+                            h-9
+                            w-30
+                            bg-abu
+                            rounded-lg
+                            my-1
+                            mr-2
+                            cursor-pointer
+                            hover:bg-maroon hover:bg-opacity-60
+                            text-navbar
+                            hover:text-black
+                        "
+                    >
+                        <div class="flex flex-row px-2 py-1">
+                            <span
+                                ><img
+                                    src="../assets/pengeluaran.png"
+                                    class="h-6"
+                                    alt=""
+                            /></span>
+                            <h1 class="ml-3 my-0.5 text-sm font-extrabold">
+                                LAPORAN KEUANGAN
+                            </h1>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div
+                        class="
+                            h-9
+                            w-30
+                            bg-abu
+                            rounded-lg
+                            my-1
+                            mr-2
+                            cursor-pointer
+                            hover:bg-maroon hover:bg-opacity-60
+                            text-navbar
+                            hover:text-black
+                        "
+                    >
+                        <div class="flex flex-row px-2 py-1">
+                            <span
+                                ><img
+                                    src="../assets/pengguna.png"
+                                    class="h-6"
+                                    alt=""
+                            /></span>
+                            <h1 class="ml-3 my-0.5 text-sm font-extrabold">
+                                PENGGUNA
+                            </h1>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div
+                        class="
+                            h-9
+                            w-30
+                            bg-abu
+                            rounded-lg
+                            my-1
+                            mr-2
+                            cursor-pointer
+                            hover:bg-maroon hover:bg-opacity-60
+                            text-navbar
+                            hover:text-black
+                        "
+                    >
+                        <div class="flex flex-row px-2 py-1">
+                            <span
+                                ><img
+                                    src="../assets/logout.png"
+                                    class="h-6"
+                                    alt=""
+                            /></span>
+                            <h1 class="ml-3 my-0.5 text-sm font-extrabold">
+                                LOGOUT
+                            </h1>
+                        </div>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
