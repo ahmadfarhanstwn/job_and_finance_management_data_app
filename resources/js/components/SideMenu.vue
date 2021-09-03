@@ -45,83 +45,94 @@
                 </li>
                 <hr />
                 <li>
-                    <div
-                        class="
-                            h-9
-                            w-30
-                            bg-maroon bg-opacity-60
-                            rounded-lg
-                            my-1
-                            mr-2
-                            cursor-pointer
-                            hover:bg-maroon hover:bg-opacity-60
-                            text-navbar
-                            hover:text-black
-                        "
+                    <router-link :to="{ name: 'home' }">
+                        <div
+                            class="
+                                h-9
+                                w-30
+                                bg-maroon bg-opacity-60
+                                rounded-lg
+                                my-1
+                                mr-2
+                                cursor-pointer
+                                hover:bg-maroon hover:bg-opacity-60
+                                text-navbar
+                                hover:text-black
+                            "
+                        >
+                            <div class="flex flex-row px-2 py-1">
+                                <span
+                                    ><img
+                                        src="../assets/home.png"
+                                        class=""
+                                        alt=""
+                                /></span>
+                                <h1 class="ml-3 my-0.5 text-sm font-bold">
+                                    HOME
+                                </h1>
+                            </div>
+                        </div></router-link
                     >
-                        <div class="flex flex-row px-2 py-1">
-                            <span
-                                ><img src="../assets/home.png" class="" alt=""
-                            /></span>
-                            <h1 class="ml-3 my-0.5 text-sm font-bold">HOME</h1>
-                        </div>
-                    </div>
                 </li>
                 <li>
-                    <div
-                        class="
-                            h-9
-                            w-30
-                            bg-abu
-                            rounded-lg
-                            my-1
-                            mr-2
-                            cursor-pointer
-                            hover:bg-maroon hover:bg-opacity-60
-                            text-navbar
-                            hover:text-black
-                        "
+                    <router-link :to="{ name: 'dashboard' }"
+                        ><div
+                            class="
+                                h-9
+                                w-30
+                                bg-abu
+                                rounded-lg
+                                my-1
+                                mr-2
+                                cursor-pointer
+                                hover:bg-maroon hover:bg-opacity-60
+                                text-navbar
+                                hover:text-black
+                            "
+                        >
+                            <div class="flex flex-row px-2 py-1">
+                                <span
+                                    ><img
+                                        src="../assets/dashboard.png"
+                                        class="h-6"
+                                        alt=""
+                                /></span>
+                                <h1 class="ml-3 my-0.5 text-sm font-extrabold">
+                                    DASHBOARD
+                                </h1>
+                            </div>
+                        </div></router-link
                     >
-                        <div class="flex flex-row px-2 py-1">
-                            <span
-                                ><img
-                                    src="../assets/dashboard.png"
-                                    class="h-6"
-                                    alt=""
-                            /></span>
-                            <h1 class="ml-3 my-0.5 text-sm font-extrabold">
-                                DASHBOARD
-                            </h1>
-                        </div>
-                    </div>
                 </li>
                 <li>
-                    <div
-                        class="
-                            h-9
-                            w-30
-                            bg-abu
-                            rounded-lg
-                            my-1
-                            mr-2
-                            cursor-pointer
-                            hover:bg-maroon hover:bg-opacity-60
-                            text-navbar
-                            hover:text-black
-                        "
-                    >
-                        <div class="flex flex-row px-2 py-1">
-                            <span
-                                ><img
-                                    src="../assets/pekerjaan.png"
-                                    class="h-6"
-                                    alt=""
-                            /></span>
-                            <h1 class="ml-3 my-0.5 text-sm font-extrabold">
-                                PEKERJAAN AKTIF
-                            </h1>
+                    <router-link :to="{ name: 'pekerjaanAktif' }">
+                        <div
+                            class="
+                                h-9
+                                w-30
+                                bg-abu
+                                rounded-lg
+                                my-1
+                                mr-2
+                                cursor-pointer
+                                hover:bg-maroon hover:bg-opacity-60
+                                text-navbar
+                                hover:text-black
+                            "
+                        >
+                            <div class="flex flex-row px-2 py-1">
+                                <span
+                                    ><img
+                                        src="../assets/pekerjaan.png"
+                                        class="h-6"
+                                        alt=""
+                                /></span>
+                                <h1 class="ml-3 my-0.5 text-sm font-extrabold">
+                                    PEKERJAAN AKTIF
+                                </h1>
+                            </div>
                         </div>
-                    </div>
+                    </router-link>
                 </li>
                 <li>
                     <div

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\PekerjaanAktif;
 use App\Models\RiwayatPekerjaan;
 use App\Models\Keuangan;
+use Symfony\Component\HttpKernel\Event\ResponseEvent;
 
 class PekerjaanAktifController extends Controller
 {
@@ -25,6 +26,15 @@ class PekerjaanAktifController extends Controller
             ],
             200
         );
+    }
+
+    public function mendekatiDeadline()
+    {
+        $data = PekerjaanAktif::orderBy("deadline", "asc")
+            ->orderBy("created_at", "asc")
+            ->paginate(5);
+
+        return response()->json($data);
     }
 
     public function getJumlah()
@@ -112,12 +122,5 @@ class PekerjaanAktifController extends Controller
         return response()->json(
             "Data Telah Ditambahkan Ke Riwayat dan Dihapus dari Pekerjaan Aktif"
         );
-    }
-
-    public function mendekatiDeadline()
-    {
-        $data = PekerjaanAktif::paginate(3);
-
-        return response()->json($data);
     }
 }
