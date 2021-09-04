@@ -4,10 +4,14 @@
             <SideMenu />
         </div>
         <div class="flex flex-col justify-start w-3/4 mr-4 my-8 p-2">
-            <div class="w-64 h-8 rounded-lg bg-maroon flex flex-row p-1 mb-4">
-                <img src="../../assets/add.png" class="h-6 mr-2" alt="" />
-                <h1 class="text-madrid text-base">TAMBAH DATA PEKERJAAN</h1>
-            </div>
+            <router-link :to="{ name: 'tambahpekerjaanaktif' }">
+                <div
+                    class="w-64 h-8 rounded-lg bg-maroon flex flex-row p-1 mb-4"
+                >
+                    <img src="../../assets/add.png" class="h-6 mr-2" alt="" />
+                    <h1 class="text-madrid text-base">TAMBAH DATA PEKERJAAN</h1>
+                </div>
+            </router-link>
             <div
                 class="max-w-full h-full rounded-lg bg-madrid p-6 overflow-auto"
             >

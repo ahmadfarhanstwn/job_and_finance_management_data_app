@@ -5,6 +5,7 @@ import Register from "../pages/Register";
 import Home from "../pages/dashboard/Home";
 import Dashboard from "../pages/dashboard/Dashboard";
 import PekerjaanAktif from "../pages/dashboard/PekerjaanAktif";
+import TambahPekerjaanAktif from "../pages/dashboard/TambahPekerjaanAktif";
 
 export const routes = [
     {
@@ -31,6 +32,11 @@ export const routes = [
         name: "pekerjaanAktif",
         path: "/pekerjaanaktif",
         component: PekerjaanAktif,
+    },
+    {
+        name: "tambahpekerjaanaktif",
+        path: "/tambahpekerjaan",
+        component: TambahPekerjaanAktif,
     },
 ];
 
