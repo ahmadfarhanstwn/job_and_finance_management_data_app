@@ -135,88 +135,94 @@
                     </router-link>
                 </li>
                 <li>
-                    <div
-                        class="
-                            h-9
-                            w-30
-                            bg-abu
-                            rounded-lg
-                            my-1
-                            mr-2
-                            cursor-pointer
-                            hover:bg-maroon hover:bg-opacity-60
-                            text-navbar
-                            hover:text-black
-                        "
-                    >
-                        <div class="flex flex-row px-2 py-1">
-                            <span
-                                ><img
-                                    src="../assets/harga.png"
-                                    class="h-6"
-                                    alt=""
-                            /></span>
-                            <h1 class="ml-3 my-0.5 text-sm font-extrabold">
-                                HARGA PEKERJAAN
-                            </h1>
+                    <router-link :to="{ name: 'hargapekerjaan' }">
+                        <div
+                            class="
+                                h-9
+                                w-30
+                                bg-abu
+                                rounded-lg
+                                my-1
+                                mr-2
+                                cursor-pointer
+                                hover:bg-maroon hover:bg-opacity-60
+                                text-navbar
+                                hover:text-black
+                            "
+                        >
+                            <div class="flex flex-row px-2 py-1">
+                                <span
+                                    ><img
+                                        src="../assets/harga.png"
+                                        class="h-6"
+                                        alt=""
+                                /></span>
+                                <h1 class="ml-3 my-0.5 text-sm font-extrabold">
+                                    HARGA PEKERJAAN
+                                </h1>
+                            </div>
                         </div>
-                    </div>
+                    </router-link>
                 </li>
                 <li>
-                    <div
-                        class="
-                            h-9
-                            w-30
-                            bg-abu
-                            rounded-lg
-                            my-1
-                            mr-2
-                            cursor-pointer
-                            hover:bg-maroon hover:bg-opacity-60
-                            text-navbar
-                            hover:text-black
-                        "
-                    >
-                        <div class="flex flex-row px-2 py-1">
-                            <span
-                                ><img
-                                    src="../assets/pengeluaran.png"
-                                    class="h-6"
-                                    alt=""
-                            /></span>
-                            <h1 class="ml-3 my-0.5 text-sm font-extrabold">
-                                PENGELUARAN
-                            </h1>
+                    <router-link :to="{ name: 'pengeluaran' }">
+                        <div
+                            class="
+                                h-9
+                                w-30
+                                bg-abu
+                                rounded-lg
+                                my-1
+                                mr-2
+                                cursor-pointer
+                                hover:bg-maroon hover:bg-opacity-60
+                                text-navbar
+                                hover:text-black
+                            "
+                        >
+                            <div class="flex flex-row px-2 py-1">
+                                <span
+                                    ><img
+                                        src="../assets/pengeluaran.png"
+                                        class="h-6"
+                                        alt=""
+                                /></span>
+                                <h1 class="ml-3 my-0.5 text-sm font-extrabold">
+                                    PENGELUARAN
+                                </h1>
+                            </div>
                         </div>
-                    </div>
+                    </router-link>
                 </li>
                 <li>
-                    <div
-                        class="
-                            h-9
-                            w-30
-                            bg-abu
-                            rounded-lg
-                            my-1
-                            mr-2
-                            cursor-pointer
-                            hover:bg-maroon hover:bg-opacity-60
-                            text-navbar
-                            hover:text-black
-                        "
-                    >
-                        <div class="flex flex-row px-2 py-1">
-                            <span
-                                ><img
-                                    src="../assets/pekerjaan.png"
-                                    class="h-6"
-                                    alt=""
-                            /></span>
-                            <h1 class="ml-3 my-0.5 text-sm font-extrabold">
-                                LAPORAN PEKERJAAN
-                            </h1>
+                    <router-link :to="{ name: 'laporanpekerjaan' }">
+                        <div
+                            class="
+                                h-9
+                                w-30
+                                bg-abu
+                                rounded-lg
+                                my-1
+                                mr-2
+                                cursor-pointer
+                                hover:bg-maroon hover:bg-opacity-60
+                                text-navbar
+                                hover:text-black
+                            "
+                        >
+                            <div class="flex flex-row px-2 py-1">
+                                <span
+                                    ><img
+                                        src="../assets/pekerjaan.png"
+                                        class="h-6"
+                                        alt=""
+                                /></span>
+                                <h1 class="ml-3 my-0.5 text-sm font-extrabold">
+                                    LAPORAN PEKERJAAN
+                                </h1>
+                            </div>
                         </div>
-                    </div>
+                    </router-link>
                 </li>
                 <li>
                     <div

@@ -1,0 +1,166 @@
+<template>
+    <main>
+        <div class="flex justify-center">
+            <div class="bg-madrid w-2/3 h-auto p-4 rounded-lg m-4">
+                <router-link :to="{ name: 'hargapekerjaan' }">
+                    <div
+                        class="
+                            w-40
+                            h-8
+                            rounded-lg
+                            bg-maroon
+                            flex flex-row
+                            p-1
+                            mb-2
+                        "
+                    >
+                        <img
+                            src="../../assets/kembali.png"
+                            class="h-6 mr-2"
+                            alt=""
+                        />
+                        <h1 class="text-madrid text-base">KEMBALI</h1>
+                    </div>
+                </router-link>
+                <h1 class="text-center text-lg font-bold mb-2">
+                    TAMBAH DATA HARGA PEKERJAAN
+                </h1>
+                <form action="">
+                    <div class="mb-2">
+                        <label
+                            for="kodepekerjaan"
+                            class="block text-gray-700 text-sm font-bold mb-2"
+                            >KODE PEKERJAAN :</label
+                        >
+                        <input
+                            class="
+                                border-2 border-opacity-75
+                                rounded-lg
+                                w-full
+                                py-2
+                                px-3
+                                text-gray-700
+                                leading-tight
+                                focus:outline-none focus:shadow-outline
+                            "
+                            type="text"
+                            id="kodepekerjaan"
+                            placeholder="Masukkan Kode Pekerjaan"
+                            required
+                        />
+                    </div>
+                    <div class="mb-2">
+                        <label
+                            for="namapekerjaan"
+                            class="block text-gray-700 text-sm font-bold mb-2"
+                            >NAMA PEKERJAAN :</label
+                        >
+                        <input
+                            class="
+                                border-2 border-opacity-75
+                                rounded-lg
+                                w-full
+                                py-2
+                                px-3
+                                text-gray-700
+                                leading-tight
+                                focus:outline-none focus:shadow-outline
+                            "
+                            type="text"
+                            id="namapekerjaan"
+                            placeholder="Masukkan Nama Pekerjaan"
+                            required
+                        />
+                    </div>
+                    <div class="mb-2">
+                        <label
+                            for="deskripsipekerjaan"
+                            class="block text-gray-700 text-sm font-bold mb-2"
+                            >DESKRIPSI PEKERJAAN :</label
+                        >
+                        <input
+                            class="
+                                border-2 border-opacity-75
+                                rounded-lg
+                                w-full
+                                py-2
+                                px-3
+                                text-gray-700
+                                leading-tight
+                                focus:outline-none focus:shadow-outline
+                            "
+                            type="text"
+                            id="deskripsipekerjaan"
+                            placeholder="Masukkan Deskripsi Pekerjaan"
+                            required
+                        />
+                    </div>
+                    <div class="mb-2">
+                        <label
+                            for="biayapekerjaan"
+                            class="block text-gray-700 text-sm font-bold mb-2"
+                            >BIAYA PEKERJAAN :</label
+                        >
+                        <input
+                            class="
+                                border-2 border-opacity-75
+                                rounded-lg
+                                w-full
+                                py-2
+                                px-3
+                                text-gray-700
+                                leading-tight
+                                focus:outline-none focus:shadow-outline
+                            "
+                            type="text"
+                            id="biayapekerjaan"
+                            placeholder="Masukkan Biaya Pekerjaan"
+                            required
+                        />
+                    </div>
+                    <div class="mb-2">
+                        <label
+                            for="estimasiwaktupengerjaan"
+                            class="block text-gray-700 text-sm font-bold mb-2"
+                            >ESTIMASI WAKTU PENGERJAAN :</label
+                        >
+                        <input
+                            class="
+                                border-2 border-opacity-75
+                                rounded-lg
+                                w-full
+                                py-2
+                                px-3
+                                text-gray-700
+                                leading-tight
+                                focus:outline-none focus:shadow-outline
+                            "
+                            type="text"
+                            id="estimasiwaktupengerjaan"
+                            placeholder="Masukkan Estimasi Waktu Pengerjaan"
+                            required
+                        />
+                    </div>
+                    <button
+                        class="
+                            w-full
+                            bg-goblin
+                            focus:bg-red-700
+                            text-white
+                            font-bold
+                            rounded-lg
+                            py-2
+                            px-3
+                        "
+                    >
+                        TAMBAH DATA
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+</template>
+
+<script>
+export default {};
+</script>
