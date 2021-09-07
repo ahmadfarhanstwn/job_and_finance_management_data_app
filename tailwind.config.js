@@ -16,6 +16,7 @@ module.exports = {
             chelsea: "#0000FF",
             tai: "#FFFF00",
             munyuk: "#FF0000",
+            greenforest: "#00D100",
         },
         extend: {},
     },

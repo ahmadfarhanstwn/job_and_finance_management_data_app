@@ -225,32 +225,34 @@
                     </router-link>
                 </li>
                 <li>
-                    <div
-                        class="
-                            h-9
-                            w-30
-                            bg-abu
-                            rounded-lg
-                            my-1
-                            mr-2
-                            cursor-pointer
-                            hover:bg-maroon hover:bg-opacity-60
-                            text-navbar
-                            hover:text-black
-                        "
-                    >
-                        <div class="flex flex-row px-2 py-1">
-                            <span
-                                ><img
-                                    src="../assets/pengeluaran.png"
-                                    class="h-6"
-                                    alt=""
-                            /></span>
-                            <h1 class="ml-3 my-0.5 text-sm font-extrabold">
-                                LAPORAN KEUANGAN
-                            </h1>
+                    <router-link :to="{ name: 'laporankeuangan' }">
+                        <div
+                            class="
+                                h-9
+                                w-30
+                                bg-abu
+                                rounded-lg
+                                my-1
+                                mr-2
+                                cursor-pointer
+                                hover:bg-maroon hover:bg-opacity-60
+                                text-navbar
+                                hover:text-black
+                            "
+                        >
+                            <div class="flex flex-row px-2 py-1">
+                                <span
+                                    ><img
+                                        src="../assets/pengeluaran.png"
+                                        class="h-6"
+                                        alt=""
+                                /></span>
+                                <h1 class="ml-3 my-0.5 text-sm font-extrabold">
+                                    LAPORAN KEUANGAN
+                                </h1>
+                            </div>
                         </div>
-                    </div>
+                    </router-link>
                 </li>
                 <li>
                     <div

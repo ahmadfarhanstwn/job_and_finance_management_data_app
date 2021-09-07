@@ -11,6 +11,7 @@ import TambahHargaPekerjaan from "../pages/dashboard/TambahHargaPekerjaan";
 import Pengeluaran from "../pages/dashboard/Pengeluaran";
 import TambahPengeluaran from "../pages/dashboard/TambahPengeluaran";
 import LaporanPekerjaan from "../pages/dashboard/LaporanPekerjaan";
+import LaporanKeuangan from "../pages/dashboard/LaporanKeuangan";
 
 export const routes = [
     {
@@ -67,6 +68,11 @@ export const routes = [
         name: "laporanpekerjaan",
         path: "/laporanpekerjaan",
         component: LaporanPekerjaan,
+    },
+    {
+        name: "laporankeuangan",
+        path: "/laporankeuangan",
+        component: LaporanKeuangan,
     },
 ];
 
