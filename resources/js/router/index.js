@@ -12,6 +12,7 @@ import Pengeluaran from "../pages/dashboard/Pengeluaran";
 import TambahPengeluaran from "../pages/dashboard/TambahPengeluaran";
 import LaporanPekerjaan from "../pages/dashboard/LaporanPekerjaan";
 import LaporanKeuangan from "../pages/dashboard/LaporanKeuangan";
+import Pengguna from "../pages/dashboard/Pengguna";
 
 export const routes = [
     {
@@ -73,6 +74,11 @@ export const routes = [
         name: "laporankeuangan",
         path: "/laporankeuangan",
         component: LaporanKeuangan,
+    },
+    {
+        name: "pengguna",
+        path: "/pengguna",
+        component: Pengguna,
     },
 ];
 
