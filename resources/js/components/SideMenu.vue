@@ -50,7 +50,6 @@
                             class="
                                 h-9
                                 w-30
-                                bg-maroon bg-opacity-60
                                 rounded-lg
                                 my-1
                                 mr-2
@@ -59,6 +58,11 @@
                                 text-navbar
                                 hover:text-black
                             "
+                            v-bind:class="[
+                                isHome
+                                    ? 'bg-maroon bg-opacity-60 text-black'
+                                    : 'bg-abu',
+                            ]"
                         >
                             <div class="flex flex-row px-2 py-1">
                                 <span
@@ -80,7 +84,6 @@
                             class="
                                 h-9
                                 w-30
-                                bg-abu
                                 rounded-lg
                                 my-1
                                 mr-2
@@ -89,6 +92,11 @@
                                 text-navbar
                                 hover:text-black
                             "
+                            v-bind:class="[
+                                isDashboard
+                                    ? 'bg-maroon bg-opacity-60 text-black'
+                                    : 'bg-abu',
+                            ]"
                         >
                             <div class="flex flex-row px-2 py-1">
                                 <span
@@ -110,7 +118,6 @@
                             class="
                                 h-9
                                 w-30
-                                bg-abu
                                 rounded-lg
                                 my-1
                                 mr-2
@@ -119,6 +126,11 @@
                                 text-navbar
                                 hover:text-black
                             "
+                            v-bind:class="[
+                                isPekerjaanAktif
+                                    ? 'bg-maroon bg-opacity-60 text-black'
+                                    : 'bg-abu',
+                            ]"
                         >
                             <div class="flex flex-row px-2 py-1">
                                 <span
@@ -140,7 +152,6 @@
                             class="
                                 h-9
                                 w-30
-                                bg-abu
                                 rounded-lg
                                 my-1
                                 mr-2
@@ -149,6 +160,11 @@
                                 text-navbar
                                 hover:text-black
                             "
+                            v-bind:class="[
+                                isHargaPekerjaan
+                                    ? 'bg-maroon bg-opacity-60 text-black'
+                                    : 'bg-abu',
+                            ]"
                         >
                             <div class="flex flex-row px-2 py-1">
                                 <span
@@ -170,7 +186,6 @@
                             class="
                                 h-9
                                 w-30
-                                bg-abu
                                 rounded-lg
                                 my-1
                                 mr-2
@@ -179,6 +194,11 @@
                                 text-navbar
                                 hover:text-black
                             "
+                            v-bind:class="[
+                                isPengeluaran
+                                    ? 'bg-maroon bg-opacity-60 text-black'
+                                    : 'bg-abu',
+                            ]"
                         >
                             <div class="flex flex-row px-2 py-1">
                                 <span
@@ -200,7 +220,6 @@
                             class="
                                 h-9
                                 w-30
-                                bg-abu
                                 rounded-lg
                                 my-1
                                 mr-2
@@ -209,6 +228,11 @@
                                 text-navbar
                                 hover:text-black
                             "
+                            v-bind:class="[
+                                isLaporanPekerjaan
+                                    ? 'bg-maroon bg-opacity-60 text-black'
+                                    : 'bg-abu',
+                            ]"
                         >
                             <div class="flex flex-row px-2 py-1">
                                 <span
@@ -230,7 +254,6 @@
                             class="
                                 h-9
                                 w-30
-                                bg-abu
                                 rounded-lg
                                 my-1
                                 mr-2
@@ -239,6 +262,11 @@
                                 text-navbar
                                 hover:text-black
                             "
+                            v-bind:class="[
+                                isLaporanKeuangan
+                                    ? 'bg-maroon bg-opacity-60 text-black'
+                                    : 'bg-abu',
+                            ]"
                         >
                             <div class="flex flex-row px-2 py-1">
                                 <span
@@ -260,7 +288,6 @@
                             class="
                                 h-9
                                 w-30
-                                bg-abu
                                 rounded-lg
                                 my-1
                                 mr-2
@@ -269,6 +296,11 @@
                                 text-navbar
                                 hover:text-black
                             "
+                            v-bind:class="[
+                                isPengguna
+                                    ? 'bg-maroon bg-opacity-60 text-black'
+                                    : 'bg-abu',
+                            ]"
                         >
                             <div class="flex flex-row px-2 py-1">
                                 <span
@@ -316,3 +348,34 @@
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    computed: {
+        isHome() {
+            return this.$route.name === "home";
+        },
+        isDashboard() {
+            return this.$route.name === "dashboard";
+        },
+        isPekerjaanAktif() {
+            return this.$route.name === "pekerjaanAktif";
+        },
+        isHargaPekerjaan() {
+            return this.$route.name === "hargapekerjaan";
+        },
+        isPengeluaran() {
+            return this.$route.name === "pengeluaran";
+        },
+        isLaporanPekerjaan() {
+            return this.$route.name === "laporanpekerjaan";
+        },
+        isLaporanKeuangan() {
+            return this.$route.name === "laporankeuangan";
+        },
+        isPengguna() {
+            return this.$route.name === "pengguna";
+        },
+    },
+};
+</script>

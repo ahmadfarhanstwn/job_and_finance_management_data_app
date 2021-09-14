@@ -66,7 +66,7 @@
                         </tr>
                     </thead>
                     <tbody class="bg-madrid">
-                        <tr>
+                        <tr v-for="user in pengguna" :key="user.id">
                             <td
                                 class="
                                     px-6
@@ -76,7 +76,7 @@
                                 "
                             >
                                 <div class="text-sm leading-5 text-blue-900">
-                                    Ahmad Farhan Setiawan
+                                    {{ user.nama_pengguna }}
                                 </div>
                             </td>
                             <td
@@ -91,7 +91,7 @@
                                     leading-5
                                 "
                             >
-                                Admin
+                                {{ user.jabatan }}
                             </td>
                             <td
                                 class="
@@ -105,7 +105,7 @@
                                     leading-5
                                 "
                             >
-                                ahmad@gmail.com
+                                {{ user.email }}
                             </td>
                             <td
                                 class="
@@ -119,7 +119,7 @@
                                     leading-5
                                 "
                             >
-                                Admin
+                                {{ user.role }}
                             </td>
                         </tr>
                     </tbody>
@@ -134,6 +134,21 @@ import SideMenu from "../../components/SideMenu.vue";
 export default {
     components: {
         SideMenu,
+    },
+    data() {
+        return {
+            pengguna: [],
+        };
+    },
+    created() {
+        this.$axios
+            .get("api/getPengguna")
+            .then((response) => {
+                this.pengguna = response.data;
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     },
 };
 </script>

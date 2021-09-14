@@ -9,7 +9,9 @@
                 <div class="w-1/3 h-32 rounded-lg bg-chelsea p-4 mr-3">
                     <div class="flex flex-row justify-between">
                         <div class="">
-                            <h1 class="font-extrabold text-5xl mb-2">9</h1>
+                            <h1 class="font-extrabold text-5xl mb-2">
+                                {{ jumlahPekerjaan }}
+                            </h1>
                             <h1 class="text-madrid font-bold text-lg">
                                 PEKERJAAN AKTIF
                             </h1>
@@ -34,13 +36,17 @@
                     <h1 class="text-madrid font-bold text-lg mb-2">
                         PEMASUKAN HARI INI
                     </h1>
-                    <h1 class="font-extrabold text-4xl mb-2">RP. 1.500.000</h1>
+                    <h1 class="font-extrabold text-4xl mb-2">
+                        RP. {{ todayIncome }}
+                    </h1>
                 </div>
                 <div class="w-1/3 h-32 rounded-lg bg-tai p-4 mr-3">
                     <h1 class="text-navbar font-bold text-lg mb-2">
                         PEMASUKAN BULAN INI
                     </h1>
-                    <h1 class="font-extrabold text-4xl mb-2">RP. 25.000.000</h1>
+                    <h1 class="font-extrabold text-4xl mb-2">
+                        RP. {{ thisMonthIncome }}
+                    </h1>
                 </div>
             </div>
             <h1 class="font-extrabold text-2xl">MENDEKATI DEADLINE</h1>
@@ -127,7 +133,7 @@
                         </tr>
                     </thead>
                     <tbody class="bg-madrid">
-                        <tr>
+                        <tr v-for="pekerjaan in deadline" :key="pekerjaan.id">
                             <td
                                 class="
                                     px-6
@@ -137,7 +143,7 @@
                                 "
                             >
                                 <div class="text-sm leading-5 text-blue-900">
-                                    Bubut As
+                                    {{ pekerjaan.nama_pekerjaan }}
                                 </div>
                             </td>
                             <td
@@ -152,7 +158,7 @@
                                     leading-5
                                 "
                             >
-                                Bubut As Nata 5 buah
+                                {{ pekerjaan.deskripsi_pekerjaan }}
                             </td>
                             <td
                                 class="
@@ -166,7 +172,7 @@
                                     leading-5
                                 "
                             >
-                                Warno Bangstakotowodoyo
+                                {{ pekerjaan.nama_pelanggan }}
                             </td>
                             <td
                                 class="
@@ -180,7 +186,7 @@
                                     leading-5
                                 "
                             >
-                                081726361738
+                                {{ pekerjaan.kontak_pelanggan }}
                             </td>
                             <td
                                 class="
@@ -194,7 +200,7 @@
                                     leading-5
                                 "
                             >
-                                5 September 2021
+                                {{ pekerjaan.deadline }}
                             </td>
                         </tr>
                     </tbody>
@@ -217,6 +223,49 @@ import SideMenu from "../../components/SideMenu.vue";
 export default {
     components: {
         SideMenu,
+    },
+    data() {
+        return {
+            deadline: [],
+            jumlahPekerjaan: 0,
+            todayIncome: 0,
+            thisMonthIncome: 0,
+        };
+    },
+    created() {
+        this.$axios
+            .get("api/mendekatiDeadline")
+            .then((response) => {
+                this.deadline = response.data.data;
+                console.log(this.deadline);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        this.$axios
+            .get("api/getJumlahPekerjaan")
+            .then((response) => {
+                this.jumlahPekerjaan = response.data;
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        this.$axios
+            .get("api/getTodayIncome")
+            .then((response) => {
+                this.todayIncome = response.data;
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        this.$axios
+            .get("api/getMonthlyIncome")
+            .then((response) => {
+                this.todayIncome = response.data;
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     },
 };
 </script>
