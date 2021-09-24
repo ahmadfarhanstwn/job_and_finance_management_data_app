@@ -19509,11 +19509,47 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _components_SideMenu_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/SideMenu.vue */ "./resources/js/components/SideMenu.vue");
+/* harmony import */ var v_pagination_3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! v-pagination-3 */ "./node_modules/v-pagination-3/dist/vue-pagination-2.min.js");
+/* harmony import */ var v_pagination_3__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(v_pagination_3__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_SideMenu_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/SideMenu.vue */ "./resources/js/components/SideMenu.vue");
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    SideMenu: _components_SideMenu_vue__WEBPACK_IMPORTED_MODULE_0__.default
+    SideMenu: _components_SideMenu_vue__WEBPACK_IMPORTED_MODULE_1__.default,
+    Pagination: (v_pagination_3__WEBPACK_IMPORTED_MODULE_0___default())
+  },
+  data: function data() {
+    return {
+      currentPage: 0,
+      perPage: 0,
+      total: 0,
+      hargaJasa: []
+    };
+  },
+  created: function created() {
+    this.currentPage = 1;
+    this.getResult(this.currentPage);
+  },
+  methods: {
+    onPageClick: function onPageClick(event) {
+      this.currentPage = event;
+      this.getResult(this.currentPage);
+    },
+    getResult: function getResult() {
+      var _this = this;
+
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      this.$axios.get("api/getHarga?page=".concat(page)).then(function (response) {
+        var responseData = response.data;
+        _this.currentPage = responseData.data.current_page;
+        _this.perPage = responseData.data.per_page;
+        _this.total = responseData.data.total;
+        _this.hargaJasa = responseData.data.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
   }
 });
 
@@ -19551,11 +19587,69 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _components_SideMenu_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/SideMenu.vue */ "./resources/js/components/SideMenu.vue");
+/* harmony import */ var v_pagination_3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! v-pagination-3 */ "./node_modules/v-pagination-3/dist/vue-pagination-2.min.js");
+/* harmony import */ var v_pagination_3__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(v_pagination_3__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_SideMenu_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/SideMenu.vue */ "./resources/js/components/SideMenu.vue");
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      currentPage: 0,
+      perPage: 0,
+      total: 0,
+      jumlahPemasukan: 0,
+      jumlahPengeluaran: 0,
+      jumlahPekerjaan: 0,
+      labaBersih: 0,
+      dataKeuangan: []
+    };
+  },
   components: {
-    SideMenu: _components_SideMenu_vue__WEBPACK_IMPORTED_MODULE_0__.default
+    SideMenu: _components_SideMenu_vue__WEBPACK_IMPORTED_MODULE_1__.default,
+    Pagination: (v_pagination_3__WEBPACK_IMPORTED_MODULE_0___default())
+  },
+  created: function created() {
+    var _this = this;
+
+    this.currentPage = 1;
+    this.getResult(this.currentPage);
+    this.$axios.get("api/getMonthlyIncome").then(function (response) {
+      _this.jumlahPemasukan = response.data;
+    })["catch"](function (error) {
+      console.log(error);
+    });
+    this.$axios.get("api/pengeluaranBulanIni").then(function (response) {
+      _this.jumlahPengeluaran = response.data;
+    })["catch"](function (error) {
+      console.log(error);
+    });
+    this.$axios.get("api/getMonthlyClient").then(function (response) {
+      _this.jumlahPekerjaan = response.data;
+    })["catch"](function (error) {
+      console.log(error);
+    });
+    this.labaBersih = this.jumlahPemasukan - this.jumlahPengeluaran;
+  },
+  methods: {
+    onPageClick: function onPageClick(event) {
+      this.currentPage = event;
+      this.getResult(this.currentPage);
+    },
+    getResult: function getResult() {
+      var _this2 = this;
+
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      this.$axios.get("api/getKeuangan?page=".concat(page)).then(function (response) {
+        var responseData = response.data;
+        _this2.currentPage = responseData.data.current_page;
+        _this2.perPage = responseData.data.per_page;
+        _this2.total = responseData.data.total;
+        _this2.dataKeuangan = responseData.data.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
   }
 });
 
@@ -19572,11 +19666,47 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _components_SideMenu_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/SideMenu.vue */ "./resources/js/components/SideMenu.vue");
+/* harmony import */ var v_pagination_3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! v-pagination-3 */ "./node_modules/v-pagination-3/dist/vue-pagination-2.min.js");
+/* harmony import */ var v_pagination_3__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(v_pagination_3__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_SideMenu_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/SideMenu.vue */ "./resources/js/components/SideMenu.vue");
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      currentPage: 0,
+      perPage: 0,
+      total: 0,
+      dataRiwayat: []
+    };
+  },
   components: {
-    SideMenu: _components_SideMenu_vue__WEBPACK_IMPORTED_MODULE_0__.default
+    SideMenu: _components_SideMenu_vue__WEBPACK_IMPORTED_MODULE_1__.default,
+    Pagination: (v_pagination_3__WEBPACK_IMPORTED_MODULE_0___default())
+  },
+  created: function created() {
+    this.currentPage = 1;
+    this.getResult(this.currentPage);
+  },
+  methods: {
+    onPageClick: function onPageClick(event) {
+      this.currentPage = event;
+      this.getResult(this.currentPage);
+    },
+    getResult: function getResult() {
+      var _this = this;
+
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      this.$axios.get("api/getRiwayat?page=".concat(page)).then(function (response) {
+        var responseData = response.data;
+        _this.currentPage = responseData.data.current_page;
+        _this.perPage = responseData.data.per_page;
+        _this.total = responseData.data.total;
+        _this.dataRiwayat = responseData.data.data;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
   }
 });
 
@@ -19650,11 +19780,48 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _components_SideMenu_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/SideMenu.vue */ "./resources/js/components/SideMenu.vue");
+/* harmony import */ var v_pagination_3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! v-pagination-3 */ "./node_modules/v-pagination-3/dist/vue-pagination-2.min.js");
+/* harmony import */ var v_pagination_3__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(v_pagination_3__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_SideMenu_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/SideMenu.vue */ "./resources/js/components/SideMenu.vue");
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      currentPage: 0,
+      perPage: 0,
+      total: 0,
+      dataPengeluaran: []
+    };
+  },
   components: {
-    SideMenu: _components_SideMenu_vue__WEBPACK_IMPORTED_MODULE_0__.default
+    SideMenu: _components_SideMenu_vue__WEBPACK_IMPORTED_MODULE_1__.default,
+    Pagination: (v_pagination_3__WEBPACK_IMPORTED_MODULE_0___default())
+  },
+  created: function created() {
+    this.currentPage = 1;
+    this.getResult(this.currentPage);
+  },
+  methods: {
+    onPageClick: function onPageClick(event) {
+      this.currentPage = event;
+      this.getResult(this.currentPage);
+    },
+    getResult: function getResult() {
+      var _this = this;
+
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      this.$axios.get("api/getPengeluaran?page=".concat(page)).then(function (response) {
+        var responseData = response.data;
+        _this.currentPage = responseData.data.current_page;
+        _this.perPage = responseData.data.per_page;
+        _this.total = responseData.data.total;
+        _this.dataPengeluaran = responseData.data.data;
+        console.log(_this.dataPengeluaran);
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
   }
 });
 
@@ -20721,13 +20888,21 @@ var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_8 = {
   "class": "max-w-full h-full rounded-lg bg-madrid p-6 overflow-auto"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+};
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "font-bold mb-2"
-}, "DATA HARGA PEKERJAAN"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", {
+}, "DATA HARGA PEKERJAAN", -1
+/* HOISTED */
+);
+
+var _hoisted_10 = {
   "class": "min-w-full"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+};
+
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   "class": "\r\n                                    px-6\r\n                                    py-3\r\n                                    border-b-2 border-admin\r\n                                    text-left\r\n                                    leading-4\r\n                                    text-navbar text-xs\r\n                                    tracking-wider\r\n                                "
 }, " Kode Pekerjaan "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   "class": "\r\n                                    px-6\r\n                                    py-3\r\n                                    border-b-2 border-admin\r\n                                    text-left text-xs\r\n                                    leading-4\r\n                                    text-navbar\r\n                                    tracking-wider\r\n                                "
@@ -20739,21 +20914,33 @@ var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   "class": "\r\n                                    px-6\r\n                                    py-3\r\n                                    border-b-2 border-admin\r\n                                    text-left text-xs\r\n                                    leading-4\r\n                                    text-navbar\r\n                                    tracking-wider\r\n                                "
 }, " Estimasi Waktu Pengerjaan "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   "class": "\r\n                                    px-6\r\n                                    py-3\r\n                                    border-b-2 border-admin\r\n                                    text-left text-xs\r\n                                    leading-4\r\n                                    text-navbar\r\n                                    tracking-wider\r\n                                "
-}, " Aksi ")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", {
+}, " Aksi ")])], -1
+/* HOISTED */
+);
+
+var _hoisted_12 = {
   "class": "bg-madrid"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
+};
+var _hoisted_13 = {
   "class": "\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b border-admin\r\n                                "
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+};
+var _hoisted_14 = {
   "class": "text-sm leading-5 text-blue-900"
-}, " BH69 ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
+};
+var _hoisted_15 = {
   "class": "\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b\r\n                                    text-blue-900\r\n                                    border-admin\r\n                                    text-sm\r\n                                    leading-5\r\n                                "
-}, " Las AS Brat "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
+};
+var _hoisted_16 = {
   "class": "\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b\r\n                                    text-blue-900\r\n                                    border-admin\r\n                                    text-sm\r\n                                    leading-5\r\n                                "
-}, " Membrat Las Menggunakan Las Listrik "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
+};
+var _hoisted_17 = {
   "class": "\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b\r\n                                    text-blue-900\r\n                                    border-admin\r\n                                    text-sm\r\n                                    leading-5\r\n                                "
-}, " Rp. 30.000 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
+};
+var _hoisted_18 = {
   "class": "\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b\r\n                                    text-blue-900\r\n                                    border-admin\r\n                                    text-sm\r\n                                    leading-5\r\n                                "
-}, " 2 Hari "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
+};
+
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
   "class": "\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b\r\n                                    text-blue-900\r\n                                    border-admin\r\n                                    text-sm\r\n                                    leading-5\r\n                                "
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "flex flex-row"
@@ -20773,14 +20960,19 @@ var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "font-bold py-1"
-}, "HAPUS")])])])])])])], -1
+}, "HAPUS")])])], -1
 /* HOISTED */
 );
 
+var _hoisted_20 = {
+  "class": "flex justify-center mt-3"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_SideMenu = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("SideMenu");
 
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
+
+  var _component_pagination = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("pagination");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("main", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SideMenu)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: {
@@ -20804,7 +20996,35 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  })]), _hoisted_7, _hoisted_8])]);
+  })]), _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_10, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", _hoisted_12, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.hargaJasa, function (harga) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
+      key: harga.id
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(harga.kode_pekerjaan), 1
+    /* TEXT */
+    )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(harga.nama_pekerjaan), 1
+    /* TEXT */
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(harga.deskripsi_pekerjaan), 1
+    /* TEXT */
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_17, " Rp. " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(harga.biaya_pekerjaan), 1
+    /* TEXT */
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(harga.estimasi_waktu_pengerjaan), 1
+    /* TEXT */
+    ), _hoisted_19]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_pagination, {
+    modelValue: $data.currentPage,
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $data.currentPage = $event;
+    }),
+    records: $data.total,
+    "per-page": $data.perPage,
+    onPaginate: _cache[1] || (_cache[1] = function ($event) {
+      return $options.onPageClick($event);
+    })
+  }, null, 8
+  /* PROPS */
+  , ["modelValue", "records", "per-page"])])])])]);
 }
 
 /***/ }),
@@ -20963,36 +21183,66 @@ var _hoisted_1 = {
 var _hoisted_2 = {
   "class": "flex flex-col justify-between w-1/4 h-screen"
 };
-
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_3 = {
   "class": "flex flex-col justify-start w-3/4 mr-4 my-8 p-2"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+};
+var _hoisted_4 = {
   "class": "flex flex-row justify-start mb-4"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+};
+var _hoisted_5 = {
   "class": "\r\n                        bg-greenforest\r\n                        rounded-lg\r\n                        w-1/4\r\n                        h-32\r\n                        flex flex-col\r\n                        mr-2\r\n                    "
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+};
+
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "\r\n                            text-madrid text-center text-lg\r\n                            font-bold\r\n                            mb-2\r\n                            mt-4\r\n                        "
-}, " JUMLAH PEMASUKAN "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+}, " JUMLAH PEMASUKAN ", -1
+/* HOISTED */
+);
+
+var _hoisted_7 = {
   "class": "text-black text-center text-xl font-bold"
-}, " RP. 15.000.000 ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+};
+var _hoisted_8 = {
   "class": "bg-munyuk rounded-lg w-1/4 h-32 flex flex-col mr-2"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+};
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "\r\n                            text-madrid text-center text-lg\r\n                            font-bold\r\n                            mb-2\r\n                            mt-4\r\n                        "
-}, " JUMLAH PENGELUARAN "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+}, " JUMLAH PENGELUARAN ", -1
+/* HOISTED */
+);
+
+var _hoisted_10 = {
   "class": "text-black text-center text-xl font-bold"
-}, " RP. 5.000.000 ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+};
+var _hoisted_11 = {
   "class": "bg-tai rounded-lg w-1/4 h-32 flex flex-col mr-2"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+};
+
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "\r\n                            text-navbar text-center text-lg\r\n                            font-bold\r\n                            mb-2\r\n                            mt-4\r\n                        "
-}, " LABA BERSIH "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+}, " LABA BERSIH ", -1
+/* HOISTED */
+);
+
+var _hoisted_13 = {
   "class": "text-black text-center text-xl font-bold"
-}, " RP. 10.000.000 ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+};
+var _hoisted_14 = {
   "class": "bg-chelsea rounded-lg w-1/4 h-32 flex flex-col mr-2"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+};
+
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "\r\n                            text-madrid text-center text-lg\r\n                            font-bold\r\n                            mb-2\r\n                            mt-4\r\n                        "
-}, " JUMLAH PEKERJAAN "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+}, " JUMLAH PEKERJAAN ", -1
+/* HOISTED */
+);
+
+var _hoisted_16 = {
   "class": "text-black text-center text-xl font-bold"
-}, "65")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+};
+
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "flex justify-end mb-2"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "\r\n                        w-64\r\n                        h-8\r\n                        rounded-lg\r\n                        bg-greenforest\r\n                        flex flex-row\r\n                        p-1\r\n                        mb-2\r\n                        mr-2\r\n                    "
@@ -21002,13 +21252,25 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "text-madrid text-base"
-}, "EXPORT KE EXCEL")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+}, "EXPORT KE EXCEL")])], -1
+/* HOISTED */
+);
+
+var _hoisted_18 = {
   "class": "w-full h-full bg-madrid rounded-lg p-4"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+};
+
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "font-bold mb-2"
-}, "DATA KEUANGAN"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", {
+}, "DATA KEUANGAN", -1
+/* HOISTED */
+);
+
+var _hoisted_20 = {
   "class": "min-w-full"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+};
+
+var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   "class": "\r\n                                    px-6\r\n                                    py-3\r\n                                    border-b-2 border-admin\r\n                                    text-left\r\n                                    leading-4\r\n                                    text-navbar text-xs\r\n                                    tracking-wider\r\n                                "
 }, " Nama Transaksi "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   "class": "\r\n                                    px-6\r\n                                    py-3\r\n                                    border-b-2 border-admin\r\n                                    text-left\r\n                                    leading-4\r\n                                    text-navbar text-xs\r\n                                    tracking-wider\r\n                                "
@@ -21016,37 +21278,93 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   "class": "\r\n                                    px-6\r\n                                    py-3\r\n                                    border-b-2 border-admin\r\n                                    text-left\r\n                                    leading-4\r\n                                    text-navbar text-xs\r\n                                    tracking-wider\r\n                                "
 }, " Jumlah "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   "class": "\r\n                                    px-6\r\n                                    py-3\r\n                                    border-b-2 border-admin\r\n                                    text-left\r\n                                    leading-4\r\n                                    text-navbar text-xs\r\n                                    tracking-wider\r\n                                "
-}, " Tanggal Transaksi ")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", {
-  "class": "bg-madrid"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
-  "class": "\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b border-admin\r\n                                "
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "text-sm leading-5 text-blue-900"
-}, " Beli Solar ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
-  "class": "\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b\r\n                                    text-blue-900\r\n                                    border-admin\r\n                                    text-sm\r\n                                    leading-5\r\n                                "
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "\r\n                                        relative\r\n                                        inline-block\r\n                                        px-3\r\n                                        py-1\r\n                                        font-semibold\r\n                                        text-green-900\r\n                                        leading-tight\r\n                                    "
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "aria-hidden": "",
-  "class": "\r\n                                            absolute\r\n                                            inset-0\r\n                                            bg-munyuk\r\n                                            opacity-50\r\n                                            rounded-full\r\n                                        "
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "relative text-xs"
-}, "Pengeluaran")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
-  "class": "\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b border-admin\r\n                                "
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "text-sm leading-5 text-blue-900"
-}, " Rp. 30.000 ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
-  "class": "\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b border-admin\r\n                                "
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "text-sm leading-5 text-blue-900"
-}, " 7 September 2021 ")])])])])])], -1
+}, " Tanggal Transaksi ")])], -1
 /* HOISTED */
 );
 
+var _hoisted_22 = {
+  "class": "bg-madrid"
+};
+var _hoisted_23 = {
+  "class": "\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b border-admin\r\n                                "
+};
+var _hoisted_24 = {
+  "class": "text-sm leading-5 text-blue-900"
+};
+var _hoisted_25 = {
+  "class": "\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b\r\n                                    text-blue-900\r\n                                    border-admin\r\n                                    text-sm\r\n                                    leading-5\r\n                                "
+};
+var _hoisted_26 = {
+  "class": "\r\n                                        relative\r\n                                        inline-block\r\n                                        px-3\r\n                                        py-1\r\n                                        font-semibold\r\n                                        text-green-900\r\n                                        leading-tight\r\n                                    "
+};
+var _hoisted_27 = {
+  key: 0,
+  "aria-hidden": "",
+  "class": "\r\n                                            absolute\r\n                                            inset-0\r\n                                            bg-munyuk\r\n                                            opacity-50\r\n                                            rounded-full\r\n                                        "
+};
+var _hoisted_28 = {
+  key: 1,
+  "aria-hidden": "",
+  "class": "\r\n                                            absolute\r\n                                            inset-0\r\n                                            bg-goblin\r\n                                            opacity-50\r\n                                            rounded-full\r\n                                        "
+};
+var _hoisted_29 = {
+  "class": "relative text-xs"
+};
+var _hoisted_30 = {
+  "class": "\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b border-admin\r\n                                "
+};
+var _hoisted_31 = {
+  "class": "text-sm leading-5 text-blue-900"
+};
+var _hoisted_32 = {
+  "class": "\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b border-admin\r\n                                "
+};
+var _hoisted_33 = {
+  "class": "text-sm leading-5 text-blue-900"
+};
+var _hoisted_34 = {
+  "class": "flex justify-center mt-3"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_SideMenu = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("SideMenu");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("main", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SideMenu)]), _hoisted_3]);
+  var _component_pagination = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("pagination");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("main", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SideMenu)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_7, " RP. " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.jumlahPemasukan), 1
+  /* TEXT */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_10, " RP. " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.jumlahPengeluaran), 1
+  /* TEXT */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_13, " RP. " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.labaBersih), 1
+  /* TEXT */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.jumlahPekerjaan), 1
+  /* TEXT */
+  )])]), _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [_hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_20, [_hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", _hoisted_22, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.dataKeuangan, function (keuangan) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
+      key: keuangan.id
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(keuangan.nama_transaksi), 1
+    /* TEXT */
+    )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_25, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_26, [keuangan.keterangan_transaksi === 'Pengeluaran' ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_27)) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_28)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(keuangan.keterangan_transaksi), 1
+    /* TEXT */
+    )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_30, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_31, " Rp. " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(keuangan.jumlah_transaksi), 1
+    /* TEXT */
+    )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_32, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_33, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(keuangan.created_at), 1
+    /* TEXT */
+    )])]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_pagination, {
+    modelValue: $data.currentPage,
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $data.currentPage = $event;
+    }),
+    records: $data.total,
+    "per-page": $data.perPage,
+    onPaginate: _cache[1] || (_cache[1] = function ($event) {
+      return $options.onPageClick($event);
+    })
+  }, null, 8
+  /* PROPS */
+  , ["modelValue", "records", "per-page"])])])])]);
 }
 
 /***/ }),
@@ -21072,16 +21390,24 @@ var _hoisted_1 = {
 var _hoisted_2 = {
   "class": "flex flex-col justify-between w-1/4 h-screen"
 };
-
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_3 = {
   "class": "flex flex-col justify-start w-3/4 mr-4 my-8 p-2"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+};
+var _hoisted_4 = {
   "class": "max-w-full h-full rounded-lg bg-madrid p-6 overflow-auto"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+};
+
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "font-bold mb-2"
-}, "LAPORAN PEKERJAAN"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", {
+}, "LAPORAN PEKERJAAN", -1
+/* HOISTED */
+);
+
+var _hoisted_6 = {
   "class": "min-w-full"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+};
+
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   "class": "\r\n                                    px-6\r\n                                    py-3\r\n                                    border-b-2 border-admin\r\n                                    text-left\r\n                                    leading-4\r\n                                    text-navbar text-xs\r\n                                    tracking-wider\r\n                                "
 }, " Nama Pekerjaan "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   "class": "\r\n                                    px-6\r\n                                    py-3\r\n                                    border-b-2 border-admin\r\n                                    text-left text-xs\r\n                                    leading-4\r\n                                    text-navbar\r\n                                    tracking-wider\r\n                                "
@@ -21091,35 +21417,45 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   "class": "\r\n                                    px-6\r\n                                    py-3\r\n                                    border-b-2 border-admin\r\n                                    text-left text-xs\r\n                                    leading-4\r\n                                    text-navbar\r\n                                    tracking-wider\r\n                                "
 }, " Kontak Pelanggan "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   "class": "\r\n                                    px-6\r\n                                    py-3\r\n                                    border-b-2 border-admin\r\n                                    text-left text-xs\r\n                                    leading-4\r\n                                    text-navbar\r\n                                    tracking-wider\r\n                                "
-}, " Harga "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
-  "class": "\r\n                                    px-6\r\n                                    py-3\r\n                                    border-b-2 border-admin\r\n                                    text-left text-xs\r\n                                    leading-4\r\n                                    text-navbar\r\n                                    tracking-wider\r\n                                "
-}, " Nama Teknisi "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+}, " Harga "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <th\r\n                                class=\"\r\n                                    px-6\r\n                                    py-3\r\n                                    border-b-2 border-admin\r\n                                    text-left text-xs\r\n                                    leading-4\r\n                                    text-navbar\r\n                                    tracking-wider\r\n                                \"\r\n                            >\r\n                                Nama Teknisi\r\n                            </th> "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   "class": "\r\n                                    px-6\r\n                                    py-3\r\n                                    border-b-2 border-admin\r\n                                    text-left text-xs\r\n                                    leading-4\r\n                                    text-navbar\r\n                                    tracking-wider\r\n                                "
 }, " Tanggal Datang "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   "class": "\r\n                                    px-6\r\n                                    py-3\r\n                                    border-b-2 border-admin\r\n                                    text-left text-xs\r\n                                    leading-4\r\n                                    text-navbar\r\n                                    tracking-wider\r\n                                "
 }, " Tanggal Selesai "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   "class": "\r\n                                    px-6\r\n                                    py-3\r\n                                    border-b-2 border-admin\r\n                                    text-left text-xs\r\n                                    leading-4\r\n                                    text-navbar\r\n                                    tracking-wider\r\n                                "
-}, " Cetak ")])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", {
+}, " Cetak ")])], -1
+/* HOISTED */
+);
+
+var _hoisted_8 = {
   "class": "bg-madrid"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
+};
+var _hoisted_9 = {
   "class": "\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b border-admin\r\n                                "
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+};
+var _hoisted_10 = {
   "class": "text-sm leading-5 text-blue-900"
-}, " Bubut As ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
+};
+var _hoisted_11 = {
   "class": "\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b\r\n                                    text-blue-900\r\n                                    border-admin\r\n                                    text-sm\r\n                                    leading-5\r\n                                "
-}, " Bubut As dan drat 2mm "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
+};
+var _hoisted_12 = {
   "class": "\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b\r\n                                    text-blue-900\r\n                                    border-admin\r\n                                    text-sm\r\n                                    leading-5\r\n                                "
-}, " Munajat Cinta "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
+};
+var _hoisted_13 = {
   "class": "\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b\r\n                                    text-blue-900\r\n                                    border-admin\r\n                                    text-sm\r\n                                    leading-5\r\n                                "
-}, " 087162617263 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
+};
+var _hoisted_14 = {
   "class": "\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b\r\n                                    text-blue-900\r\n                                    border-admin\r\n                                    text-sm\r\n                                    leading-5\r\n                                "
-}, " Rp. 150.000 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
+};
+var _hoisted_15 = {
   "class": "\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b\r\n                                    text-blue-900\r\n                                    border-admin\r\n                                    text-sm\r\n                                    leading-5\r\n                                "
-}, " Yanto "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
+};
+var _hoisted_16 = {
   "class": "\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b\r\n                                    text-blue-900\r\n                                    border-admin\r\n                                    text-sm\r\n                                    leading-5\r\n                                "
-}, " 4 September 2021 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
-  "class": "\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b\r\n                                    text-blue-900\r\n                                    border-admin\r\n                                    text-sm\r\n                                    leading-5\r\n                                "
-}, " 6 September 2021 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
+};
+
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
   "class": "\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b\r\n                                    text-blue-900\r\n                                    border-admin\r\n                                    text-sm\r\n                                    leading-5\r\n                                "
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   "class": "\r\n                                        bg-chelsea\r\n                                        rounded-md\r\n                                        text-madrid\r\n                                        outline-none\r\n                                        flex flex-row\r\n                                        w-32\r\n                                        p-1\r\n                                        mr-2\r\n                                    "
@@ -21129,14 +21465,51 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "font-bold py-1"
-}, "CETAK NOTA")])])])])])])], -1
+}, "CETAK NOTA")])], -1
 /* HOISTED */
 );
 
+var _hoisted_18 = {
+  "class": "flex justify-center mt-3"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_SideMenu = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("SideMenu");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("main", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SideMenu)]), _hoisted_3]);
+  var _component_pagination = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("pagination");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("main", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SideMenu)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", _hoisted_8, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.dataRiwayat, function (riwayat) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
+      key: riwayat.id
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(riwayat.nama_pekerjaan), 1
+    /* TEXT */
+    )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(riwayat.deskripsi_pekerjaan), 1
+    /* TEXT */
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(riwayat.nama_pelanggan), 1
+    /* TEXT */
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(riwayat.kontak_pelanggan), 1
+    /* TEXT */
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_14, " Rp. " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(riwayat.harga), 1
+    /* TEXT */
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <td\r\n                                class=\"\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b\r\n                                    text-blue-900\r\n                                    border-admin\r\n                                    text-sm\r\n                                    leading-5\r\n                                \"\r\n                            >\r\n                                Yanto\r\n                            </td> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(riwayat.tanggal_datang), 1
+    /* TEXT */
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(riwayat.tanggal_selesai), 1
+    /* TEXT */
+    ), _hoisted_17]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_pagination, {
+    modelValue: $data.currentPage,
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $data.currentPage = $event;
+    }),
+    records: $data.total,
+    "per-page": $data.perPage,
+    onPaginate: _cache[1] || (_cache[1] = function ($event) {
+      return $options.onPageClick($event);
+    })
+  }, null, 8
+  /* PROPS */
+  , ["modelValue", "records", "per-page"])])])])]);
 }
 
 /***/ }),
@@ -21408,12 +21781,69 @@ var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"max-w-full h-full rounded-lg bg-madrid p-6 overflow-auto\"><h1 class=\"font-bold mb-2\">DATA PENGELUARAN</h1><table class=\"min-w-full\"><thead><tr><th class=\"\r\n                                    px-6\r\n                                    py-3\r\n                                    border-b-2 border-admin\r\n                                    text-left\r\n                                    leading-4\r\n                                    text-navbar text-xs\r\n                                    tracking-wider\r\n                                \"> Nama Pengeluaran </th><th class=\"\r\n                                    px-6\r\n                                    py-3\r\n                                    border-b-2 border-admin\r\n                                    text-left text-xs\r\n                                    leading-4\r\n                                    text-navbar\r\n                                    tracking-wider\r\n                                \"> Detail Pengeluaran </th><th class=\"\r\n                                    px-6\r\n                                    py-3\r\n                                    border-b-2 border-admin\r\n                                    text-left text-xs\r\n                                    leading-4\r\n                                    text-navbar\r\n                                    tracking-wider\r\n                                \"> Kategori </th><th class=\"\r\n                                    px-6\r\n                                    py-3\r\n                                    border-b-2 border-admin\r\n                                    text-left text-xs\r\n                                    leading-4\r\n                                    text-navbar\r\n                                    tracking-wider\r\n                                \"> Jumlah Pengeluaran </th><th class=\"\r\n                                    px-6\r\n                                    py-3\r\n                                    border-b-2 border-admin\r\n                                    text-left text-xs\r\n                                    leading-4\r\n                                    text-navbar\r\n                                    tracking-wider\r\n                                \"> Penanggungjawab </th><th class=\"\r\n                                    px-6\r\n                                    py-3\r\n                                    border-b-2 border-admin\r\n                                    text-left text-xs\r\n                                    leading-4\r\n                                    text-navbar\r\n                                    tracking-wider\r\n                                \"> Tanggal Pengeluaran </th></tr></thead><tbody class=\"bg-madrid\"><tr><td class=\"\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b border-admin\r\n                                \"><div class=\"text-sm leading-5 text-blue-900\"> Beli Solar </div></td><td class=\"\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b\r\n                                    text-blue-900\r\n                                    border-admin\r\n                                    text-sm\r\n                                    leading-5\r\n                                \"> Solar untuk las diesel </td><td class=\"\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b\r\n                                    text-blue-900\r\n                                    border-admin\r\n                                    text-sm\r\n                                    leading-5\r\n                                \"> Kebutuhan Operasional </td><td class=\"\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b\r\n                                    text-blue-900\r\n                                    border-admin\r\n                                    text-sm\r\n                                    leading-5\r\n                                \"> Rp. 30.000 </td><td class=\"\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b\r\n                                    text-blue-900\r\n                                    border-admin\r\n                                    text-sm\r\n                                    leading-5\r\n                                \"> Yanto </td><td class=\"\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b\r\n                                    text-blue-900\r\n                                    border-admin\r\n                                    text-sm\r\n                                    leading-5\r\n                                \"> 6 September 2021 </td></tr></tbody></table></div>", 1);
+var _hoisted_7 = {
+  "class": "max-w-full h-full rounded-lg bg-madrid p-6 overflow-auto"
+};
 
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "font-bold mb-2"
+}, "DATA PENGELUARAN", -1
+/* HOISTED */
+);
+
+var _hoisted_9 = {
+  "class": "min-w-full"
+};
+
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  "class": "\r\n                                    px-6\r\n                                    py-3\r\n                                    border-b-2 border-admin\r\n                                    text-left\r\n                                    leading-4\r\n                                    text-navbar text-xs\r\n                                    tracking-wider\r\n                                "
+}, " Nama Pengeluaran "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  "class": "\r\n                                    px-6\r\n                                    py-3\r\n                                    border-b-2 border-admin\r\n                                    text-left text-xs\r\n                                    leading-4\r\n                                    text-navbar\r\n                                    tracking-wider\r\n                                "
+}, " Detail Pengeluaran "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  "class": "\r\n                                    px-6\r\n                                    py-3\r\n                                    border-b-2 border-admin\r\n                                    text-left text-xs\r\n                                    leading-4\r\n                                    text-navbar\r\n                                    tracking-wider\r\n                                "
+}, " Kategori "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  "class": "\r\n                                    px-6\r\n                                    py-3\r\n                                    border-b-2 border-admin\r\n                                    text-left text-xs\r\n                                    leading-4\r\n                                    text-navbar\r\n                                    tracking-wider\r\n                                "
+}, " Jumlah Pengeluaran "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  "class": "\r\n                                    px-6\r\n                                    py-3\r\n                                    border-b-2 border-admin\r\n                                    text-left text-xs\r\n                                    leading-4\r\n                                    text-navbar\r\n                                    tracking-wider\r\n                                "
+}, " Penanggungjawab "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  "class": "\r\n                                    px-6\r\n                                    py-3\r\n                                    border-b-2 border-admin\r\n                                    text-left text-xs\r\n                                    leading-4\r\n                                    text-navbar\r\n                                    tracking-wider\r\n                                "
+}, " Tanggal Pengeluaran ")])], -1
+/* HOISTED */
+);
+
+var _hoisted_11 = {
+  "class": "bg-madrid"
+};
+var _hoisted_12 = {
+  "class": "\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b border-admin\r\n                                "
+};
+var _hoisted_13 = {
+  "class": "text-sm leading-5 text-blue-900"
+};
+var _hoisted_14 = {
+  "class": "\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b\r\n                                    text-blue-900\r\n                                    border-admin\r\n                                    text-sm\r\n                                    leading-5\r\n                                "
+};
+var _hoisted_15 = {
+  "class": "\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b\r\n                                    text-blue-900\r\n                                    border-admin\r\n                                    text-sm\r\n                                    leading-5\r\n                                "
+};
+var _hoisted_16 = {
+  "class": "\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b\r\n                                    text-blue-900\r\n                                    border-admin\r\n                                    text-sm\r\n                                    leading-5\r\n                                "
+};
+var _hoisted_17 = {
+  "class": "\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b\r\n                                    text-blue-900\r\n                                    border-admin\r\n                                    text-sm\r\n                                    leading-5\r\n                                "
+};
+var _hoisted_18 = {
+  "class": "\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b\r\n                                    text-blue-900\r\n                                    border-admin\r\n                                    text-sm\r\n                                    leading-5\r\n                                "
+};
+var _hoisted_19 = {
+  "class": "flex justify-center mt-3"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_SideMenu = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("SideMenu");
 
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
+
+  var _component_pagination = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("pagination");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("main", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_SideMenu)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: {
@@ -21437,7 +21867,37 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  })]), _hoisted_7])]);
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", _hoisted_11, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.dataPengeluaran, function (pengeluaran) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
+      key: pengeluaran.id
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(pengeluaran.nama_pengeluaran), 1
+    /* TEXT */
+    )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(pengeluaran.detail_pengeluaran), 1
+    /* TEXT */
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(pengeluaran.kategori_pengeluaran), 1
+    /* TEXT */
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_16, " Rp. " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(pengeluaran.jumlah_pengeluaran), 1
+    /* TEXT */
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(pengeluaran.penanggungjawab), 1
+    /* TEXT */
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(pengeluaran.created_at), 1
+    /* TEXT */
+    )]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_pagination, {
+    modelValue: $data.currentPage,
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $data.currentPage = $event;
+    }),
+    records: $data.total,
+    "per-page": $data.perPage,
+    onPaginate: _cache[1] || (_cache[1] = function ($event) {
+      return $options.onPageClick($event);
+    })
+  }, null, 8
+  /* PROPS */
+  , ["modelValue", "records", "per-page"])])])])]);
 }
 
 /***/ }),

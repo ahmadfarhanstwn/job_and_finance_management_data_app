@@ -138,7 +138,10 @@
                         </tr>
                     </thead>
                     <tbody class="bg-madrid">
-                        <tr>
+                        <tr
+                            v-for="pengeluaran in dataPengeluaran"
+                            :key="pengeluaran.id"
+                        >
                             <td
                                 class="
                                     px-6
@@ -148,7 +151,7 @@
                                 "
                             >
                                 <div class="text-sm leading-5 text-blue-900">
-                                    Beli Solar
+                                    {{ pengeluaran.nama_pengeluaran }}
                                 </div>
                             </td>
                             <td
@@ -163,7 +166,7 @@
                                     leading-5
                                 "
                             >
-                                Solar untuk las diesel
+                                {{ pengeluaran.detail_pengeluaran }}
                             </td>
                             <td
                                 class="
@@ -177,7 +180,7 @@
                                     leading-5
                                 "
                             >
-                                Kebutuhan Operasional
+                                {{ pengeluaran.kategori_pengeluaran }}
                             </td>
                             <td
                                 class="
@@ -191,7 +194,7 @@
                                     leading-5
                                 "
                             >
-                                Rp. 30.000
+                                Rp. {{ pengeluaran.jumlah_pengeluaran }}
                             </td>
                             <td
                                 class="
@@ -205,7 +208,7 @@
                                     leading-5
                                 "
                             >
-                                Yanto
+                                {{ pengeluaran.penanggungjawab }}
                             </td>
                             <td
                                 class="
@@ -219,21 +222,64 @@
                                     leading-5
                                 "
                             >
-                                6 September 2021
+                                {{ pengeluaran.created_at }}
                             </td>
                         </tr>
                     </tbody>
                 </table>
+                <div class="flex justify-center mt-3">
+                    <pagination
+                        v-model="currentPage"
+                        :records="total"
+                        :per-page="perPage"
+                        @paginate="onPageClick($event)"
+                    />
+                </div>
             </div>
         </div>
     </main>
 </template>
 
 <script>
+import Pagination from "v-pagination-3";
 import SideMenu from "../../components/SideMenu.vue";
 export default {
+    data() {
+        return {
+            currentPage: 0,
+            perPage: 0,
+            total: 0,
+            dataPengeluaran: [],
+        };
+    },
     components: {
         SideMenu,
+        Pagination,
+    },
+    created() {
+        this.currentPage = 1;
+        this.getResult(this.currentPage);
+    },
+    methods: {
+        onPageClick(event) {
+            this.currentPage = event;
+            this.getResult(this.currentPage);
+        },
+        getResult(page = 1) {
+            this.$axios
+                .get(`api/getPengeluaran?page=${page}`)
+                .then((response) => {
+                    var responseData = response.data;
+                    this.currentPage = responseData.data.current_page;
+                    this.perPage = responseData.data.per_page;
+                    this.total = responseData.data.total;
+                    this.dataPengeluaran = responseData.data.data;
+                    console.log(this.dataPengeluaran);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        },
     },
 };
 </script>

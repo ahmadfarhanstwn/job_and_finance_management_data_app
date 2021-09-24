@@ -11,9 +11,12 @@ class RiwayatPekerjaanController extends Controller
 {
     public function get()
     {
-        $data = RiwayatPekerjaan::paginate(10)->toArray();
+        $data = RiwayatPekerjaan::paginate(5)->toArray();
 
-        return response()->json($data);
+        return response()->json([
+            "success" => true,
+            "data" => $data,
+        ]);
     }
 
     public function todaysIncome()

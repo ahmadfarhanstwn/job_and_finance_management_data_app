@@ -14,7 +14,7 @@ class PengeluaranController extends Controller
 {
     public function get()
     {
-        $data = Pengeluaran::paginate(10)->toArray();
+        $data = Pengeluaran::paginate(5)->toArray();
         return response()->json([
             "success" => true,
             "data" => $data,

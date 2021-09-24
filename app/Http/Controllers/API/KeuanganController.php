@@ -12,9 +12,12 @@ class KeuanganController extends Controller
 {
     public function get()
     {
-        $data = Keuangan::paginate(10)->toArray();
+        $data = Keuangan::paginate(5)->toArray();
 
-        return response()->json($data);
+        return response()->json([
+            "success" => true,
+            "data" => $data,
+        ]);
     }
 
     public function exportExcel()

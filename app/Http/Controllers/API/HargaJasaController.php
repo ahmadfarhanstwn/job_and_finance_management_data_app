@@ -13,7 +13,7 @@ class HargaJasaController extends Controller
     //get all data, will be used in HargaJasaPage
     public function get()
     {
-        $data = HargaJasa::paginate(10)->toArray();
+        $data = HargaJasa::paginate(5)->toArray();
 
         return response()->json([
             "success" => true,

@@ -156,7 +156,7 @@
                         </tr>
                     </thead>
                     <tbody class="bg-madrid">
-                        <tr>
+                        <tr v-for="harga in hargaJasa" :key="harga.id">
                             <td
                                 class="
                                     px-6
@@ -166,7 +166,7 @@
                                 "
                             >
                                 <div class="text-sm leading-5 text-blue-900">
-                                    BH69
+                                    {{ harga.kode_pekerjaan }}
                                 </div>
                             </td>
                             <td
@@ -181,7 +181,7 @@
                                     leading-5
                                 "
                             >
-                                Las AS Brat
+                                {{ harga.nama_pekerjaan }}
                             </td>
                             <td
                                 class="
@@ -195,7 +195,7 @@
                                     leading-5
                                 "
                             >
-                                Membrat Las Menggunakan Las Listrik
+                                {{ harga.deskripsi_pekerjaan }}
                             </td>
                             <td
                                 class="
@@ -209,7 +209,7 @@
                                     leading-5
                                 "
                             >
-                                Rp. 30.000
+                                Rp. {{ harga.biaya_pekerjaan }}
                             </td>
                             <td
                                 class="
@@ -223,7 +223,7 @@
                                     leading-5
                                 "
                             >
-                                2 Hari
+                                {{ harga.estimasi_waktu_pengerjaan }}
                             </td>
                             <td
                                 class="
@@ -281,16 +281,58 @@
                         </tr>
                     </tbody>
                 </table>
+                <div class="flex justify-center mt-3">
+                    <pagination
+                        v-model="currentPage"
+                        :records="total"
+                        :per-page="perPage"
+                        @paginate="onPageClick($event)"
+                    />
+                </div>
             </div>
         </div>
     </main>
 </template>
 
 <script>
+import Pagination from "v-pagination-3";
 import SideMenu from "../../components/SideMenu.vue";
 export default {
     components: {
         SideMenu,
+        Pagination,
+    },
+    data() {
+        return {
+            currentPage: 0,
+            perPage: 0,
+            total: 0,
+            hargaJasa: [],
+        };
+    },
+    created() {
+        this.currentPage = 1;
+        this.getResult(this.currentPage);
+    },
+    methods: {
+        onPageClick(event) {
+            this.currentPage = event;
+            this.getResult(this.currentPage);
+        },
+        getResult(page = 1) {
+            this.$axios
+                .get(`api/getHarga?page=${page}`)
+                .then((response) => {
+                    var responseData = response.data;
+                    this.currentPage = responseData.data.current_page;
+                    this.perPage = responseData.data.per_page;
+                    this.total = responseData.data.total;
+                    this.hargaJasa = responseData.data.data;
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        },
     },
 };
 </script>

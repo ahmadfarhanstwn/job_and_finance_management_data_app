@@ -26,7 +26,7 @@
                         JUMLAH PEMASUKAN
                     </h1>
                     <h1 class="text-black text-center text-xl font-bold">
-                        RP. 15.000.000
+                        RP. {{ jumlahPemasukan }}
                     </h1>
                 </div>
                 <div class="bg-munyuk rounded-lg w-1/4 h-32 flex flex-col mr-2">
@@ -41,7 +41,7 @@
                         JUMLAH PENGELUARAN
                     </h1>
                     <h1 class="text-black text-center text-xl font-bold">
-                        RP. 5.000.000
+                        RP. {{ jumlahPengeluaran }}
                     </h1>
                 </div>
                 <div class="bg-tai rounded-lg w-1/4 h-32 flex flex-col mr-2">
@@ -56,7 +56,7 @@
                         LABA BERSIH
                     </h1>
                     <h1 class="text-black text-center text-xl font-bold">
-                        RP. 10.000.000
+                        RP. {{ labaBersih }}
                     </h1>
                 </div>
                 <div
@@ -72,7 +72,9 @@
                     >
                         JUMLAH PEKERJAAN
                     </h1>
-                    <h1 class="text-black text-center text-xl font-bold">65</h1>
+                    <h1 class="text-black text-center text-xl font-bold">
+                        {{ jumlahPekerjaan }}
+                    </h1>
                 </div>
             </div>
             <div class="flex justify-end mb-2">
@@ -152,7 +154,7 @@
                         </tr>
                     </thead>
                     <tbody class="bg-madrid">
-                        <tr>
+                        <tr v-for="keuangan in dataKeuangan" :key="keuangan.id">
                             <td
                                 class="
                                     px-6
@@ -162,7 +164,7 @@
                                 "
                             >
                                 <div class="text-sm leading-5 text-blue-900">
-                                    Beli Solar
+                                    {{ keuangan.nama_transaksi }}
                                 </div>
                             </td>
                             <td
@@ -190,6 +192,10 @@
                                 >
                                     <span
                                         aria-hidden
+                                        v-if="
+                                            keuangan.keterangan_transaksi ===
+                                            'Pengeluaran'
+                                        "
                                         class="
                                             absolute
                                             inset-0
@@ -198,9 +204,20 @@
                                             rounded-full
                                         "
                                     ></span>
-                                    <span class="relative text-xs"
-                                        >Pengeluaran</span
-                                    ></span
+                                    <span
+                                        aria-hidden
+                                        v-else
+                                        class="
+                                            absolute
+                                            inset-0
+                                            bg-goblin
+                                            opacity-50
+                                            rounded-full
+                                        "
+                                    ></span>
+                                    <span class="relative text-xs">{{
+                                        keuangan.keterangan_transaksi
+                                    }}</span></span
                                 >
                             </td>
                             <td
@@ -212,7 +229,7 @@
                                 "
                             >
                                 <div class="text-sm leading-5 text-blue-900">
-                                    Rp. 30.000
+                                    Rp. {{ keuangan.jumlah_transaksi }}
                                 </div>
                             </td>
                             <td
@@ -224,22 +241,93 @@
                                 "
                             >
                                 <div class="text-sm leading-5 text-blue-900">
-                                    7 September 2021
+                                    {{ keuangan.created_at }}
                                 </div>
                             </td>
                         </tr>
                     </tbody>
                 </table>
+                <div class="flex justify-center mt-3">
+                    <pagination
+                        v-model="currentPage"
+                        :records="total"
+                        :per-page="perPage"
+                        @paginate="onPageClick($event)"
+                    />
+                </div>
             </div>
         </div>
     </main>
 </template>
 
 <script>
+import Pagination from "v-pagination-3";
 import SideMenu from "../../components/SideMenu.vue";
 export default {
+    data() {
+        return {
+            currentPage: 0,
+            perPage: 0,
+            total: 0,
+            jumlahPemasukan: 0,
+            jumlahPengeluaran: 0,
+            jumlahPekerjaan: 0,
+            labaBersih: 0,
+            dataKeuangan: [],
+        };
+    },
     components: {
         SideMenu,
+        Pagination,
+    },
+    created() {
+        this.currentPage = 1;
+        this.getResult(this.currentPage);
+        this.$axios
+            .get("api/getMonthlyIncome")
+            .then((response) => {
+                this.jumlahPemasukan = response.data;
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        this.$axios
+            .get("api/pengeluaranBulanIni")
+            .then((response) => {
+                this.jumlahPengeluaran = response.data;
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        this.$axios
+            .get("api/getMonthlyClient")
+            .then((response) => {
+                this.jumlahPekerjaan = response.data;
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        this.labaBersih = this.jumlahPemasukan - this.jumlahPengeluaran;
+    },
+    methods: {
+        onPageClick(event) {
+            this.currentPage = event;
+            this.getResult(this.currentPage);
+        },
+        getResult(page = 1) {
+            this.$axios
+                .get(`api/getKeuangan?page=${page}`)
+                .then((response) => {
+                    var responseData = response.data;
+                    this.currentPage = responseData.data.current_page;
+                    this.perPage = responseData.data.per_page;
+                    this.total = responseData.data.total;
+                    this.dataKeuangan = responseData.data.data;
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        },
     },
 };
 </script>
