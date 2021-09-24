@@ -16,7 +16,7 @@ class PekerjaanAktifController extends Controller
     {
         $data = PekerjaanAktif::orderBy("deadline", "asc")
             ->orderBy("created_at", "asc")
-            ->paginate(10);
+            ->paginate(4);
 
         return response()->json(
             [

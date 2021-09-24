@@ -8,11 +8,16 @@ import router from "./router";
 import LitepieDatePicker from "litepie-datepicker";
 import dayjs from "dayjs";
 import "dayjs/locale/id";
+import Pagination from "v-pagination-3";
+// import pagination from "laravel-vue-pagination";
 
+window.Vue = require("vue");
 const app = createApp(App);
 app.config.globalProperties.$axios = axios;
 app.use(router);
 app.mount("#app");
 // Vue.use(VueTailwindPicker);
+// app.use(pagination);
+app.component("pagination", Pagination);
 dayjs.locale("id");
 app.use(LitepieDatePicker);
