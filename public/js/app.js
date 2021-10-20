@@ -19889,12 +19889,63 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      nama_pekerjaan: "",
+      deskripsi_pekerjaan: "",
+      nama_pelanggan: "",
+      kontak_pelanggan: "",
+      harga: 0,
+      deadline: "",
+      status: "Aktif"
+    };
+  },
+  methods: {
+    // "nama_pekerjaan",
+    // "deskripsi_pekerjaan",
+    // "nama_pelanggan",
+    // "kontak_pelanggan",
+    // "harga",
+    // "deadline",
+    // "status",
+    addData: function addData() {
+      var _this = this;
+
+      this.$axios.post("http://localhost:8000/api/add", {
+        nama_pekerjaan: this.nama_pekerjaan,
+        deskripsi_pekerjaan: this.deskripsi_pekerjaan,
+        nama_pelanggan: this.nama_pelanggan,
+        kontak_pelanggan: this.kontak_pelanggan,
+        harga: this.harga,
+        deadline: "2021-10-21",
+        status: this.status
+      }).then(function (response) {
+        _this.$router.push({
+          name: "pekerjaanAktif"
+        });
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
+  },
   setup: function setup() {
     var dateValue = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)([]);
+    var namaPekerjaan = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)([]);
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(function () {
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://localhost:8000/api/getNama").then(function (response) {
+        namaPekerjaan.value = response.data.data;
+      })["catch"](function (error) {
+        console.log("Error");
+      });
+    });
     return {
-      dateValue: dateValue
+      dateValue: dateValue,
+      namaPekerjaan: namaPekerjaan
     };
   }
 });
@@ -22085,20 +22136,74 @@ var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"mb-2\"><label for=\"namapekerjaan\" class=\"block text-gray-700 text-sm font-bold mb-2\">NAMA PEKERJAAN :</label><select class=\"\r\n                                border-2 border-opacity-75\r\n                                rounded-lg\r\n                                w-full\r\n                                py-2\r\n                                px-3\r\n                                text-gray-700\r\n                                leading-tight\r\n                                focus:outline-none focus:shadow-outline\r\n                            \" aria-placeholder=\"NAMA PEKERJAAN\"><option value=\"\">Bubut As</option><!-- &lt;option value=&quot;Pekerja&quot;&gt;Pekerja&lt;/option&gt;\r\n                        &lt;option value=&quot;Pemilik&quot;&gt;Pemilik&lt;/option&gt; --></select></div><div class=\"mb-2\"><label for=\"deskripsipekerjaan\" class=\"block text-gray-700 text-sm font-bold mb-2\">DESKRIPSI PEKERJAAN :</label><input class=\"\r\n                                border-2 border-opacity-75\r\n                                rounded-lg\r\n                                w-full\r\n                                py-2\r\n                                px-3\r\n                                text-gray-700\r\n                                leading-tight\r\n                                focus:outline-none focus:shadow-outline\r\n                            \" type=\"text\" id=\"deskripsipekerjaan\" placeholder=\"Masukkan Deskripsi Pekerjaan\" required></div><div class=\"mb-2\"><label for=\"namapelanggan\" class=\"block text-gray-700 text-sm font-bold mb-2\">NAMA PELANGGAN :</label><input class=\"\r\n                                border-2 border-opacity-75\r\n                                rounded-lg\r\n                                w-full\r\n                                py-2\r\n                                px-3\r\n                                text-gray-700\r\n                                leading-tight\r\n                                focus:outline-none focus:shadow-outline\r\n                            \" type=\"text\" id=\"namapelanggan\" placeholder=\"Masukkan Nama Pelanggan\" required autofocus></div><div class=\"mb-2\"><label for=\"kontakpelanggan\" class=\"block text-gray-700 text-sm font-bold mb-2\">KONTAK PELANGGAN :</label><input class=\"\r\n                                border-2 border-opacity-75\r\n                                rounded-lg\r\n                                w-full\r\n                                py-2\r\n                                px-3\r\n                                text-gray-700\r\n                                leading-tight\r\n                                focus:outline-none focus:shadow-outline\r\n                            \" type=\"text\" id=\"kontakpelanggan\" placeholder=\"Masukkan Kontak Pelanggan\" required autofocus></div><div class=\"mb-2\"><label for=\"namateknisi\" class=\"block text-gray-700 text-sm font-bold mb-2\">NAMA TEKNISI :</label><select class=\"\r\n                                border-2 border-opacity-75\r\n                                rounded-lg\r\n                                w-full\r\n                                py-2\r\n                                px-3\r\n                                text-gray-700\r\n                                leading-tight\r\n                                focus:outline-none focus:shadow-outline\r\n                            \" aria-placeholder=\"NAMA TEKNISI\"><option value=\"\">Yanto</option><!-- &lt;option value=&quot;Pekerja&quot;&gt;Pekerja&lt;/option&gt;\r\n                        &lt;option value=&quot;Pemilik&quot;&gt;Pemilik&lt;/option&gt; --></select></div><div class=\"mb-2\"><label for=\"hargapekerjaan\" class=\"block text-gray-700 text-sm font-bold mb-2\">HARGA PEKERJAAN :</label><input class=\"\r\n                                border-2 border-opacity-75\r\n                                rounded-lg\r\n                                w-full\r\n                                py-2\r\n                                px-3\r\n                                text-gray-700\r\n                                leading-tight\r\n                                focus:outline-none focus:shadow-outline\r\n                            \" type=\"text\" id=\"hargapekerjaan\" placeholder=\"Masukkan Harga Pekerjaan\" required autofocus></div>", 6);
-
-var _hoisted_11 = {
+var _hoisted_5 = {
   "class": "mb-2"
 };
 
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "namapekerjaan",
+  "class": "block text-gray-700 text-sm font-bold mb-2"
+}, "NAMA PEKERJAAN :", -1
+/* HOISTED */
+);
+
+var _hoisted_7 = ["value"];
+var _hoisted_8 = {
+  "class": "mb-2"
+};
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "deskripsipekerjaan",
+  "class": "block text-gray-700 text-sm font-bold mb-2"
+}, "DESKRIPSI PEKERJAAN :", -1
+/* HOISTED */
+);
+
+var _hoisted_10 = {
+  "class": "mb-2"
+};
+
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "namapelanggan",
+  "class": "block text-gray-700 text-sm font-bold mb-2"
+}, "NAMA PELANGGAN :", -1
+/* HOISTED */
+);
+
+var _hoisted_12 = {
+  "class": "mb-2"
+};
+
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "kontakpelanggan",
+  "class": "block text-gray-700 text-sm font-bold mb-2"
+}, "KONTAK PELANGGAN :", -1
+/* HOISTED */
+);
+
+var _hoisted_14 = {
+  "class": "mb-2"
+};
+
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "hargapekerjaan",
+  "class": "block text-gray-700 text-sm font-bold mb-2"
+}, "HARGA PEKERJAAN :", -1
+/* HOISTED */
+);
+
+var _hoisted_16 = {
+  "class": "mb-2"
+};
+
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "deadline",
   "class": "block text-gray-700 text-sm font-bold mb-2"
 }, "DEADLINE :", -1
 /* HOISTED */
 );
 
-var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   "class": "\r\n                            w-full\r\n                            bg-goblin\r\n                            focus:bg-red-700\r\n                            text-white\r\n                            font-bold\r\n                            rounded-lg\r\n                            py-2\r\n                            px-3\r\n                        "
 }, " SIMPAN DATA ", -1
 /* HOISTED */
@@ -22120,16 +22225,86 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  }), _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", null, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" DEADLINE CALENDAR "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_litepie_datepicker, {
+  }), _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+    onSubmit: _cache[6] || (_cache[6] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+      return $options.addData && $options.addData.apply($options, arguments);
+    }, ["prevent"]))
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+    "class": "\r\n                                border-2 border-opacity-75\r\n                                rounded-lg\r\n                                w-full\r\n                                py-2\r\n                                px-3\r\n                                text-gray-700\r\n                                leading-tight\r\n                                focus:outline-none focus:shadow-outline\r\n                            ",
+    "aria-placeholder": "NAMA PEKERJAAN",
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $data.nama_pekerjaan = $event;
+    })
+  }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.namaPekerjaan, function (pekerjaan) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
+      key: pekerjaan,
+      value: pekerjaan
+    }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(pekerjaan), 9
+    /* TEXT, PROPS */
+    , _hoisted_7);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))], 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.nama_pekerjaan]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "class": "\r\n                                border-2 border-opacity-75\r\n                                rounded-lg\r\n                                w-full\r\n                                py-2\r\n                                px-3\r\n                                text-gray-700\r\n                                leading-tight\r\n                                focus:outline-none focus:shadow-outline\r\n                            ",
+    type: "text",
+    id: "deskripsipekerjaan",
+    placeholder: "Masukkan Deskripsi Pekerjaan",
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+      return $data.deskripsi_pekerjaan = $event;
+    }),
+    required: ""
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.deskripsi_pekerjaan]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "class": "\r\n                                border-2 border-opacity-75\r\n                                rounded-lg\r\n                                w-full\r\n                                py-2\r\n                                px-3\r\n                                text-gray-700\r\n                                leading-tight\r\n                                focus:outline-none focus:shadow-outline\r\n                            ",
+    type: "text",
+    id: "namapelanggan",
+    placeholder: "Masukkan Nama Pelanggan",
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+      return $data.nama_pelanggan = $event;
+    }),
+    required: "",
+    autofocus: ""
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.nama_pelanggan]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "class": "\r\n                                border-2 border-opacity-75\r\n                                rounded-lg\r\n                                w-full\r\n                                py-2\r\n                                px-3\r\n                                text-gray-700\r\n                                leading-tight\r\n                                focus:outline-none focus:shadow-outline\r\n                            ",
+    type: "text",
+    id: "kontakpelanggan",
+    placeholder: "Masukkan Kontak Pelanggan",
+    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+      return $data.kontak_pelanggan = $event;
+    }),
+    required: "",
+    autofocus: ""
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.kontak_pelanggan]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "class": "\r\n                                border-2 border-opacity-75\r\n                                rounded-lg\r\n                                w-full\r\n                                py-2\r\n                                px-3\r\n                                text-gray-700\r\n                                leading-tight\r\n                                focus:outline-none focus:shadow-outline\r\n                            ",
+    type: "text",
+    id: "hargapekerjaan",
+    placeholder: "Masukkan Harga Pekerjaan",
+    "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+      return $data.harga = $event;
+    }),
+    required: "",
+    autofocus: ""
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.harga]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" DEADLINE CALENDAR "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [_hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_litepie_datepicker, {
     "class": "border-2 border-opacity-75",
     "as-single": "",
     modelValue: $setup.dateValue,
-    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+    "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
       return $setup.dateValue = $event;
     })
   }, null, 8
   /* PROPS */
-  , ["modelValue"])]), _hoisted_13])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" > ")], 2112
+  , ["modelValue"])]), _hoisted_18], 32
+  /* HYDRATE_EVENTS */
+  )])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" > ")], 2112
   /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */
   );
 }

@@ -25,7 +25,7 @@
                 <h1 class="text-center text-lg font-bold mb-2">
                     TAMBAH DATA PEKERJAAN AKTIF
                 </h1>
-                <form>
+                <form @submit.prevent="addData">
                     <div class="mb-2">
                         <label
                             for="namapekerjaan"
@@ -44,10 +44,15 @@
                                 focus:outline-none focus:shadow-outline
                             "
                             aria-placeholder="NAMA PEKERJAAN"
+                            v-model="nama_pekerjaan"
                         >
-                            <option value="">Bubut As</option>
-                            <!-- <option value="Pekerja">Pekerja</option>
-                        <option value="Pemilik">Pemilik</option> -->
+                            <option
+                                v-for="pekerjaan in namaPekerjaan"
+                                :key="pekerjaan"
+                                :value="pekerjaan"
+                            >
+                                {{ pekerjaan }}
+                            </option>
                         </select>
                     </div>
                     <div class="mb-2">
@@ -70,6 +75,7 @@
                             type="text"
                             id="deskripsipekerjaan"
                             placeholder="Masukkan Deskripsi Pekerjaan"
+                            v-model="deskripsi_pekerjaan"
                             required
                         />
                     </div>
@@ -93,6 +99,7 @@
                             type="text"
                             id="namapelanggan"
                             placeholder="Masukkan Nama Pelanggan"
+                            v-model="nama_pelanggan"
                             required
                             autofocus
                         />
@@ -117,33 +124,10 @@
                             type="text"
                             id="kontakpelanggan"
                             placeholder="Masukkan Kontak Pelanggan"
+                            v-model="kontak_pelanggan"
                             required
                             autofocus
                         />
-                    </div>
-                    <div class="mb-2">
-                        <label
-                            for="namateknisi"
-                            class="block text-gray-700 text-sm font-bold mb-2"
-                            >NAMA TEKNISI :</label
-                        >
-                        <select
-                            class="
-                                border-2 border-opacity-75
-                                rounded-lg
-                                w-full
-                                py-2
-                                px-3
-                                text-gray-700
-                                leading-tight
-                                focus:outline-none focus:shadow-outline
-                            "
-                            aria-placeholder="NAMA TEKNISI"
-                        >
-                            <option value="">Yanto</option>
-                            <!-- <option value="Pekerja">Pekerja</option>
-                        <option value="Pemilik">Pemilik</option> -->
-                        </select>
                     </div>
                     <div class="mb-2">
                         <label
@@ -165,6 +149,7 @@
                             type="text"
                             id="hargapekerjaan"
                             placeholder="Masukkan Harga Pekerjaan"
+                            v-model="harga"
                             required
                             autofocus
                         />
@@ -205,14 +190,66 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
+import axios from "axios";
 
 export default {
+    data() {
+        return {
+            nama_pekerjaan: "",
+            deskripsi_pekerjaan: "",
+            nama_pelanggan: "",
+            kontak_pelanggan: "",
+            harga: 0,
+            deadline: "",
+            status: "Aktif",
+        };
+    },
+    methods: {
+        // "nama_pekerjaan",
+        // "deskripsi_pekerjaan",
+        // "nama_pelanggan",
+        // "kontak_pelanggan",
+        // "harga",
+        // "deadline",
+        // "status",
+        addData() {
+            this.$axios
+                .post("http://localhost:8000/api/add", {
+                    nama_pekerjaan: this.nama_pekerjaan,
+                    deskripsi_pekerjaan: this.deskripsi_pekerjaan,
+                    nama_pelanggan: this.nama_pelanggan,
+                    kontak_pelanggan: this.kontak_pelanggan,
+                    harga: this.harga,
+                    deadline: "2021-10-21",
+                    status: this.status,
+                })
+                .then((response) => {
+                    this.$router.push({ name: "pekerjaanAktif" });
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        },
+    },
     setup() {
         const dateValue = ref([]);
+        const namaPekerjaan = ref([]);
+
+        onMounted(() => {
+            axios
+                .get("http://localhost:8000/api/getNama")
+                .then((response) => {
+                    namaPekerjaan.value = response.data.data;
+                })
+                .catch((error) => {
+                    console.log("Error");
+                });
+        });
 
         return {
             dateValue,
+            namaPekerjaan,
         };
     },
 };
