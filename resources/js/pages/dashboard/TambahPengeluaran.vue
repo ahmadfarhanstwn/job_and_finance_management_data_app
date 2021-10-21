@@ -23,9 +23,9 @@
                     </div>
                 </router-link>
                 <h1 class="text-center text-lg font-bold mb-2">
-                    TAMBAH DATA PENGEELUARAN
+                    TAMBAH DATA PENGELUARAN
                 </h1>
-                <form action="">
+                <form @submit.prevent="addData">
                     <div class="mb-2">
                         <label
                             for="namapengeluaran"
@@ -46,6 +46,7 @@
                             type="text"
                             id="namapengeluaran"
                             placeholder="Masukkan Nama Pengeluaran"
+                            v-model="nama_pengeluaran"
                             required
                         />
                     </div>
@@ -69,6 +70,7 @@
                             type="text"
                             id="detailpengeluaran"
                             placeholder="Masukkan Detail Pengeluaran"
+                            v-model="detail_pengeluaran"
                             required
                         />
                     </div>
@@ -90,10 +92,14 @@
                                 focus:outline-none focus:shadow-outline
                             "
                             aria-placeholder="NAMA PENGELUARAN"
+                            v-model="kategori_pengeluaran"
                         >
-                            <option value="">Keperluan Operasional</option>
-                            <!-- <option value="Pekerja">Pekerja</option>
-                        <option value="Pemilik">Pemilik</option> -->
+                            <option value="Keperluan Operasional">
+                                Keperluan Operasional
+                            </option>
+                            <option value="Perawatan Mesin">
+                                Perawatan Mesin
+                            </option>
                         </select>
                     </div>
                     <div class="mb-2">
@@ -116,6 +122,7 @@
                             type="text"
                             id="jumlahpengeluaran"
                             placeholder="Masukkan Jumlah Pengeluaran"
+                            v-model="jumlah_pengeluaran"
                             required
                         />
                     </div>
@@ -137,24 +144,16 @@
                                 focus:outline-none focus:shadow-outline
                             "
                             aria-placeholder="NAMA PENANGGUNGJAWAB"
+                            v-model="penanggungjawab"
                         >
-                            <option value="">Yanto</option>
-                            <!-- <option value="Pekerja">Pekerja</option>
-                        <option value="Pemilik">Pemilik</option> -->
+                            <option
+                                v-for="user in dataUser"
+                                :key="user"
+                                :value="user"
+                            >
+                                {{ user }}
+                            </option>
                         </select>
-                    </div>
-                    <div class="mb-2">
-                        <label
-                            for="tanggalPengeluaran"
-                            class="block text-gray-700 text-sm font-bold mb-2"
-                            >TANGGAL PENGELUARAN :</label
-                        >
-                        <litepie-datepicker
-                            class="border-2 border-opacity-75"
-                            as-single
-                            v-model="tanggalPengeluaran"
-                        >
-                        </litepie-datepicker>
                     </div>
                     <button
                         class="
@@ -177,14 +176,55 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
+import axios from "axios";
 
 export default {
+    data() {
+        return {
+            nama_pengeluaran: "",
+            detail_pengeluaran: "",
+            kategori_pengeluaran: "",
+            jumlah_pengeluaran: "",
+            penanggungjawab: "",
+        };
+    },
+    methods: {
+        addData() {
+            this.$axios.get("/sanctum/csrf-cookie").then((response) => {
+                this.$axios
+                    .post("api/addPengeluaran", {
+                        nama_pengeluaran: this.nama_pengeluaran,
+                        detail_pengeluaran: this.detail_pengeluaran,
+                        kategori_pengeluaran: this.kategori_pengeluaran,
+                        jumlah_pengeluaran: this.jumlah_pengeluaran,
+                        penanggungjawab: this.penanggungjawab,
+                    })
+                    .then((response) => {
+                        this.$router.push({ name: "pengeluaran" });
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+            });
+        },
+    },
     setup() {
-        const tanggalPengeluaran = ref([]);
+        const dataUser = ref([]);
+
+        onMounted(() => {
+            axios
+                .get("http://localhost:8000/api/getNamaPengguna")
+                .then((response) => {
+                    dataUser.value = response.data.data;
+                })
+                .catch((error) => {
+                    console.log("Error");
+                });
+        });
 
         return {
-            tanggalPengeluaran,
+            dataUser,
         };
     },
 };

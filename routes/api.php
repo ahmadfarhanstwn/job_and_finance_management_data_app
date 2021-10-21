@@ -9,6 +9,7 @@ use App\Http\Controllers\API\PekerjaanAktifController;
 use App\Http\Controllers\API\PengeluaranController;
 use App\Http\Controllers\API\PenggunaController;
 use App\Http\Controllers\API\RiwayatPekerjaanController;
+use App\Models\Pengguna;
 use App\Models\RiwayatPekerjaan;
 
 /*
@@ -78,3 +79,4 @@ Route::get("getMonthlyClient", [
 Route::get("getKeuangan", [KeuanganController::class, "get"]);
 Route::get("exportKeuangan", [KeuanganController::class, "exportExcel"]);
 Route::get("getPengguna", [PenggunaController::class, "get"]);
+Route::get("getNamaPengguna", [PenggunaController::class, "getUser"]);

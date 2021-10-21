@@ -25,7 +25,7 @@
                 <h1 class="text-center text-lg font-bold mb-2">
                     TAMBAH DATA HARGA PEKERJAAN
                 </h1>
-                <form action="">
+                <form @submit.prevent="addHarga">
                     <div class="mb-2">
                         <label
                             for="kodepekerjaan"
@@ -46,6 +46,7 @@
                             type="text"
                             id="kodepekerjaan"
                             placeholder="Masukkan Kode Pekerjaan"
+                            v-model="kode_pekerjaan"
                             required
                         />
                     </div>
@@ -69,6 +70,7 @@
                             type="text"
                             id="namapekerjaan"
                             placeholder="Masukkan Nama Pekerjaan"
+                            v-model="nama_pekerjaan"
                             required
                         />
                     </div>
@@ -92,6 +94,7 @@
                             type="text"
                             id="deskripsipekerjaan"
                             placeholder="Masukkan Deskripsi Pekerjaan"
+                            v-model="deskripsi_pekerjaan"
                             required
                         />
                     </div>
@@ -115,6 +118,7 @@
                             type="text"
                             id="biayapekerjaan"
                             placeholder="Masukkan Biaya Pekerjaan"
+                            v-model="biaya_pekerjaan"
                             required
                         />
                     </div>
@@ -138,6 +142,7 @@
                             type="text"
                             id="estimasiwaktupengerjaan"
                             placeholder="Masukkan Estimasi Waktu Pengerjaan"
+                            v-model="estimasi_waktu_pengerjaan"
                             required
                         />
                     </div>
@@ -162,5 +167,36 @@
 </template>
 
 <script>
-export default {};
+export default {
+    data() {
+        return {
+            kode_pekerjaan: "",
+            nama_pekerjaan: "",
+            deskripsi_pekerjaan: "",
+            biaya_pekerjaan: "",
+            estimasi_waktu_pengerjaan: "",
+        };
+    },
+    methods: {
+        addHarga() {
+            this.$axios.get("/sanctum/csrf-cookie").then((response) => {
+                this.$axios
+                    .post("api/addHarga", {
+                        kode_pekerjaan: this.kode_pekerjaan,
+                        nama_pekerjaan: this.nama_pekerjaan,
+                        deskripsi_pekerjaan: this.deskripsi_pekerjaan,
+                        biaya_pekerjaan: this.biaya_pekerjaan,
+                        estimasi_waktu_pengerjaan:
+                            this.estimasi_waktu_pengerjaan,
+                    })
+                    .then((response) => {
+                        this.$router.push({ name: "hargapekerjaan" });
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+            });
+        },
+    },
+};
 </script>

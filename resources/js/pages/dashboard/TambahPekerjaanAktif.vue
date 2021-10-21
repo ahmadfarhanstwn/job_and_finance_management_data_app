@@ -25,7 +25,7 @@
                 <h1 class="text-center text-lg font-bold mb-2">
                     TAMBAH DATA PEKERJAAN AKTIF
                 </h1>
-                <form @submit.prevent="addData">
+                <form @submit.prevent="addData" method="POST">
                     <div class="mb-2">
                         <label
                             for="namapekerjaan"
@@ -164,6 +164,7 @@
                         <litepie-datepicker
                             class="border-2 border-opacity-75"
                             as-single
+                            :formatter="formatter"
                             v-model="dateValue"
                         >
                         </litepie-datepicker>
@@ -200,41 +201,40 @@ export default {
             deskripsi_pekerjaan: "",
             nama_pelanggan: "",
             kontak_pelanggan: "",
-            harga: 0,
+            harga: "",
             deadline: "",
             status: "Aktif",
         };
     },
     methods: {
-        // "nama_pekerjaan",
-        // "deskripsi_pekerjaan",
-        // "nama_pelanggan",
-        // "kontak_pelanggan",
-        // "harga",
-        // "deadline",
-        // "status",
         addData() {
-            this.$axios
-                .post("http://localhost:8000/api/add", {
-                    nama_pekerjaan: this.nama_pekerjaan,
-                    deskripsi_pekerjaan: this.deskripsi_pekerjaan,
-                    nama_pelanggan: this.nama_pelanggan,
-                    kontak_pelanggan: this.kontak_pelanggan,
-                    harga: this.harga,
-                    deadline: "2021-10-21",
-                    status: this.status,
-                })
-                .then((response) => {
-                    this.$router.push({ name: "pekerjaanAktif" });
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
+            this.$axios.get("/sanctum/csrf-cookie").then((response) => {
+                this.$axios
+                    .post("api/add", {
+                        nama_pekerjaan: this.nama_pekerjaan,
+                        deskripsi_pekerjaan: this.deskripsi_pekerjaan,
+                        nama_pelanggan: this.nama_pelanggan,
+                        kontak_pelanggan: this.kontak_pelanggan,
+                        harga: this.harga,
+                        deadline: this.dateValue,
+                        status: this.status,
+                    })
+                    .then((response) => {
+                        this.$router.push({ name: "pekerjaanAktif" });
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+            });
         },
     },
     setup() {
-        const dateValue = ref([]);
+        const dateValue = ref("");
         const namaPekerjaan = ref([]);
+        const formatter = ref({
+            date: "YYYY-MM-DD",
+            month: "MM",
+        });
 
         onMounted(() => {
             axios
@@ -250,6 +250,7 @@ export default {
         return {
             dateValue,
             namaPekerjaan,
+            formatter,
         };
     },
 };
