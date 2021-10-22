@@ -19498,6 +19498,125 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/dashboard/EditHargaPekerjaan.vue?vue&type=script&lang=js":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/dashboard/EditHargaPekerjaan.vue?vue&type=script&lang=js ***!
+  \*****************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      hargaPekerjaan: {}
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    this.$axios.get("/sanctum/csrf-cookie").then(function (response) {
+      _this.$axios.get("/api/showHarga/".concat(_this.$route.params.id)).then(function (response) {
+        _this.hargaPekerjaan = response.data.data;
+      })["catch"](function (error) {
+        console.error(error);
+      });
+    });
+  },
+  methods: {
+    editHarga: function editHarga() {
+      var _this2 = this;
+
+      this.$axios.get("/sanctum/csrf-cookie").then(function (response) {
+        _this2.$axios.post("/api/updateHarga/".concat(_this2.$route.params.id), _this2.hargaPekerjaan).then(function (response) {
+          _this2.$router.push({
+            name: "hargapekerjaan"
+          });
+        })["catch"](function (error) {
+          console.log(error);
+        });
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/dashboard/EditPekerjaanAktif.vue?vue&type=script&lang=js":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/dashboard/EditPekerjaanAktif.vue?vue&type=script&lang=js ***!
+  \*****************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      pekerjaanAktif: {}
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    this.$axios.get("/sanctum/csrf-cookie").then(function (response) {
+      _this.$axios.get("/api/show/".concat(_this.$route.params.id)).then(function (response) {
+        _this.pekerjaanAktif = response.data.data;
+      })["catch"](function (error) {
+        console.error(error);
+      });
+    });
+  },
+  methods: {
+    editPekerjaan: function editPekerjaan() {
+      var _this2 = this;
+
+      this.$axios.get("/sanctum/csrf-cookie").then(function (response) {
+        _this2.$axios.post("/api/update/".concat(_this2.$route.params.id), _this2.pekerjaanAktif).then(function (response) {
+          _this2.$router.push({
+            name: "pekerjaanAktif"
+          });
+        })["catch"](function (error) {
+          console.error(error);
+        });
+      });
+    }
+  },
+  setup: function setup() {
+    var dateValue = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)("");
+    var namaPekerjaan = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)([]);
+    var formatter = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)({
+      date: "YYYY-MM-DD",
+      month: "MM"
+    });
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(function () {
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get("http://localhost:8000/api/getNama").then(function (response) {
+        namaPekerjaan.value = response.data.data;
+      })["catch"](function (error) {
+        console.log("Error");
+      });
+    });
+    return {
+      dateValue: dateValue,
+      namaPekerjaan: namaPekerjaan,
+      formatter: formatter
+    };
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/dashboard/HargaPekerjaan.vue?vue&type=script&lang=js":
 /*!*************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/dashboard/HargaPekerjaan.vue?vue&type=script&lang=js ***!
@@ -20940,6 +21059,403 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/dashboard/EditHargaPekerjaan.vue?vue&type=template&id=2d2b8e02":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/dashboard/EditHargaPekerjaan.vue?vue&type=template&id=2d2b8e02 ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _assets_kembali_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../assets/kembali.png */ "./resources/js/assets/kembali.png");
+
+
+var _hoisted_1 = {
+  "class": "flex justify-center"
+};
+var _hoisted_2 = {
+  "class": "bg-madrid w-2/3 h-auto p-4 rounded-lg m-4"
+};
+
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "\r\n                            w-40\r\n                            h-8\r\n                            rounded-lg\r\n                            bg-maroon\r\n                            flex flex-row\r\n                            p-1\r\n                            mb-2\r\n                        "
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: _assets_kembali_png__WEBPACK_IMPORTED_MODULE_1__.default,
+  "class": "h-6 mr-2",
+  alt: ""
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "text-madrid text-base"
+}, "KEMBALI")], -1
+/* HOISTED */
+);
+
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "text-center text-lg font-bold mb-2"
+}, " EDIT DATA HARGA PEKERJAAN ", -1
+/* HOISTED */
+);
+
+var _hoisted_5 = {
+  "class": "mb-2"
+};
+
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "kodepekerjaan",
+  "class": "block text-gray-700 text-sm font-bold mb-2"
+}, "KODE PEKERJAAN :", -1
+/* HOISTED */
+);
+
+var _hoisted_7 = {
+  "class": "mb-2"
+};
+
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "namapekerjaan",
+  "class": "block text-gray-700 text-sm font-bold mb-2"
+}, "NAMA PEKERJAAN :", -1
+/* HOISTED */
+);
+
+var _hoisted_9 = {
+  "class": "mb-2"
+};
+
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "deskripsipekerjaan",
+  "class": "block text-gray-700 text-sm font-bold mb-2"
+}, "DESKRIPSI PEKERJAAN :", -1
+/* HOISTED */
+);
+
+var _hoisted_11 = {
+  "class": "mb-2"
+};
+
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "biayapekerjaan",
+  "class": "block text-gray-700 text-sm font-bold mb-2"
+}, "BIAYA PEKERJAAN :", -1
+/* HOISTED */
+);
+
+var _hoisted_13 = {
+  "class": "mb-2"
+};
+
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "estimasiwaktupengerjaan",
+  "class": "block text-gray-700 text-sm font-bold mb-2"
+}, "ESTIMASI WAKTU PENGERJAAN :", -1
+/* HOISTED */
+);
+
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  "class": "\r\n                            w-full\r\n                            bg-goblin\r\n                            focus:bg-red-700\r\n                            text-white\r\n                            font-bold\r\n                            rounded-lg\r\n                            py-2\r\n                            px-3\r\n                        "
+}, " EDIT DATA ", -1
+/* HOISTED */
+);
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("main", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    to: {
+      name: 'hargapekerjaan'
+    }
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_3];
+    }),
+    _: 1
+    /* STABLE */
+
+  }), _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+    onSubmit: _cache[5] || (_cache[5] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+      return $options.editHarga && $options.editHarga.apply($options, arguments);
+    }, ["prevent"])),
+    method: "POST"
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "class": "\r\n                                border-2 border-opacity-75\r\n                                rounded-lg\r\n                                w-full\r\n                                py-2\r\n                                px-3\r\n                                text-gray-700\r\n                                leading-tight\r\n                                focus:outline-none focus:shadow-outline\r\n                            ",
+    type: "text",
+    id: "kodepekerjaan",
+    placeholder: "Masukkan Kode Pekerjaan",
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $data.hargaPekerjaan.kode_pekerjaan = $event;
+    }),
+    required: ""
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.hargaPekerjaan.kode_pekerjaan]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "class": "\r\n                                border-2 border-opacity-75\r\n                                rounded-lg\r\n                                w-full\r\n                                py-2\r\n                                px-3\r\n                                text-gray-700\r\n                                leading-tight\r\n                                focus:outline-none focus:shadow-outline\r\n                            ",
+    type: "text",
+    id: "namapekerjaan",
+    placeholder: "Masukkan Nama Pekerjaan",
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+      return $data.hargaPekerjaan.nama_pekerjaan = $event;
+    }),
+    required: ""
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.hargaPekerjaan.nama_pekerjaan]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "class": "\r\n                                border-2 border-opacity-75\r\n                                rounded-lg\r\n                                w-full\r\n                                py-2\r\n                                px-3\r\n                                text-gray-700\r\n                                leading-tight\r\n                                focus:outline-none focus:shadow-outline\r\n                            ",
+    type: "text",
+    id: "deskripsipekerjaan",
+    placeholder: "Masukkan Deskripsi Pekerjaan",
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+      return $data.hargaPekerjaan.deskripsi_pekerjaan = $event;
+    }),
+    required: ""
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.hargaPekerjaan.deskripsi_pekerjaan]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "class": "\r\n                                border-2 border-opacity-75\r\n                                rounded-lg\r\n                                w-full\r\n                                py-2\r\n                                px-3\r\n                                text-gray-700\r\n                                leading-tight\r\n                                focus:outline-none focus:shadow-outline\r\n                            ",
+    type: "text",
+    id: "biayapekerjaan",
+    placeholder: "Masukkan Biaya Pekerjaan",
+    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+      return $data.hargaPekerjaan.biaya_pekerjaan = $event;
+    }),
+    required: ""
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.hargaPekerjaan.biaya_pekerjaan]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "class": "\r\n                                border-2 border-opacity-75\r\n                                rounded-lg\r\n                                w-full\r\n                                py-2\r\n                                px-3\r\n                                text-gray-700\r\n                                leading-tight\r\n                                focus:outline-none focus:shadow-outline\r\n                            ",
+    type: "text",
+    id: "estimasiwaktupengerjaan",
+    placeholder: "Masukkan Estimasi Waktu Pengerjaan",
+    "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+      return $data.hargaPekerjaan.estimasi_waktu_pengerjaan = $event;
+    }),
+    required: ""
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.hargaPekerjaan.estimasi_waktu_pengerjaan]])]), _hoisted_15], 32
+  /* HYDRATE_EVENTS */
+  )])])]);
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/dashboard/EditPekerjaanAktif.vue?vue&type=template&id=d2a9f8e4":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/dashboard/EditPekerjaanAktif.vue?vue&type=template&id=d2a9f8e4 ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _assets_kembali_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../assets/kembali.png */ "./resources/js/assets/kembali.png");
+
+
+var _hoisted_1 = {
+  "class": "flex justify-center"
+};
+var _hoisted_2 = {
+  "class": "bg-madrid w-2/3 h-auto p-4 rounded-lg m-4"
+};
+
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "\r\n                            w-40\r\n                            h-8\r\n                            rounded-lg\r\n                            bg-maroon\r\n                            flex flex-row\r\n                            p-1\r\n                            mb-2\r\n                        "
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: _assets_kembali_png__WEBPACK_IMPORTED_MODULE_1__.default,
+  "class": "h-6 mr-2",
+  alt: ""
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "text-madrid text-base"
+}, "KEMBALI")], -1
+/* HOISTED */
+);
+
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "text-center text-lg font-bold mb-2"
+}, " EDIT DATA PEKERJAAN AKTIF ", -1
+/* HOISTED */
+);
+
+var _hoisted_5 = {
+  "class": "mb-2"
+};
+
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "namapekerjaan",
+  "class": "block text-gray-700 text-sm font-bold mb-2"
+}, "NAMA PEKERJAAN :", -1
+/* HOISTED */
+);
+
+var _hoisted_7 = ["value"];
+var _hoisted_8 = {
+  "class": "mb-2"
+};
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "deskripsipekerjaan",
+  "class": "block text-gray-700 text-sm font-bold mb-2"
+}, "DESKRIPSI PEKERJAAN :", -1
+/* HOISTED */
+);
+
+var _hoisted_10 = {
+  "class": "mb-2"
+};
+
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "namapelanggan",
+  "class": "block text-gray-700 text-sm font-bold mb-2"
+}, "NAMA PELANGGAN :", -1
+/* HOISTED */
+);
+
+var _hoisted_12 = {
+  "class": "mb-2"
+};
+
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "kontakpelanggan",
+  "class": "block text-gray-700 text-sm font-bold mb-2"
+}, "KONTAK PELANGGAN :", -1
+/* HOISTED */
+);
+
+var _hoisted_14 = {
+  "class": "mb-2"
+};
+
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "hargapekerjaan",
+  "class": "block text-gray-700 text-sm font-bold mb-2"
+}, "HARGA PEKERJAAN :", -1
+/* HOISTED */
+);
+
+var _hoisted_16 = {
+  "class": "mb-2"
+};
+
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "deadline",
+  "class": "block text-gray-700 text-sm font-bold mb-2"
+}, "DEADLINE :", -1
+/* HOISTED */
+);
+
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  "class": "\r\n                            w-full\r\n                            bg-goblin\r\n                            focus:bg-red-700\r\n                            text-white\r\n                            font-bold\r\n                            rounded-lg\r\n                            py-2\r\n                            px-3\r\n                        "
+}, " SIMPAN DATA ", -1
+/* HOISTED */
+);
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
+
+  var _component_litepie_datepicker = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("litepie-datepicker");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("main", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+    to: {
+      name: 'pekerjaanAktif'
+    }
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_3];
+    }),
+    _: 1
+    /* STABLE */
+
+  }), _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+    onSubmit: _cache[6] || (_cache[6] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+      return $options.editPekerjaan && $options.editPekerjaan.apply($options, arguments);
+    }, ["prevent"])),
+    method: "POST"
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+    "class": "\r\n                                border-2 border-opacity-75\r\n                                rounded-lg\r\n                                w-full\r\n                                py-2\r\n                                px-3\r\n                                text-gray-700\r\n                                leading-tight\r\n                                focus:outline-none focus:shadow-outline\r\n                            ",
+    "aria-placeholder": "NAMA PEKERJAAN",
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $data.pekerjaanAktif.nama_pekerjaan = $event;
+    })
+  }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.namaPekerjaan, function (pekerjaan) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
+      key: pekerjaan,
+      value: pekerjaan
+    }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(pekerjaan), 9
+    /* TEXT, PROPS */
+    , _hoisted_7);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))], 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $data.pekerjaanAktif.nama_pekerjaan]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "class": "\r\n                                border-2 border-opacity-75\r\n                                rounded-lg\r\n                                w-full\r\n                                py-2\r\n                                px-3\r\n                                text-gray-700\r\n                                leading-tight\r\n                                focus:outline-none focus:shadow-outline\r\n                            ",
+    type: "text",
+    id: "deskripsipekerjaan",
+    placeholder: "Masukkan Deskripsi Pekerjaan",
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+      return $data.pekerjaanAktif.deskripsi_pekerjaan = $event;
+    }),
+    required: ""
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.pekerjaanAktif.deskripsi_pekerjaan]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "class": "\r\n                                border-2 border-opacity-75\r\n                                rounded-lg\r\n                                w-full\r\n                                py-2\r\n                                px-3\r\n                                text-gray-700\r\n                                leading-tight\r\n                                focus:outline-none focus:shadow-outline\r\n                            ",
+    type: "text",
+    id: "namapelanggan",
+    placeholder: "Masukkan Nama Pelanggan",
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+      return $data.pekerjaanAktif.nama_pelanggan = $event;
+    }),
+    required: "",
+    autofocus: ""
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.pekerjaanAktif.nama_pelanggan]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "class": "\r\n                                border-2 border-opacity-75\r\n                                rounded-lg\r\n                                w-full\r\n                                py-2\r\n                                px-3\r\n                                text-gray-700\r\n                                leading-tight\r\n                                focus:outline-none focus:shadow-outline\r\n                            ",
+    type: "text",
+    id: "kontakpelanggan",
+    placeholder: "Masukkan Kontak Pelanggan",
+    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+      return $data.pekerjaanAktif.kontak_pelanggan = $event;
+    }),
+    required: "",
+    autofocus: ""
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.pekerjaanAktif.kontak_pelanggan]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "class": "\r\n                                border-2 border-opacity-75\r\n                                rounded-lg\r\n                                w-full\r\n                                py-2\r\n                                px-3\r\n                                text-gray-700\r\n                                leading-tight\r\n                                focus:outline-none focus:shadow-outline\r\n                            ",
+    type: "text",
+    id: "hargapekerjaan",
+    placeholder: "Masukkan Harga Pekerjaan",
+    "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+      return $data.pekerjaanAktif.harga = $event;
+    }),
+    required: "",
+    autofocus: ""
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.pekerjaanAktif.harga]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" DEADLINE CALENDAR "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [_hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_litepie_datepicker, {
+    "class": "border-2 border-opacity-75",
+    "as-single": "",
+    formatter: $setup.formatter,
+    modelValue: $data.pekerjaanAktif.deadline,
+    "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
+      return $data.pekerjaanAktif.deadline = $event;
+    })
+  }, null, 8
+  /* PROPS */
+  , ["formatter", "modelValue"])]), _hoisted_18], 32
+  /* HYDRATE_EVENTS */
+  )])])]);
+}
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/dashboard/HargaPekerjaan.vue?vue&type=template&id=36839858":
 /*!*****************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/dashboard/HargaPekerjaan.vue?vue&type=template&id=36839858 ***!
@@ -21061,20 +21577,26 @@ var _hoisted_17 = {
 var _hoisted_18 = {
   "class": "\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b\r\n                                    text-blue-900\r\n                                    border-admin\r\n                                    text-sm\r\n                                    leading-5\r\n                                "
 };
-
-var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
+var _hoisted_19 = {
   "class": "\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b\r\n                                    text-blue-900\r\n                                    border-admin\r\n                                    text-sm\r\n                                    leading-5\r\n                                "
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+};
+var _hoisted_20 = {
   "class": "flex flex-row"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  "class": "\r\n                                            bg-tai\r\n                                            rounded-md\r\n                                            text-madrid\r\n                                            outline-none\r\n                                            flex flex-row\r\n                                            w-24\r\n                                            p-1\r\n                                            mr-2\r\n                                        "
+};
+
+var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "\r\n                                                bg-tai\r\n                                                rounded-md\r\n                                                text-madrid\r\n                                                outline-none\r\n                                                flex flex-row\r\n                                                w-24\r\n                                                p-1\r\n                                                mr-2\r\n                                            "
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   src: _assets_edit_png__WEBPACK_IMPORTED_MODULE_3__.default,
   "class": "h-6 mr-1",
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "font-bold py-1"
-}, "EDIT")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+}, "EDIT")], -1
+/* HOISTED */
+);
+
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   "class": "\r\n                                            bg-munyuk\r\n                                            rounded-md\r\n                                            text-madrid\r\n                                            outline-none\r\n                                            flex flex-row\r\n                                            w-24\r\n                                            p-1\r\n                                            mr-2\r\n                                        "
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   src: _assets_delete_png__WEBPACK_IMPORTED_MODULE_4__.default,
@@ -21082,11 +21604,11 @@ var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "font-bold py-1"
-}, "HAPUS")])])], -1
+}, "HAPUS")], -1
 /* HOISTED */
 );
 
-var _hoisted_20 = {
+var _hoisted_23 = {
   "class": "flex justify-center mt-3"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -21131,10 +21653,26 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     /* TEXT */
     ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(harga.estimasi_waktu_pengerjaan), 1
     /* TEXT */
-    ), _hoisted_19]);
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+      to: {
+        name: 'edithargapekerjaan',
+        params: {
+          id: harga.id
+        }
+      }
+    }, {
+      "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+        return [_hoisted_21];
+      }),
+      _: 2
+      /* DYNAMIC */
+
+    }, 1032
+    /* PROPS, DYNAMIC_SLOTS */
+    , ["to"]), _hoisted_22])])]);
   }), 128
   /* KEYED_FRAGMENT */
-  ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_pagination, {
+  ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_pagination, {
     modelValue: $data.currentPage,
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
       return $data.currentPage = $event;
@@ -21753,11 +22291,14 @@ var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
+var _hoisted_18 = {
   "class": "\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b\r\n                                    text-blue-900\r\n                                    border-admin\r\n                                    text-sm\r\n                                    leading-5\r\n                                "
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+};
+var _hoisted_19 = {
   "class": "flex flex-row"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+};
+
+var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   "class": "\r\n                                            bg-goblin\r\n                                            rounded-md\r\n                                            text-madrid\r\n                                            outline-none\r\n                                            flex flex-row\r\n                                            w-24\r\n                                            p-1\r\n                                            mr-2\r\n                                        "
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   src: _assets_selesai_png__WEBPACK_IMPORTED_MODULE_2__.default,
@@ -21765,7 +22306,11 @@ var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "font-bold py-1"
-}, "SELESAI")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+}, "SELESAI")], -1
+/* HOISTED */
+);
+
+var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   "class": "\r\n                                            bg-chelsea\r\n                                            rounded-md\r\n                                            text-madrid\r\n                                            outline-none\r\n                                            flex flex-row\r\n                                            w-32\r\n                                            p-1\r\n                                            mr-2\r\n                                        "
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   src: _assets_print_png__WEBPACK_IMPORTED_MODULE_3__.default,
@@ -21773,15 +22318,23 @@ var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "font-bold py-1"
-}, " CETAK NOTA ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  "class": "\r\n                                            bg-tai\r\n                                            rounded-md\r\n                                            text-madrid\r\n                                            outline-none\r\n                                            flex flex-row\r\n                                            w-24\r\n                                            p-1\r\n                                            mr-2\r\n                                        "
+}, " CETAK NOTA ")], -1
+/* HOISTED */
+);
+
+var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "\r\n                                                bg-tai\r\n                                                rounded-md\r\n                                                text-madrid\r\n                                                outline-none\r\n                                                flex flex-row\r\n                                                w-24\r\n                                                p-1\r\n                                                mr-2\r\n                                            "
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   src: _assets_edit_png__WEBPACK_IMPORTED_MODULE_4__.default,
   "class": "h-6 mr-1",
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "font-bold py-1"
-}, "EDIT")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+}, "EDIT")], -1
+/* HOISTED */
+);
+
+var _hoisted_23 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   "class": "\r\n                                            bg-munyuk\r\n                                            rounded-md\r\n                                            text-madrid\r\n                                            outline-none\r\n                                            flex flex-row\r\n                                            w-24\r\n                                            p-1\r\n                                            mr-2\r\n                                        "
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   src: _assets_delete_png__WEBPACK_IMPORTED_MODULE_5__.default,
@@ -21789,11 +22342,11 @@ var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   alt: ""
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "font-bold py-1"
-}, "HAPUS")])])], -1
+}, "HAPUS")], -1
 /* HOISTED */
 );
 
-var _hoisted_19 = {
+var _hoisted_24 = {
   "class": "flex justify-center mt-3"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -21829,10 +22382,26 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     /* TEXT */
     ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(pekerjaan.deadline), 1
     /* TEXT */
-    ), _hoisted_17, _hoisted_18]);
+    ), _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [_hoisted_20, _hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+      to: {
+        name: 'editpekerjaan',
+        params: {
+          id: pekerjaan.id
+        }
+      }
+    }, {
+      "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+        return [_hoisted_22];
+      }),
+      _: 2
+      /* DYNAMIC */
+
+    }, 1032
+    /* PROPS, DYNAMIC_SLOTS */
+    , ["to"]), _hoisted_23])])]);
   }), 128
   /* KEYED_FRAGMENT */
-  ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_pagination, {
+  ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_pagination, {
     modelValue: $data.currentPage,
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
       return $data.currentPage = $event;
@@ -22765,7 +23334,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "routes": () => (/* binding */ routes),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
 /* harmony import */ var _pages_Login__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../pages/Login */ "./resources/js/pages/Login.vue");
 /* harmony import */ var _pages_Register__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../pages/Register */ "./resources/js/pages/Register.vue");
 /* harmony import */ var _pages_dashboard_Home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pages/dashboard/Home */ "./resources/js/pages/dashboard/Home.vue");
@@ -22779,6 +23348,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_dashboard_LaporanPekerjaan__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../pages/dashboard/LaporanPekerjaan */ "./resources/js/pages/dashboard/LaporanPekerjaan.vue");
 /* harmony import */ var _pages_dashboard_LaporanKeuangan__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../pages/dashboard/LaporanKeuangan */ "./resources/js/pages/dashboard/LaporanKeuangan.vue");
 /* harmony import */ var _pages_dashboard_Pengguna__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../pages/dashboard/Pengguna */ "./resources/js/pages/dashboard/Pengguna.vue");
+/* harmony import */ var _pages_dashboard_EditPekerjaanAktif__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../pages/dashboard/EditPekerjaanAktif */ "./resources/js/pages/dashboard/EditPekerjaanAktif.vue");
+/* harmony import */ var _pages_dashboard_EditHargaPekerjaan__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../pages/dashboard/EditHargaPekerjaan */ "./resources/js/pages/dashboard/EditHargaPekerjaan.vue");
+
+
 
 
 
@@ -22818,6 +23391,10 @@ var routes = [{
   path: "/tambahpekerjaan",
   component: _pages_dashboard_TambahPekerjaanAktif__WEBPACK_IMPORTED_MODULE_5__.default
 }, {
+  name: "editpekerjaan",
+  path: "/editpekerjaan/:id",
+  component: _pages_dashboard_EditPekerjaanAktif__WEBPACK_IMPORTED_MODULE_13__.default
+}, {
   name: "hargapekerjaan",
   path: "/hargapekerjaan",
   component: _pages_dashboard_HargaPekerjaan__WEBPACK_IMPORTED_MODULE_6__.default
@@ -22825,6 +23402,10 @@ var routes = [{
   name: "tambahhargapekerjaan",
   path: "/tambahharga",
   component: _pages_dashboard_TambahHargaPekerjaan__WEBPACK_IMPORTED_MODULE_7__.default
+}, {
+  name: "edithargapekerjaan",
+  path: "/editharga/:id",
+  component: _pages_dashboard_EditHargaPekerjaan__WEBPACK_IMPORTED_MODULE_14__.default
 }, {
   name: "pengeluaran",
   path: "/pengeluaran",
@@ -22846,8 +23427,8 @@ var routes = [{
   path: "/pengguna",
   component: _pages_dashboard_Pengguna__WEBPACK_IMPORTED_MODULE_12__.default
 }];
-var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_13__.createRouter)({
-  history: (0,vue_router__WEBPACK_IMPORTED_MODULE_13__.createWebHistory)(),
+var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_15__.createRouter)({
+  history: (0,vue_router__WEBPACK_IMPORTED_MODULE_15__.createWebHistory)(),
   routes: routes
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (router);
@@ -32439,6 +33020,58 @@ _Dashboard_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.__fi
 
 /***/ }),
 
+/***/ "./resources/js/pages/dashboard/EditHargaPekerjaan.vue":
+/*!*************************************************************!*\
+  !*** ./resources/js/pages/dashboard/EditHargaPekerjaan.vue ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _EditHargaPekerjaan_vue_vue_type_template_id_2d2b8e02__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditHargaPekerjaan.vue?vue&type=template&id=2d2b8e02 */ "./resources/js/pages/dashboard/EditHargaPekerjaan.vue?vue&type=template&id=2d2b8e02");
+/* harmony import */ var _EditHargaPekerjaan_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditHargaPekerjaan.vue?vue&type=script&lang=js */ "./resources/js/pages/dashboard/EditHargaPekerjaan.vue?vue&type=script&lang=js");
+
+
+
+_EditHargaPekerjaan_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.render = _EditHargaPekerjaan_vue_vue_type_template_id_2d2b8e02__WEBPACK_IMPORTED_MODULE_0__.render
+/* hot reload */
+if (false) {}
+
+_EditHargaPekerjaan_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.__file = "resources/js/pages/dashboard/EditHargaPekerjaan.vue"
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_EditHargaPekerjaan_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default);
+
+/***/ }),
+
+/***/ "./resources/js/pages/dashboard/EditPekerjaanAktif.vue":
+/*!*************************************************************!*\
+  !*** ./resources/js/pages/dashboard/EditPekerjaanAktif.vue ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _EditPekerjaanAktif_vue_vue_type_template_id_d2a9f8e4__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditPekerjaanAktif.vue?vue&type=template&id=d2a9f8e4 */ "./resources/js/pages/dashboard/EditPekerjaanAktif.vue?vue&type=template&id=d2a9f8e4");
+/* harmony import */ var _EditPekerjaanAktif_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditPekerjaanAktif.vue?vue&type=script&lang=js */ "./resources/js/pages/dashboard/EditPekerjaanAktif.vue?vue&type=script&lang=js");
+
+
+
+_EditPekerjaanAktif_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.render = _EditPekerjaanAktif_vue_vue_type_template_id_d2a9f8e4__WEBPACK_IMPORTED_MODULE_0__.render
+/* hot reload */
+if (false) {}
+
+_EditPekerjaanAktif_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.__file = "resources/js/pages/dashboard/EditPekerjaanAktif.vue"
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_EditPekerjaanAktif_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default);
+
+/***/ }),
+
 /***/ "./resources/js/pages/dashboard/HargaPekerjaan.vue":
 /*!*********************************************************!*\
   !*** ./resources/js/pages/dashboard/HargaPekerjaan.vue ***!
@@ -32763,6 +33396,38 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/pages/dashboard/EditHargaPekerjaan.vue?vue&type=script&lang=js":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/pages/dashboard/EditHargaPekerjaan.vue?vue&type=script&lang=js ***!
+  \*************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_EditHargaPekerjaan_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__.default)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_EditHargaPekerjaan_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./EditHargaPekerjaan.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/dashboard/EditHargaPekerjaan.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/pages/dashboard/EditPekerjaanAktif.vue?vue&type=script&lang=js":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/pages/dashboard/EditPekerjaanAktif.vue?vue&type=script&lang=js ***!
+  \*************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_EditPekerjaanAktif_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__.default)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_EditPekerjaanAktif_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./EditPekerjaanAktif.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/dashboard/EditPekerjaanAktif.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
 /***/ "./resources/js/pages/dashboard/HargaPekerjaan.vue?vue&type=script&lang=js":
 /*!*********************************************************************************!*\
   !*** ./resources/js/pages/dashboard/HargaPekerjaan.vue?vue&type=script&lang=js ***!
@@ -32999,6 +33664,38 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Dashboard_vue_vue_type_template_id_140b4340__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Dashboard_vue_vue_type_template_id_140b4340__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Dashboard.vue?vue&type=template&id=140b4340 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/dashboard/Dashboard.vue?vue&type=template&id=140b4340");
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/dashboard/EditHargaPekerjaan.vue?vue&type=template&id=2d2b8e02":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/pages/dashboard/EditHargaPekerjaan.vue?vue&type=template&id=2d2b8e02 ***!
+  \*******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_EditHargaPekerjaan_vue_vue_type_template_id_2d2b8e02__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_EditHargaPekerjaan_vue_vue_type_template_id_2d2b8e02__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./EditHargaPekerjaan.vue?vue&type=template&id=2d2b8e02 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/dashboard/EditHargaPekerjaan.vue?vue&type=template&id=2d2b8e02");
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/dashboard/EditPekerjaanAktif.vue?vue&type=template&id=d2a9f8e4":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/pages/dashboard/EditPekerjaanAktif.vue?vue&type=template&id=d2a9f8e4 ***!
+  \*******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_EditPekerjaanAktif_vue_vue_type_template_id_d2a9f8e4__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_EditPekerjaanAktif_vue_vue_type_template_id_d2a9f8e4__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./EditPekerjaanAktif.vue?vue&type=template&id=d2a9f8e4 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/pages/dashboard/EditPekerjaanAktif.vue?vue&type=template&id=d2a9f8e4");
 
 
 /***/ }),

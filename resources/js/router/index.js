@@ -13,6 +13,8 @@ import TambahPengeluaran from "../pages/dashboard/TambahPengeluaran";
 import LaporanPekerjaan from "../pages/dashboard/LaporanPekerjaan";
 import LaporanKeuangan from "../pages/dashboard/LaporanKeuangan";
 import Pengguna from "../pages/dashboard/Pengguna";
+import EditPekerjaanAktif from "../pages/dashboard/EditPekerjaanAktif";
+import EditHargaPekerjaan from "../pages/dashboard/EditHargaPekerjaan";
 
 export const routes = [
     {
@@ -46,6 +48,11 @@ export const routes = [
         component: TambahPekerjaanAktif,
     },
     {
+        name: "editpekerjaan",
+        path: "/editpekerjaan/:id",
+        component: EditPekerjaanAktif,
+    },
+    {
         name: "hargapekerjaan",
         path: "/hargapekerjaan",
         component: HargaPekerjaan,
@@ -54,6 +61,11 @@ export const routes = [
         name: "tambahhargapekerjaan",
         path: "/tambahharga",
         component: TambahHargaPekerjaan,
+    },
+    {
+        name: "edithargapekerjaan",
+        path: "/editharga/:id",
+        component: EditHargaPekerjaan,
     },
     {
         name: "pengeluaran",

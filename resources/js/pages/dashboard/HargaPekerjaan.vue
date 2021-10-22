@@ -238,25 +238,32 @@
                                 "
                             >
                                 <div class="flex flex-row">
-                                    <button
-                                        class="
-                                            bg-tai
-                                            rounded-md
-                                            text-madrid
-                                            outline-none
-                                            flex flex-row
-                                            w-24
-                                            p-1
-                                            mr-2
-                                        "
+                                    <router-link
+                                        :to="{
+                                            name: 'edithargapekerjaan',
+                                            params: { id: harga.id },
+                                        }"
                                     >
-                                        <img
-                                            src="../../assets/edit.png"
-                                            class="h-6 mr-1"
-                                            alt=""
-                                        />
-                                        <h1 class="font-bold py-1">EDIT</h1>
-                                    </button>
+                                        <div
+                                            class="
+                                                bg-tai
+                                                rounded-md
+                                                text-madrid
+                                                outline-none
+                                                flex flex-row
+                                                w-24
+                                                p-1
+                                                mr-2
+                                            "
+                                        >
+                                            <img
+                                                src="../../assets/edit.png"
+                                                class="h-6 mr-1"
+                                                alt=""
+                                            />
+                                            <h1 class="font-bold py-1">EDIT</h1>
+                                        </div>
+                                    </router-link>
                                     <button
                                         class="
                                             bg-munyuk
