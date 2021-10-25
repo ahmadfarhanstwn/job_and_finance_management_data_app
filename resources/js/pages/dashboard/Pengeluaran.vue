@@ -222,7 +222,7 @@
                                     leading-5
                                 "
                             >
-                                {{ pengeluaran.created_at }}
+                                {{ pengeluaran.created_at.slice(0, 10) }}
                             </td>
                         </tr>
                     </tbody>

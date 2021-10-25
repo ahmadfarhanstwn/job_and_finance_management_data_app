@@ -275,6 +275,7 @@
                                             p-1
                                             mr-2
                                         "
+                                        @click="deleteHarga(harga.id)"
                                     >
                                         <img
                                             src="../../assets/delete.png"
@@ -339,6 +340,21 @@ export default {
                 .catch(function (error) {
                     console.log(error);
                 });
+        },
+        deleteHarga(id) {
+            this.$axios.get("/sanctum/csrf-cookie").then((response) => {
+                this.$axios
+                    .delete(`/api/deleteHarga/${id}`)
+                    .then((response) => {
+                        let i = this.hargaJasa
+                            .map((item) => item.id)
+                            .indexOf(id); // find index of your object
+                        this.hargaJasa.splice(i, 1);
+                    })
+                    .catch(function (error) {
+                        console.error(error);
+                    });
+            });
         },
     },
 };

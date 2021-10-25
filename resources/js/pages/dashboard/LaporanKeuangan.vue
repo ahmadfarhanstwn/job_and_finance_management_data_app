@@ -241,7 +241,7 @@
                                 "
                             >
                                 <div class="text-sm leading-5 text-blue-900">
-                                    {{ keuangan.created_at }}
+                                    {{ keuangan.created_at.slice(0, 10) }}
                                 </div>
                             </td>
                         </tr>
@@ -295,6 +295,7 @@ export default {
             .get("api/pengeluaranBulanIni")
             .then((response) => {
                 this.jumlahPengeluaran = response.data;
+                this.labaBersih = this.jumlahPemasukan - this.jumlahPengeluaran;
             })
             .catch(function (error) {
                 console.log(error);
@@ -307,7 +308,7 @@ export default {
             .catch(function (error) {
                 console.log(error);
             });
-        this.labaBersih = this.jumlahPemasukan - this.jumlahPengeluaran;
+        // this.getLabaBersih(this.jumlahPemasukan, this.jumlahPengeluaran);
     },
     methods: {
         onPageClick(event) {

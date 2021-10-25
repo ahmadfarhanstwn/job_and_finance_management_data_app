@@ -301,6 +301,18 @@
                                             p-1
                                             mr-2
                                         "
+                                        @click="
+                                            selesai(
+                                                pekerjaan.id,
+                                                pekerjaan.nama_pekerjaan,
+                                                pekerjaan.deskripsi_pekerjaan,
+                                                pekerjaan.nama_pelanggan,
+                                                pekerjaan.kontak_pelanggan,
+                                                pekerjaan.harga,
+                                                pekerjaan.created_at,
+                                                this.dateNow
+                                            )
+                                        "
                                     >
                                         <img
                                             src="../../assets/selesai.png"
@@ -368,6 +380,7 @@
                                             p-1
                                             mr-2
                                         "
+                                        @click="deletePekerjaan(pekerjaan.id)"
                                     >
                                         <img
                                             src="../../assets/delete.png"
@@ -403,6 +416,7 @@ export default {
             currentPage: 0,
             perPage: 0,
             total: 0,
+            dateNow: "",
             pekerjaanaktif: [],
         };
     },
@@ -413,8 +427,19 @@ export default {
     created() {
         this.currentPage = 1;
         this.getResult(this.currentPage);
+        this.getNow();
     },
     methods: {
+        getNow() {
+            const today = new Date();
+            const date =
+                today.getFullYear() +
+                "-" +
+                (today.getMonth() + 1) +
+                "-" +
+                today.getDate();
+            this.dateNow = date;
+        },
         onPageClick(event) {
             this.currentPage = event;
             this.getResult(this.currentPage);
@@ -432,6 +457,53 @@ export default {
                 .catch(function (error) {
                     console.log(error);
                 });
+        },
+        selesai(
+            id,
+            nama_pekerjaan,
+            deskripsi_pekerjaan,
+            nama_pelanggan,
+            kontak_pelanggan,
+            harga,
+            tanggal_datang,
+            tanggal_selesai
+        ) {
+            this.$axios.get("/sanctum/csrf-cookie").then((response) => {
+                this.$axios
+                    .post(`/api/selesai/${id}`, {
+                        nama_pekerjaan: nama_pekerjaan,
+                        deskripsi_pekerjaan: deskripsi_pekerjaan,
+                        nama_pelanggan: nama_pelanggan,
+                        kontak_pelanggan: kontak_pelanggan,
+                        harga: harga,
+                        tanggal_datang: tanggal_datang.slice(0, 10),
+                        tanggal_selesai: tanggal_selesai,
+                    })
+                    .then((response) => {
+                        let i = this.pekerjaanaktif
+                            .map((item) => item.id)
+                            .indexOf(id); // find index of your object
+                        this.pekerjaanaktif.splice(i, 1);
+                    })
+                    .catch(function (error) {
+                        console.error(error);
+                    });
+            });
+        },
+        deletePekerjaan(id) {
+            this.$axios.get("/sanctum/csrf-cookie").then((response) => {
+                this.$axios
+                    .delete(`/api/delete/${id}`)
+                    .then((response) => {
+                        let i = this.pekerjaanaktif
+                            .map((item) => item.id)
+                            .indexOf(id); // find index of your object
+                        this.pekerjaanaktif.splice(i, 1);
+                    })
+                    .catch(function (error) {
+                        console.error(error);
+                    });
+            });
         },
     },
 };
