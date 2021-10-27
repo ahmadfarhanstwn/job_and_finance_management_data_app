@@ -30,6 +30,7 @@
     "dependencies": {
         "@ocrv/vue-tailwind-pagination": "0.0.4",
         "dayjs": "^1.10.6",
+        "jspdf": "^2.4.0",
         "laravel-vue-pagination": "^2.3.1",
         "litepie-datepicker": "^1.0.14",
         "v-pagination-3": "^0.1.6",

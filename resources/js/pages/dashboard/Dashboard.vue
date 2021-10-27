@@ -261,7 +261,7 @@ export default {
         this.$axios
             .get("api/getMonthlyIncome")
             .then((response) => {
-                this.todayIncome = response.data;
+                this.thisMonthIncome = response.data;
             })
             .catch(function (error) {
                 console.log(error);

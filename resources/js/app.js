@@ -9,6 +9,7 @@ import LitepieDatePicker from "litepie-datepicker";
 import dayjs from "dayjs";
 import "dayjs/locale/id";
 import Pagination from "v-pagination-3";
+// import { jsPDF } from "jspdf";
 // import pagination from "laravel-vue-pagination";
 
 window.Vue = require("vue");
@@ -21,3 +22,4 @@ app.mount("#app");
 app.component("pagination", Pagination);
 dayjs.locale("id");
 app.use(LitepieDatePicker);
+// app.use(jsPDF);

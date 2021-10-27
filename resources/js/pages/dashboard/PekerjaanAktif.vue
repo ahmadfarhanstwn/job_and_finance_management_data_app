@@ -332,6 +332,9 @@
                                             p-1
                                             mr-2
                                         "
+                                        @click="
+                                            download(pekerjaan.nama_pekerjaan)
+                                        "
                                     >
                                         <img
                                             src="../../assets/print.png"
@@ -410,6 +413,7 @@
 <script>
 import Pagination from "v-pagination-3";
 import SideMenu from "../../components/SideMenu.vue";
+import { jsPDF } from "jspdf";
 export default {
     data() {
         return {
@@ -504,6 +508,11 @@ export default {
                         console.error(error);
                     });
             });
+        },
+        download(namaPekerjaan) {
+            var doc = new jsPDF("p", "mm", [57, 50]);
+            doc.text(namaPekerjaan, 10, 10);
+            doc.output("dataurlnewwindow");
         },
     },
 };
