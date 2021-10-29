@@ -333,7 +333,11 @@
                                             mr-2
                                         "
                                         @click="
-                                            download(pekerjaan.nama_pekerjaan)
+                                            download(
+                                                pekerjaan.deskripsi_pekerjaan,
+                                                pekerjaan.nama_pelanggan,
+                                                pekerjaan.harga
+                                            )
                                         "
                                     >
                                         <img
@@ -509,9 +513,50 @@ export default {
                     });
             });
         },
-        download(namaPekerjaan) {
-            var doc = new jsPDF("p", "mm", [57, 50]);
-            doc.text(namaPekerjaan, 10, 10);
+        download(namaPekerjaan, namaPelanggan, Harga) {
+            var doc = new jsPDF("p", "mm", [123, 90]);
+            doc.setFontSize(12);
+            doc.setTextColor("#920003");
+            doc.text("Bengkel Bubut & Las", 5, 5);
+            doc.setFontSize(14);
+            doc.text('"SEKAWAN"', 8, 10);
+            doc.setFontSize(6);
+            doc.text("Menerima dan memperbaiki alat-alat", 5, 13);
+            doc.text("Mesin & Kendaraan bermotor dll.", 7, 15);
+            doc.text("Jl. Siliwangi Blk.30A Tlp.0251-8380-385", 5, 17);
+            doc.setFontSize(8);
+            const today = new Date();
+            const date =
+                today.getDate() +
+                " - " +
+                (today.getMonth() + 1) +
+                " - " +
+                today.getFullYear();
+            doc.text("Bogor, " + date, 55, 7);
+            doc.text("Kepada Yth", 60, 10);
+            doc.text(namaPelanggan, 55, 13);
+            doc.setDrawColor("#920003");
+            doc.line(3, 20, 87, 20);
+            doc.line(3, 25, 87, 25);
+            doc.line(3, 90, 87, 90);
+            doc.line(10, 20, 10, 90);
+            doc.line(65, 20, 65, 90);
+            doc.text("No.", 5, 23);
+            doc.text("NAMA PEKERJAAN", 20, 23);
+            doc.text("Harga", 75, 23);
+            doc.text("1", 5, 28);
+            doc.text(namaPekerjaan, 13, 28);
+            doc.text(String(Harga), 68, 28);
+            doc.line(3, 95, 30, 95);
+            doc.line(3, 95, 3, 103);
+            doc.line(3, 103, 30, 103);
+            doc.line(30, 95, 30, 103);
+            doc.setFontSize(4);
+            doc.text("PERHATIAN", 11, 97);
+            doc.text("Barang atau pesanan tidak diambil", 5, 99);
+            doc.text("selama 3 bulan dianggap hilang", 6, 101);
+            doc.setFontSize(6);
+            doc.text("Hormat Kami,", 60, 97);
             doc.output("dataurlnewwindow");
         },
     },

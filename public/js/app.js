@@ -19948,9 +19948,45 @@ __webpack_require__.r(__webpack_exports__);
         });
       });
     },
-    download: function download(namaPekerjaan) {
-      var doc = new jspdf__WEBPACK_IMPORTED_MODULE_2__.jsPDF("p", "mm", [57, 50]);
-      doc.text(namaPekerjaan, 10, 10);
+    download: function download(namaPekerjaan, namaPelanggan, Harga) {
+      var doc = new jspdf__WEBPACK_IMPORTED_MODULE_2__.jsPDF("p", "mm", [123, 90]);
+      doc.setFontSize(12);
+      doc.setTextColor("#920003");
+      doc.text("Bengkel Bubut & Las", 5, 5);
+      doc.setFontSize(14);
+      doc.text('"SEKAWAN"', 8, 10);
+      doc.setFontSize(6);
+      doc.text("Menerima dan memperbaiki alat-alat", 5, 13);
+      doc.text("Mesin & Kendaraan bermotor dll.", 7, 15);
+      doc.text("Jl. Siliwangi Blk.30A Tlp.0251-8380-385", 5, 17);
+      doc.setFontSize(8);
+      var today = new Date();
+      var date = today.getDate() + " - " + (today.getMonth() + 1) + " - " + today.getFullYear();
+      doc.text("Bogor, " + date, 55, 7);
+      doc.text("Kepada Yth", 60, 10);
+      doc.text(namaPelanggan, 55, 13);
+      doc.setDrawColor("#920003");
+      doc.line(3, 20, 87, 20);
+      doc.line(3, 25, 87, 25);
+      doc.line(3, 90, 87, 90);
+      doc.line(10, 20, 10, 90);
+      doc.line(65, 20, 65, 90);
+      doc.text("No.", 5, 23);
+      doc.text("NAMA PEKERJAAN", 20, 23);
+      doc.text("Harga", 75, 23);
+      doc.text("1", 5, 28);
+      doc.text(namaPekerjaan, 13, 28);
+      doc.text(String(Harga), 68, 28);
+      doc.line(3, 95, 30, 95);
+      doc.line(3, 95, 3, 103);
+      doc.line(3, 103, 30, 103);
+      doc.line(30, 95, 30, 103);
+      doc.setFontSize(4);
+      doc.text("PERHATIAN", 11, 97);
+      doc.text("Barang atau pesanan tidak diambil", 5, 99);
+      doc.text("selama 3 bulan dianggap hilang", 6, 101);
+      doc.setFontSize(6);
+      doc.text("Hormat Kami,", 60, 97);
       doc.output("dataurlnewwindow");
     }
   }
@@ -22491,7 +22527,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     , _hoisted_20), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
       "class": "\r\n                                            bg-chelsea\r\n                                            rounded-md\r\n                                            text-madrid\r\n                                            outline-none\r\n                                            flex flex-row\r\n                                            w-32\r\n                                            p-1\r\n                                            mr-2\r\n                                        ",
       onClick: function onClick($event) {
-        return $options.download(pekerjaan.nama_pekerjaan);
+        return $options.download(pekerjaan.deskripsi_pekerjaan, pekerjaan.nama_pelanggan, pekerjaan.harga);
       }
     }, _hoisted_27, 8
     /* PROPS */
