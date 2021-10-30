@@ -107,11 +107,23 @@ class HargaJasaController extends Controller
     //search
     public function search(Request $request)
     {
-        $data = HargaJasa::where(
+        $dataSearch = HargaJasa::where(
             "nama_pekerjaan",
             "LIKE",
             "%" . $request->keyword . "%"
-        )->get();
-        return response()->json($data);
+        )->paginate(5);
+        $dataAll = HargaJasa::paginate(5)->toArray();
+        if ($request->keyword == "") {
+            return response()->json([
+                "success" => true,
+                "message" => "Data Harga Jasa",
+                "data" => $dataAll,
+            ]);
+        }
+        return response()->json([
+            "success" => true,
+            "message" => "Data Harga Jasa",
+            "data" => $dataSearch,
+        ]);
     }
 }

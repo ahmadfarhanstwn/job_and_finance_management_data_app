@@ -53,6 +53,7 @@
             <div class="flex flex-row justify-end mb-2">
                 <h1 class="mr-2 mt-1">Cari :</h1>
                 <input
+                    v-model="keyword"
                     class="
                         w-52
                         h-6
@@ -303,6 +304,7 @@
 </template>
 
 <script>
+import _ from "lodash";
 import Pagination from "v-pagination-3";
 import SideMenu from "../../components/SideMenu.vue";
 export default {
@@ -315,6 +317,7 @@ export default {
             currentPage: 0,
             perPage: 0,
             total: 0,
+            keyword: "",
             hargaJasa: [],
         };
     },
@@ -328,18 +331,22 @@ export default {
             this.getResult(this.currentPage);
         },
         getResult(page = 1) {
-            this.$axios
-                .get(`api/getHarga?page=${page}`)
-                .then((response) => {
-                    var responseData = response.data;
-                    this.currentPage = responseData.data.current_page;
-                    this.perPage = responseData.data.per_page;
-                    this.total = responseData.data.total;
-                    this.hargaJasa = responseData.data.data;
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
+            this.$axios.get("/sanctum/csrf-cookie").then((response) => {
+                this.$axios
+                    .post(`api/search?page=${page}`, {
+                        keyword: this.keyword,
+                    })
+                    .then((response) => {
+                        var responseData = response.data;
+                        this.currentPage = responseData.data.current_page;
+                        this.perPage = responseData.data.per_page;
+                        this.total = responseData.data.total;
+                        this.hargaJasa = responseData.data.data;
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            });
         },
         deleteHarga(id) {
             this.$axios.get("/sanctum/csrf-cookie").then((response) => {
@@ -356,6 +363,11 @@ export default {
                     });
             });
         },
+    },
+    watch: {
+        keyword: _.debounce(function () {
+            this.getResult();
+        }, 500),
     },
 };
 </script>
