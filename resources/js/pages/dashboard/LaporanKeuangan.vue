@@ -78,21 +78,27 @@
                 </div>
             </div>
             <div class="flex justify-end mb-2">
-                <div
-                    class="
-                        w-64
-                        h-8
-                        rounded-lg
-                        bg-greenforest
-                        flex flex-row
-                        p-1
-                        mb-2
-                        mr-2
-                    "
-                >
-                    <img src="../../assets/excel.png" class="h-6 mr-2" alt="" />
-                    <h1 class="text-madrid text-base">EXPORT KE EXCEL</h1>
-                </div>
+                <a type="button" href="/api/exportKeuangan">
+                    <button
+                        class="
+                            w-64
+                            h-8
+                            rounded-lg
+                            bg-goblin
+                            flex flex-row
+                            p-1
+                            mb-2
+                            mr-2
+                        "
+                    >
+                        <img
+                            src="../../assets/excel.png"
+                            class="h-6 mr-2"
+                            alt=""
+                        />
+                        <h1 class="text-madrid text-base">EXPORT KE EXCEL</h1>
+                    </button>
+                </a>
             </div>
             <div class="w-full h-full bg-madrid rounded-lg p-4">
                 <h1 class="font-bold mb-2">DATA KEUANGAN</h1>

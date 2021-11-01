@@ -15,7 +15,7 @@
                             flex flex-row
                             p-1
                             mb-2
-                            mr-2
+                            mr-20
                         "
                     >
                         <img
@@ -28,8 +28,13 @@
                         </h1>
                     </div>
                 </router-link>
-                <router-link :to="{ name: '' }">
-                    <div
+                <form @submit.prevent="proceedAction" method="POST">
+                    <input
+                        class="w-32 h-8 py-1 text-gray-700 leading-tight mr-2"
+                        type="file"
+                        @change="onFileChange"
+                    />
+                    <button
                         class="
                             w-64
                             h-8
@@ -47,8 +52,8 @@
                             alt=""
                         />
                         <h1 class="text-madrid text-base">IMPORT DARI EXCEL</h1>
-                    </div>
-                </router-link>
+                    </button>
+                </form>
             </div>
             <div class="flex flex-row justify-end mb-2">
                 <h1 class="mr-2 mt-1">Cari :</h1>
@@ -318,6 +323,7 @@ export default {
             perPage: 0,
             total: 0,
             keyword: "",
+            importFile: "",
             hargaJasa: [],
         };
     },
@@ -360,6 +366,25 @@ export default {
                     })
                     .catch(function (error) {
                         console.error(error);
+                    });
+            });
+        },
+        onFileChange(e) {
+            this.importFile = e.target.files[0];
+            console.log(this.importFile);
+        },
+        proceedAction() {
+            let formData = new FormData();
+            formData.append("file", this.importFile);
+
+            this.$axios.get("/sanctum/csrf-cookie").then((response) => {
+                this.$axios
+                    .post("api/import", formData)
+                    .then((response) => {
+                        this.$router.push({ name: "hargapekerjaan" });
+                    })
+                    .catch((error) => {
+                        console.log(error);
                     });
             });
         },

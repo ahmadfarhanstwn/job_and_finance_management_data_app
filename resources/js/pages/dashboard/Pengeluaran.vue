@@ -28,8 +28,8 @@
                         </h1>
                     </div>
                 </router-link>
-                <router-link :to="{ name: '' }">
-                    <div
+                <a type="button" href="/api/exportPengeluaran">
+                    <button
                         class="
                             w-64
                             h-8
@@ -47,8 +47,8 @@
                             alt=""
                         />
                         <h1 class="text-madrid text-base">EXPORT KE EXCEL</h1>
-                    </div>
-                </router-link>
+                    </button>
+                </a>
             </div>
             <div
                 class="max-w-full h-full rounded-lg bg-madrid p-6 overflow-auto"
