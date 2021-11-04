@@ -76,6 +76,10 @@ Route::get("getMonthlyClient", [
     RiwayatPekerjaanController::class,
     "thisMonthClient",
 ]);
+Route::get("getJumlahPemasukan", [
+    RiwayatPekerjaanController::class,
+    "getJumlahPemasukan",
+]);
 Route::get("getKeuangan", [KeuanganController::class, "get"]);
 Route::get("exportKeuangan", [KeuanganController::class, "exportExcel"]);
 Route::get("getPengguna", [PenggunaController::class, "get"]);

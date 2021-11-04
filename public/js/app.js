@@ -19837,6 +19837,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var v_pagination_3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! v-pagination-3 */ "./node_modules/v-pagination-3/dist/vue-pagination-2.min.js");
 /* harmony import */ var v_pagination_3__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(v_pagination_3__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_SideMenu_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/SideMenu.vue */ "./resources/js/components/SideMenu.vue");
+/* harmony import */ var jspdf__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jspdf */ "./node_modules/jspdf/dist/jspdf.es.min.js");
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -19874,6 +19876,47 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         console.log(error);
       });
+    },
+    download: function download(namaPekerjaan, namaPelanggan, Harga) {
+      var doc = new jspdf__WEBPACK_IMPORTED_MODULE_2__.jsPDF("p", "mm", [123, 90]);
+      doc.setFontSize(12);
+      doc.setTextColor("#920003");
+      doc.text("Bengkel Bubut & Las", 5, 5);
+      doc.setFontSize(14);
+      doc.text('"SEKAWAN"', 8, 10);
+      doc.setFontSize(6);
+      doc.text("Menerima dan memperbaiki alat-alat", 5, 13);
+      doc.text("Mesin & Kendaraan bermotor dll.", 7, 15);
+      doc.text("Jl. Siliwangi Blk.30A Tlp.0251-8380-385", 5, 17);
+      doc.setFontSize(8);
+      var today = new Date();
+      var date = today.getDate() + " - " + (today.getMonth() + 1) + " - " + today.getFullYear();
+      doc.text("Bogor, " + date, 55, 7);
+      doc.text("Kepada Yth", 60, 10);
+      doc.text(namaPelanggan, 55, 13);
+      doc.setDrawColor("#920003");
+      doc.line(3, 20, 87, 20);
+      doc.line(3, 25, 87, 25);
+      doc.line(3, 90, 87, 90);
+      doc.line(10, 20, 10, 90);
+      doc.line(65, 20, 65, 90);
+      doc.text("No.", 5, 23);
+      doc.text("NAMA PEKERJAAN", 20, 23);
+      doc.text("Harga", 75, 23);
+      doc.text("1", 5, 28);
+      doc.text(namaPekerjaan, 13, 28);
+      doc.text(String(Harga), 68, 28);
+      doc.line(3, 95, 30, 95);
+      doc.line(3, 95, 3, 103);
+      doc.line(3, 103, 30, 103);
+      doc.line(30, 95, 30, 103);
+      doc.setFontSize(4);
+      doc.text("PERHATIAN", 11, 97);
+      doc.text("Barang atau pesanan tidak diambil", 5, 99);
+      doc.text("selama 3 bulan dianggap hilang", 6, 101);
+      doc.setFontSize(6);
+      doc.text("Hormat Kami,", 60, 97);
+      doc.output("dataurlnewwindow");
     }
   }
 });
@@ -22279,22 +22322,27 @@ var _hoisted_15 = {
 var _hoisted_16 = {
   "class": "\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b\r\n                                    text-blue-900\r\n                                    border-admin\r\n                                    text-sm\r\n                                    leading-5\r\n                                "
 };
-
-var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
+var _hoisted_17 = {
   "class": "\r\n                                    px-6\r\n                                    py-2\r\n                                    whitespace-no-wrap\r\n                                    border-b\r\n                                    text-blue-900\r\n                                    border-admin\r\n                                    text-sm\r\n                                    leading-5\r\n                                "
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  "class": "\r\n                                        bg-chelsea\r\n                                        rounded-md\r\n                                        text-madrid\r\n                                        outline-none\r\n                                        flex flex-row\r\n                                        w-32\r\n                                        p-1\r\n                                        mr-2\r\n                                    "
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+};
+var _hoisted_18 = ["onClick"];
+
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   src: _assets_print_png__WEBPACK_IMPORTED_MODULE_1__.default,
   "class": "h-6 mr-1",
   alt: ""
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
-  "class": "font-bold py-1"
-}, "CETAK NOTA")])], -1
+}, null, -1
 /* HOISTED */
 );
 
-var _hoisted_18 = {
+var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "font-bold py-1"
+}, "CETAK NOTA", -1
+/* HOISTED */
+);
+
+var _hoisted_21 = [_hoisted_19, _hoisted_20];
+var _hoisted_22 = {
   "class": "flex justify-center mt-3"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -22319,10 +22367,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     /* TEXT */
     ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(riwayat.tanggal_selesai), 1
     /* TEXT */
-    ), _hoisted_17]);
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      "class": "\r\n                                        bg-chelsea\r\n                                        rounded-md\r\n                                        text-madrid\r\n                                        outline-none\r\n                                        flex flex-row\r\n                                        w-32\r\n                                        p-1\r\n                                        mr-2\r\n                                    ",
+      onClick: function onClick($event) {
+        return $options.download(riwayat.deskripsi_pekerjaan, riwayat.nama_pelanggan, riwayat.harga);
+      }
+    }, _hoisted_21, 8
+    /* PROPS */
+    , _hoisted_18)])]);
   }), 128
   /* KEYED_FRAGMENT */
-  ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_pagination, {
+  ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_pagination, {
     modelValue: $data.currentPage,
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
       return $data.currentPage = $event;
