@@ -29,12 +29,15 @@
     },
     "dependencies": {
         "@ocrv/vue-tailwind-pagination": "0.0.4",
+        "chart.js": "^3.6.0",
         "dayjs": "^1.10.6",
         "jspdf": "^2.4.0",
         "laravel-vue-pagination": "^2.3.1",
         "litepie-datepicker": "^1.0.14",
         "v-pagination-3": "^0.1.6",
         "vue": "^3.2.6",
+        "vue-chart-3": "^0.5.11",
+        "vue-chartjs": "^3.5.1",
         "vue-router": "^4.0.11",
         "vue-tailwind-picker": "^2.0.0"
     }

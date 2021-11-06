@@ -209,20 +209,37 @@
             <h1 class="font-extrabold text-2xl mb-2">
                 GRAFIK JUMLAH PEKERJAAN
             </h1>
-            <div class="w-full h-96 rounded-lg bg-madrid p-3 mb-4"></div>
+            <div class="w-full h-96 rounded-lg bg-madrid p-3 mb-4">
+                <LineChart
+                    :chartData="jumlahPekerjaanData"
+                    :chartOptions="options"
+                />
+            </div>
             <h1 class="font-extrabold text-2xl mb-2">
                 GRAFIK JUMLAH PEMASUKAN
             </h1>
-            <div class="w-full h-96 rounded-lg bg-madrid p-3 mb-2"></div>
+            <div class="w-full h-96 rounded-lg bg-madrid p-3 mb-2">
+                <!-- <jumlah-pemasukan-chart></jumlah-pemasukan-chart> -->
+                <LineChart
+                    :chartData="jumlahPemasukanData"
+                    :chartOptions="options"
+                />
+            </div>
         </div>
     </main>
 </template>
 
 <script>
 import SideMenu from "../../components/SideMenu.vue";
+// import JumlahPemasukanChart from "../../components/JumlahPemasukanChart.vue";
+import { LineChart } from "vue-chart-3";
+import { Chart, registerables } from "chart.js";
+Chart.register(...registerables);
 export default {
     components: {
         SideMenu,
+        // JumlahPemasukanChart,
+        LineChart,
     },
     data() {
         return {
@@ -230,6 +247,44 @@ export default {
             jumlahPekerjaan: 0,
             todayIncome: 0,
             thisMonthIncome: 0,
+            jumlahPemasukanData: {
+                labels: [],
+                datasets: [
+                    {
+                        data: [],
+                        backgroundColor: [
+                            "#77CEFF",
+                            "#0079AF",
+                            "#123E6B",
+                            "#97B0C4",
+                            "#A5C8ED",
+                        ],
+                    },
+                ],
+            },
+            jumlahPekerjaanData: {
+                labels: [],
+                datasets: [
+                    {
+                        data: [],
+                        backgroundColor: [
+                            "#77CEFF",
+                            "#0079AF",
+                            "#123E6B",
+                            "#97B0C4",
+                            "#A5C8ED",
+                        ],
+                    },
+                ],
+            },
+            options: {
+                legend: {
+                    display: false,
+                },
+                tooltips: {
+                    enabled: false,
+                },
+            },
         };
     },
     created() {
@@ -262,6 +317,18 @@ export default {
             .get("api/getMonthlyIncome")
             .then((response) => {
                 this.thisMonthIncome = response.data;
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        this.$axios
+            .get("api/getJumlahPemasukan")
+            .then((response) => {
+                this.jumlahPemasukanData.labels = response.data.labels;
+                this.jumlahPemasukanData.datasets[0].data = response.data.data;
+                this.jumlahPekerjaanData.labels = response.data.labels;
+                this.jumlahPekerjaanData.datasets[0].data =
+                    response.data.jumlah;
             })
             .catch(function (error) {
                 console.log(error);
