@@ -19298,6 +19298,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      name: null,
+      role: null
+    };
+  },
   computed: {
     isHome: function isHome() {
       return this.$route.name === "home";
@@ -19322,6 +19328,30 @@ __webpack_require__.r(__webpack_exports__);
     },
     isPengguna: function isPengguna() {
       return this.$route.name === "pengguna";
+    }
+  },
+  methods: {
+    logout: function logout(e) {
+      var _this = this;
+
+      e.preventDefault();
+      this.$axios.get("/sanctum/csrf-cookie").then(function (response) {
+        _this.$axios.post("api/logout").then(function (response) {
+          if (response.data.success) {
+            window.location.href = "/";
+          } else {
+            console.log(response);
+          }
+        })["catch"](function (error) {
+          console.log(error);
+        });
+      });
+    }
+  },
+  created: function created() {
+    if (window.Laravel.user) {
+      this.name = window.Laravel.user.nama;
+      this.role = window.Laravel.user.role;
     }
   }
 });
@@ -19544,6 +19574,13 @@ chart_js__WEBPACK_IMPORTED_MODULE_2__.Chart.register.apply(chart_js__WEBPACK_IMP
     })["catch"](function (error) {
       console.log(error);
     });
+  },
+  beforeRouteEnter: function beforeRouteEnter(to, from, next) {
+    if (!window.Laravel.isLoggedin) {
+      window.location.href = "/";
+    }
+
+    next();
   }
 });
 
@@ -19591,6 +19628,13 @@ __webpack_require__.r(__webpack_exports__);
         });
       });
     }
+  },
+  beforeRouteEnter: function beforeRouteEnter(to, from, next) {
+    if (!window.Laravel.isLoggedin) {
+      window.location.href = "/";
+    }
+
+    next();
   }
 });
 
@@ -19663,6 +19707,13 @@ __webpack_require__.r(__webpack_exports__);
       namaPekerjaan: namaPekerjaan,
       formatter: formatter
     };
+  },
+  beforeRouteEnter: function beforeRouteEnter(to, from, next) {
+    if (!window.Laravel.isLoggedin) {
+      window.location.href = "/";
+    }
+
+    next();
   }
 });
 
@@ -19769,6 +19820,13 @@ __webpack_require__.r(__webpack_exports__);
     keyword: lodash__WEBPACK_IMPORTED_MODULE_0___default().debounce(function () {
       this.getResult();
     }, 500)
+  },
+  beforeRouteEnter: function beforeRouteEnter(to, from, next) {
+    if (!window.Laravel.isLoggedin) {
+      window.location.href = "/";
+    }
+
+    next();
   }
 });
 
@@ -19790,6 +19848,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     SideMenu: _components_SideMenu_vue__WEBPACK_IMPORTED_MODULE_0__.default
+  },
+  beforeRouteEnter: function beforeRouteEnter(to, from, next) {
+    if (!window.Laravel.isLoggedin) {
+      window.location.href = "/";
+    }
+
+    next();
   }
 });
 
@@ -19869,6 +19934,13 @@ __webpack_require__.r(__webpack_exports__);
         console.log(error);
       });
     }
+  },
+  beforeRouteEnter: function beforeRouteEnter(to, from, next) {
+    if (!window.Laravel.isLoggedin) {
+      window.location.href = "/";
+    }
+
+    next();
   }
 });
 
@@ -19969,6 +20041,13 @@ __webpack_require__.r(__webpack_exports__);
       doc.text("Hormat Kami,", 60, 97);
       doc.output("dataurlnewwindow");
     }
+  },
+  beforeRouteEnter: function beforeRouteEnter(to, from, next) {
+    if (!window.Laravel.isLoggedin) {
+      window.location.href = "/";
+    }
+
+    next();
   }
 });
 
@@ -20116,6 +20195,13 @@ __webpack_require__.r(__webpack_exports__);
       doc.text("Hormat Kami,", 60, 97);
       doc.output("dataurlnewwindow");
     }
+  },
+  beforeRouteEnter: function beforeRouteEnter(to, from, next) {
+    if (!window.Laravel.isLoggedin) {
+      window.location.href = "/";
+    }
+
+    next();
   }
 });
 
@@ -20174,6 +20260,13 @@ __webpack_require__.r(__webpack_exports__);
         console.log(error);
       });
     }
+  },
+  beforeRouteEnter: function beforeRouteEnter(to, from, next) {
+    if (!window.Laravel.isLoggedin) {
+      window.location.href = "/";
+    }
+
+    next();
   }
 });
 
@@ -20209,6 +20302,13 @@ __webpack_require__.r(__webpack_exports__);
     })["catch"](function (error) {
       console.log(error);
     });
+  },
+  beforeRouteEnter: function beforeRouteEnter(to, from, next) {
+    if (!window.Laravel.isLoggedin) {
+      window.location.href = "/";
+    }
+
+    next();
   }
 });
 
@@ -20255,6 +20355,13 @@ __webpack_require__.r(__webpack_exports__);
         });
       });
     }
+  },
+  beforeRouteEnter: function beforeRouteEnter(to, from, next) {
+    if (!window.Laravel.isLoggedin) {
+      window.location.href = "/";
+    }
+
+    next();
   }
 });
 
@@ -20330,6 +20437,13 @@ __webpack_require__.r(__webpack_exports__);
       namaPekerjaan: namaPekerjaan,
       formatter: formatter
     };
+  },
+  beforeRouteEnter: function beforeRouteEnter(to, from, next) {
+    if (!window.Laravel.isLoggedin) {
+      window.location.href = "/";
+    }
+
+    next();
   }
 });
 
@@ -20394,6 +20508,13 @@ __webpack_require__.r(__webpack_exports__);
     return {
       dataUser: dataUser
     };
+  },
+  beforeRouteEnter: function beforeRouteEnter(to, from, next) {
+    if (!window.Laravel.isLoggedin) {
+      window.location.href = "/";
+    }
+
+    next();
   }
 });
 
@@ -20472,25 +20593,27 @@ var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_6 = {
   "class": "flex justify-start my-2"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+};
+var _hoisted_7 = {
   "class": "\r\n                                bg-maroon\r\n                                h-10\r\n                                w-10\r\n                                rounded-lg\r\n                                mr-2\r\n                                text-center text-madrid\r\n                                px-2\r\n                                py-2\r\n                            "
-}, " A "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+};
+var _hoisted_8 = {
   "class": "py-1"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+};
+var _hoisted_9 = {
   "class": "font-bold"
-}, "AHMAD FARHAN S"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+};
+var _hoisted_10 = {
   "class": "text-xs text-admin"
-}, "ADMIN")])])], -1
+};
+
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr", null, null, -1
 /* HOISTED */
 );
 
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr", null, null, -1
-/* HOISTED */
-);
-
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "flex flex-row px-2 py-1"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   src: _assets_home_png__WEBPACK_IMPORTED_MODULE_2__.default,
@@ -20502,9 +20625,9 @@ var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_9 = [_hoisted_8];
+var _hoisted_13 = [_hoisted_12];
 
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "flex flex-row px-2 py-1"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   src: _assets_dashboard_png__WEBPACK_IMPORTED_MODULE_3__.default,
@@ -20516,9 +20639,9 @@ var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_11 = [_hoisted_10];
+var _hoisted_15 = [_hoisted_14];
 
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "flex flex-row px-2 py-1"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   src: _assets_pekerjaan_png__WEBPACK_IMPORTED_MODULE_4__.default,
@@ -20530,9 +20653,9 @@ var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_13 = [_hoisted_12];
+var _hoisted_17 = [_hoisted_16];
 
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "flex flex-row px-2 py-1"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   src: _assets_harga_png__WEBPACK_IMPORTED_MODULE_5__.default,
@@ -20541,34 +20664,6 @@ var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "ml-3 my-0.5 text-sm font-extrabold"
 }, " HARGA PEKERJAAN ")], -1
-/* HOISTED */
-);
-
-var _hoisted_15 = [_hoisted_14];
-
-var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "flex flex-row px-2 py-1"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _assets_pengeluaran_png__WEBPACK_IMPORTED_MODULE_6__.default,
-  "class": "h-6",
-  alt: ""
-})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
-  "class": "ml-3 my-0.5 text-sm font-extrabold"
-}, " PENGELUARAN ")], -1
-/* HOISTED */
-);
-
-var _hoisted_17 = [_hoisted_16];
-
-var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "flex flex-row px-2 py-1"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: _assets_pekerjaan_png__WEBPACK_IMPORTED_MODULE_4__.default,
-  "class": "h-6",
-  alt: ""
-})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
-  "class": "ml-3 my-0.5 text-sm font-extrabold"
-}, " LAPORAN PEKERJAAN ")], -1
 /* HOISTED */
 );
 
@@ -20582,13 +20677,41 @@ var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "ml-3 my-0.5 text-sm font-extrabold"
-}, " LAPORAN KEUANGAN ")], -1
+}, " PENGELUARAN ")], -1
 /* HOISTED */
 );
 
 var _hoisted_21 = [_hoisted_20];
 
 var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "flex flex-row px-2 py-1"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: _assets_pekerjaan_png__WEBPACK_IMPORTED_MODULE_4__.default,
+  "class": "h-6",
+  alt: ""
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "ml-3 my-0.5 text-sm font-extrabold"
+}, " LAPORAN PEKERJAAN ")], -1
+/* HOISTED */
+);
+
+var _hoisted_23 = [_hoisted_22];
+
+var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "flex flex-row px-2 py-1"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: _assets_pengeluaran_png__WEBPACK_IMPORTED_MODULE_6__.default,
+  "class": "h-6",
+  alt: ""
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "ml-3 my-0.5 text-sm font-extrabold"
+}, " LAPORAN KEUANGAN ")], -1
+/* HOISTED */
+);
+
+var _hoisted_25 = [_hoisted_24];
+
+var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "flex flex-row px-2 py-1"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   src: _assets_pengguna_png__WEBPACK_IMPORTED_MODULE_7__.default,
@@ -20600,11 +20723,9 @@ var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_23 = [_hoisted_22];
+var _hoisted_27 = [_hoisted_26];
 
-var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "\r\n                            h-9\r\n                            w-30\r\n                            bg-abu\r\n                            rounded-lg\r\n                            my-1\r\n                            mr-2\r\n                            cursor-pointer\r\n                            hover:bg-maroon hover:bg-opacity-60\r\n                            text-navbar\r\n                            hover:text-black\r\n                        "
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "flex flex-row px-2 py-1"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   src: _assets_logout_png__WEBPACK_IMPORTED_MODULE_8__.default,
@@ -20612,14 +20733,21 @@ var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
   alt: ""
 })]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
   "class": "ml-3 my-0.5 text-sm font-extrabold"
-}, " LOGOUT ")])])], -1
+}, " LOGOUT ")], -1
 /* HOISTED */
 );
 
+var _hoisted_29 = [_hoisted_28];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_3, [_hoisted_4, _hoisted_5, _hoisted_6, _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_3, [_hoisted_4, _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.name.slice(0, 1)), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.name), 1
+  /* TEXT */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.role), 1
+  /* TEXT */
+  )])])]), _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: {
       name: 'home'
     }
@@ -20627,7 +20755,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["\r\n                                h-9\r\n                                w-30\r\n                                rounded-lg\r\n                                my-1\r\n                                mr-2\r\n                                cursor-pointer\r\n                                hover:bg-maroon hover:bg-opacity-60\r\n                                text-navbar\r\n                                hover:text-black\r\n                            ", [$options.isHome ? 'bg-maroon bg-opacity-60 text-black' : 'bg-abu']])
-      }, _hoisted_9, 2
+      }, _hoisted_13, 2
       /* CLASS */
       )];
     }),
@@ -20642,7 +20770,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["\r\n                                h-9\r\n                                w-30\r\n                                rounded-lg\r\n                                my-1\r\n                                mr-2\r\n                                cursor-pointer\r\n                                hover:bg-maroon hover:bg-opacity-60\r\n                                text-navbar\r\n                                hover:text-black\r\n                            ", [$options.isDashboard ? 'bg-maroon bg-opacity-60 text-black' : 'bg-abu']])
-      }, _hoisted_11, 2
+      }, _hoisted_15, 2
       /* CLASS */
       )];
     }),
@@ -20657,7 +20785,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["\r\n                                h-9\r\n                                w-30\r\n                                rounded-lg\r\n                                my-1\r\n                                mr-2\r\n                                cursor-pointer\r\n                                hover:bg-maroon hover:bg-opacity-60\r\n                                text-navbar\r\n                                hover:text-black\r\n                            ", [$options.isPekerjaanAktif ? 'bg-maroon bg-opacity-60 text-black' : 'bg-abu']])
-      }, _hoisted_13, 2
+      }, _hoisted_17, 2
       /* CLASS */
       )];
     }),
@@ -20672,7 +20800,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["\r\n                                h-9\r\n                                w-30\r\n                                rounded-lg\r\n                                my-1\r\n                                mr-2\r\n                                cursor-pointer\r\n                                hover:bg-maroon hover:bg-opacity-60\r\n                                text-navbar\r\n                                hover:text-black\r\n                            ", [$options.isHargaPekerjaan ? 'bg-maroon bg-opacity-60 text-black' : 'bg-abu']])
-      }, _hoisted_15, 2
+      }, _hoisted_19, 2
       /* CLASS */
       )];
     }),
@@ -20687,7 +20815,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["\r\n                                h-9\r\n                                w-30\r\n                                rounded-lg\r\n                                my-1\r\n                                mr-2\r\n                                cursor-pointer\r\n                                hover:bg-maroon hover:bg-opacity-60\r\n                                text-navbar\r\n                                hover:text-black\r\n                            ", [$options.isPengeluaran ? 'bg-maroon bg-opacity-60 text-black' : 'bg-abu']])
-      }, _hoisted_17, 2
+      }, _hoisted_21, 2
       /* CLASS */
       )];
     }),
@@ -20702,7 +20830,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["\r\n                                h-9\r\n                                w-30\r\n                                rounded-lg\r\n                                my-1\r\n                                mr-2\r\n                                cursor-pointer\r\n                                hover:bg-maroon hover:bg-opacity-60\r\n                                text-navbar\r\n                                hover:text-black\r\n                            ", [$options.isLaporanPekerjaan ? 'bg-maroon bg-opacity-60 text-black' : 'bg-abu']])
-      }, _hoisted_19, 2
+      }, _hoisted_23, 2
       /* CLASS */
       )];
     }),
@@ -20717,7 +20845,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["\r\n                                h-9\r\n                                w-30\r\n                                rounded-lg\r\n                                my-1\r\n                                mr-2\r\n                                cursor-pointer\r\n                                hover:bg-maroon hover:bg-opacity-60\r\n                                text-navbar\r\n                                hover:text-black\r\n                            ", [$options.isLaporanKeuangan ? 'bg-maroon bg-opacity-60 text-black' : 'bg-abu']])
-      }, _hoisted_21, 2
+      }, _hoisted_25, 2
       /* CLASS */
       )];
     }),
@@ -20732,14 +20860,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
         "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["\r\n                                h-9\r\n                                w-30\r\n                                rounded-lg\r\n                                my-1\r\n                                mr-2\r\n                                cursor-pointer\r\n                                hover:bg-maroon hover:bg-opacity-60\r\n                                text-navbar\r\n                                hover:text-black\r\n                            ", [$options.isPengguna ? 'bg-maroon bg-opacity-60 text-black' : 'bg-abu']])
-      }, _hoisted_23, 2
+      }, _hoisted_27, 2
       /* CLASS */
       )];
     }),
     _: 1
     /* STABLE */
 
-  })]), _hoisted_24])])]);
+  })]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    "class": "\r\n                            h-9\r\n                            w-30\r\n                            bg-abu\r\n                            rounded-lg\r\n                            my-1\r\n                            mr-2\r\n                            cursor-pointer\r\n                            hover:bg-maroon hover:bg-opacity-60\r\n                            text-navbar\r\n                            hover:text-black\r\n                        ",
+    onClick: _cache[0] || (_cache[0] = function () {
+      return $options.logout && $options.logout.apply($options, arguments);
+    })
+  }, _hoisted_29)])])])]);
 }
 
 /***/ }),

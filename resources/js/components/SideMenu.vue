@@ -35,11 +35,11 @@
                                 py-2
                             "
                         >
-                            A
+                            {{ name.slice(0, 1) }}
                         </div>
                         <div class="py-1">
-                            <h1 class="font-bold">AHMAD FARHAN S</h1>
-                            <h1 class="text-xs text-admin">ADMIN</h1>
+                            <h1 class="font-bold">{{ name }}</h1>
+                            <h1 class="text-xs text-admin">{{ role }}</h1>
                         </div>
                     </div>
                 </li>
@@ -317,7 +317,7 @@
                     </router-link>
                 </li>
                 <li>
-                    <div
+                    <a
                         class="
                             h-9
                             w-30
@@ -330,6 +330,7 @@
                             text-navbar
                             hover:text-black
                         "
+                        @click="logout"
                     >
                         <div class="flex flex-row px-2 py-1">
                             <span
@@ -342,7 +343,7 @@
                                 LOGOUT
                             </h1>
                         </div>
-                    </div>
+                    </a>
                 </li>
             </ul>
         </div>
@@ -351,6 +352,12 @@
 
 <script>
 export default {
+    data() {
+        return {
+            name: null,
+            role: null,
+        };
+    },
     computed: {
         isHome() {
             return this.$route.name === "home";
@@ -376,6 +383,31 @@ export default {
         isPengguna() {
             return this.$route.name === "pengguna";
         },
+    },
+    methods: {
+        logout(e) {
+            e.preventDefault();
+            this.$axios.get("/sanctum/csrf-cookie").then((response) => {
+                this.$axios
+                    .post("api/logout")
+                    .then((response) => {
+                        if (response.data.success) {
+                            window.location.href = "/";
+                        } else {
+                            console.log(response);
+                        }
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            });
+        },
+    },
+    created() {
+        if (window.Laravel.user) {
+            this.name = window.Laravel.user.nama;
+            this.role = window.Laravel.user.role;
+        }
     },
 };
 </script>

@@ -394,5 +394,11 @@ export default {
             this.getResult();
         }, 500),
     },
+    beforeRouteEnter(to, from, next) {
+        if (!window.Laravel.isLoggedin) {
+            window.location.href = "/";
+        }
+        next();
+    },
 };
 </script>

@@ -560,5 +560,11 @@ export default {
             doc.output("dataurlnewwindow");
         },
     },
+    beforeRouteEnter(to, from, next) {
+        if (!window.Laravel.isLoggedin) {
+            window.location.href = "/";
+        }
+        next();
+    },
 };
 </script>
