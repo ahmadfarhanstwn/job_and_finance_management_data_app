@@ -4,7 +4,10 @@
             <SideMenu />
         </div>
         <div class="flex flex-col justify-start w-3/4 mr-4 my-8 p-2">
-            <router-link :to="{ name: 'tambahpekerjaanaktif' }">
+            <router-link
+                :to="{ name: 'tambahpekerjaanaktif' }"
+                v-if="isAccepted"
+            >
                 <div
                     class="w-64 h-8 rounded-lg bg-maroon flex flex-row p-1 mb-4"
                 >
@@ -301,6 +304,7 @@
                                             p-1
                                             mr-2
                                         "
+                                        v-if="isAccepted"
                                         @click="
                                             selesai(
                                                 pekerjaan.id,
@@ -354,6 +358,7 @@
                                             name: 'editpekerjaan',
                                             params: { id: pekerjaan.id },
                                         }"
+                                        v-if="isAccepted"
                                     >
                                         <div
                                             class="
@@ -387,6 +392,7 @@
                                             p-1
                                             mr-2
                                         "
+                                        v-if="isAccepted"
                                         @click="deletePekerjaan(pekerjaan.id)"
                                     >
                                         <img
@@ -426,6 +432,7 @@ export default {
             total: 0,
             dateNow: "",
             pekerjaanaktif: [],
+            isAccepted: false,
         };
     },
     components: {
@@ -436,6 +443,12 @@ export default {
         this.currentPage = 1;
         this.getResult(this.currentPage);
         this.getNow();
+        if (
+            window.Laravel.user.role == "Pemilik" ||
+            window.Laravel.user.role == "Admin"
+        ) {
+            this.isAccepted = true;
+        }
     },
     methods: {
         getNow() {

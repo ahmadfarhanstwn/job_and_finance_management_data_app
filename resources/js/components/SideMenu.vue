@@ -249,7 +249,10 @@
                     </router-link>
                 </li>
                 <li>
-                    <router-link :to="{ name: 'laporankeuangan' }">
+                    <router-link
+                        :to="{ name: 'laporankeuangan' }"
+                        v-if="isPemilik"
+                    >
                         <div
                             class="
                                 h-9
@@ -356,6 +359,7 @@ export default {
         return {
             name: null,
             role: null,
+            isPemilik: false,
         };
     },
     computed: {
@@ -407,6 +411,9 @@ export default {
         if (window.Laravel.user) {
             this.name = window.Laravel.user.nama;
             this.role = window.Laravel.user.role;
+        }
+        if (window.Laravel.user.role == "Pemilik") {
+            this.isPemilik = true;
         }
     },
 };

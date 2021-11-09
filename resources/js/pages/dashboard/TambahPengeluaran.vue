@@ -126,7 +126,7 @@
                             required
                         />
                     </div>
-                    <div class="mb-2">
+                    <!-- <div class="mb-2">
                         <label
                             for="penanggungjawab"
                             class="block text-gray-700 text-sm font-bold mb-2"
@@ -154,7 +154,7 @@
                                 {{ user }}
                             </option>
                         </select>
-                    </div>
+                    </div> -->
                     <button
                         class="
                             w-full
@@ -188,6 +188,9 @@ export default {
             jumlah_pengeluaran: "",
             penanggungjawab: "",
         };
+    },
+    created() {
+        this.penanggungjawab = window.Laravel.user.nama;
     },
     methods: {
         addData() {

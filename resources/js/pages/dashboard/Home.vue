@@ -6,7 +6,7 @@
         <div class="flex flex-col justify-start w-3/4 bg-red-400 mr-4 my-8 p-2">
             <div class="max-w-full rounded-lg bg-madrid p-6 mb-10">
                 <h1 class="font-bold text-xl mb-3">
-                    SELAMAT DATANG AHMAD FARHAN !
+                    SELAMAT DATANG {{ nama }} !
                 </h1>
                 <h1 class="text-base text-navbar mb-3">Selamat Bekerja!</h1>
                 <h1 class="text-base text-navbar">
@@ -176,6 +176,11 @@
 <script>
 import SideMenu from "../../components/SideMenu.vue";
 export default {
+    data() {
+        return {
+            nama: "",
+        };
+    },
     components: {
         SideMenu,
     },
@@ -184,6 +189,9 @@ export default {
             window.location.href = "/";
         }
         next();
+    },
+    created() {
+        this.nama = window.Laravel.user.nama;
     },
 };
 </script>

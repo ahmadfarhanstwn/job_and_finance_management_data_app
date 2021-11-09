@@ -28,7 +28,11 @@
                         </h1>
                     </div>
                 </router-link>
-                <a type="button" href="/api/exportPengeluaran">
+                <a
+                    type="button"
+                    href="/api/exportPengeluaran"
+                    v-if="isAccepted"
+                >
                     <button
                         class="
                             w-64
@@ -250,6 +254,7 @@ export default {
             perPage: 0,
             total: 0,
             dataPengeluaran: [],
+            isAccepted: false,
         };
     },
     components: {
@@ -259,6 +264,9 @@ export default {
     created() {
         this.currentPage = 1;
         this.getResult(this.currentPage);
+        if (window.Laravel.user.role == "Pemilik") {
+            this.isAccepted = true;
+        }
     },
     methods: {
         onPageClick(event) {

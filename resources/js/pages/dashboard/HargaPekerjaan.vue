@@ -5,7 +5,10 @@
         </div>
         <div class="flex flex-col justify-start w-3/4 mr-4 my-8 p-2">
             <div class="flex flex-row justify-start">
-                <router-link :to="{ name: 'tambahhargapekerjaan' }">
+                <router-link
+                    :to="{ name: 'tambahhargapekerjaan' }"
+                    v-if="isAccepted"
+                >
                     <div
                         class="
                             w-72
@@ -28,7 +31,11 @@
                         </h1>
                     </div>
                 </router-link>
-                <form @submit.prevent="proceedAction" method="POST">
+                <form
+                    @submit.prevent="proceedAction"
+                    method="POST"
+                    v-if="isAccepted"
+                >
                     <input
                         class="w-32 h-8 py-1 text-gray-700 leading-tight mr-2"
                         type="file"
@@ -249,6 +256,7 @@
                                             name: 'edithargapekerjaan',
                                             params: { id: harga.id },
                                         }"
+                                        v-if="isAccepted"
                                     >
                                         <div
                                             class="
@@ -281,6 +289,7 @@
                                             p-1
                                             mr-2
                                         "
+                                        v-if="isAccepted"
                                         @click="deleteHarga(harga.id)"
                                     >
                                         <img
@@ -325,11 +334,15 @@ export default {
             keyword: "",
             importFile: "",
             hargaJasa: [],
+            isAccepted: false,
         };
     },
     created() {
         this.currentPage = 1;
         this.getResult(this.currentPage);
+        if (window.Laravel.user.role == "Pemilik") {
+            this.isAccepted = true;
+        }
     },
     methods: {
         onPageClick(event) {
