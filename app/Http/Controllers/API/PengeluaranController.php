@@ -23,25 +23,55 @@ class PengeluaranController extends Controller
 
     public function add(Request $request)
     {
-        $pengeluaran = new Pengeluaran([
-            "nama_pengeluaran" => $request->nama_pengeluaran,
-            "detail_pengeluaran" => $request->detail_pengeluaran,
-            "kategori_pengeluaran" => $request->kategori_pengeluaran,
-            "jumlah_pengeluaran" => $request->jumlah_pengeluaran,
-            "penanggungjawab" => $request->penanggungjawab,
-        ]);
-        $pengeluaran->save();
+        // $pengeluaran = new Pengeluaran([
+        //     "nama_pengeluaran" => $request->nama_pengeluaran,
+        //     "detail_pengeluaran" => $request->detail_pengeluaran,
+        //     "kategori_pengeluaran" => $request->kategori_pengeluaran,
+        //     "jumlah_pengeluaran" => $request->jumlah_pengeluaran,
+        //     "penanggungjawab" => $request->penanggungjawab,
+        // ]);
+        // $pengeluaran->save();
 
-        $negativeNumber = -1 * $request->jumlah_pengeluaran;
+        // $negativeNumber = -1 * $request->jumlah_pengeluaran;
 
-        $keuangan = new Keuangan([
-            "nama_transaksi" => $request->nama_pengeluaran,
-            "keterangan_transaksi" => "Pengeluaran",
-            "jumlah_transaksi" => $negativeNumber,
-        ]);
-        $keuangan->save();
+        // $keuangan = new Keuangan([
+        //     "nama_transaksi" => $request->nama_pengeluaran,
+        //     "keterangan_transaksi" => "Pengeluaran",
+        //     "jumlah_transaksi" => $negativeNumber,
+        // ]);
+        // $keuangan->save();
 
-        return response()->json("Data Pengeluaran Berhasil Ditambahkan");
+        try {
+            $user = new Pengeluaran();
+            $user->nama_pengeluaran = $request->nama_pengeluaran;
+            $user->detail_pengeluaran = $request->detail_pengeluaran;
+            $user->kategori_pengeluaran = $request->kategori_pengeluaran;
+            $user->jumlah_pengeluaran = $request->jumlah_pengeluaran;
+            $user->penanggungjawab = $request->penanggungjawab;
+            $user->save();
+
+            $negativeNumber = -1 * $request->jumlah_pengeluaran;
+
+            $keuangan = new Keuangan();
+            $keuangan->nama_transaksi = $request->nama_pengeluaran;
+            $keuangan->keterangan_transaksi = "Pengeluaran";
+            $keuangan->jumlah_transaksi = $negativeNumber;
+            $keuangan->save();
+
+            $success = true;
+            $message = "Data berhasil diinputkan";
+        } catch (\Illuminate\Database\QueryException $ex) {
+            $success = false;
+            $message =
+                "Gagal Melakukan Input. Cek kembali data yang anda inputkan";
+        }
+
+        $response = [
+            "success" => $success,
+            "message" => $message,
+        ];
+
+        return response()->json($response);
     }
 
     public function pengeluaranBulanIni()

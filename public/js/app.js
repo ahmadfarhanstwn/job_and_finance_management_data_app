@@ -20360,7 +20360,8 @@ __webpack_require__.r(__webpack_exports__);
       nama_pekerjaan: "",
       deskripsi_pekerjaan: "",
       biaya_pekerjaan: "",
-      estimasi_waktu_pengerjaan: ""
+      estimasi_waktu_pengerjaan: "",
+      error: null
     };
   },
   methods: {
@@ -20375,9 +20376,13 @@ __webpack_require__.r(__webpack_exports__);
           biaya_pekerjaan: _this.biaya_pekerjaan,
           estimasi_waktu_pengerjaan: _this.estimasi_waktu_pengerjaan
         }).then(function (response) {
-          _this.$router.push({
-            name: "hargapekerjaan"
-          });
+          if (response.data.success) {
+            _this.$router.push({
+              name: "hargapekerjaan"
+            });
+          } else {
+            _this.error = response.data.message;
+          }
         })["catch"](function (error) {
           console.log(error);
         });
@@ -20420,7 +20425,8 @@ __webpack_require__.r(__webpack_exports__);
       kontak_pelanggan: "",
       harga: "",
       deadline: "",
-      status: "Aktif"
+      status: "Aktif",
+      error: null
     };
   },
   methods: {
@@ -20437,9 +20443,13 @@ __webpack_require__.r(__webpack_exports__);
           deadline: _this.dateValue,
           status: _this.status
         }).then(function (response) {
-          _this.$router.push({
-            name: "pekerjaanAktif"
-          });
+          if (response.data.success) {
+            _this.$router.push({
+              name: "pekerjaanAktif"
+            });
+          } else {
+            _this.error = response.data.message;
+          }
         })["catch"](function (error) {
           console.log(error);
         });
@@ -20500,7 +20510,8 @@ __webpack_require__.r(__webpack_exports__);
       detail_pengeluaran: "",
       kategori_pengeluaran: "",
       jumlah_pengeluaran: "",
-      penanggungjawab: ""
+      penanggungjawab: "",
+      error: null
     };
   },
   created: function created() {
@@ -20518,9 +20529,13 @@ __webpack_require__.r(__webpack_exports__);
           jumlah_pengeluaran: _this.jumlah_pengeluaran,
           penanggungjawab: _this.penanggungjawab
         }).then(function (response) {
-          _this.$router.push({
-            name: "pengeluaran"
-          });
+          if (response.data.success) {
+            _this.$router.push({
+              name: "pengeluaran"
+            });
+          } else {
+            _this.error = response.data.message;
+          }
         })["catch"](function (error) {
           console.log(error);
         });
@@ -23280,6 +23295,14 @@ var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
+var _hoisted_16 = {
+  key: 0,
+  role: "alert",
+  "class": "\r\n                        mt-2\r\n                        w-full\r\n                        bg-alert\r\n                        border border-borderalert\r\n                        text-red-700\r\n                        px-3\r\n                        py-2\r\n                        rounded\r\n                        relative\r\n                    "
+};
+var _hoisted_17 = {
+  "class": "font-bold text-center"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
 
@@ -23355,7 +23378,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.estimasi_waktu_pengerjaan]])]), _hoisted_15], 32
   /* HYDRATE_EVENTS */
-  )])])]);
+  ), $data.error != null ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.error), 1
+  /* TEXT */
+  )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]);
 }
 
 /***/ }),
@@ -23473,6 +23498,14 @@ var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
+var _hoisted_19 = {
+  key: 0,
+  role: "alert",
+  "class": "\r\n                        mt-2\r\n                        w-full\r\n                        bg-alert\r\n                        border border-borderalert\r\n                        text-red-700\r\n                        px-3\r\n                        py-2\r\n                        rounded\r\n                        relative\r\n                    "
+};
+var _hoisted_20 = {
+  "class": "font-bold text-center"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
 
@@ -23570,7 +23603,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* PROPS */
   , ["formatter", "modelValue"])]), _hoisted_18], 32
   /* HYDRATE_EVENTS */
-  )])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" > ")], 2112
+  ), $data.error != null ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.error), 1
+  /* TEXT */
+  )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" > ")], 2112
   /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */
   );
 }
@@ -23680,6 +23715,14 @@ var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
+var _hoisted_17 = {
+  key: 0,
+  role: "alert",
+  "class": "\r\n                        mt-2\r\n                        w-full\r\n                        bg-alert\r\n                        border border-borderalert\r\n                        text-red-700\r\n                        px-3\r\n                        py-2\r\n                        rounded\r\n                        relative\r\n                    "
+};
+var _hoisted_18 = {
+  "class": "font-bold text-center"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
 
@@ -23741,7 +23784,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.jumlah_pengeluaran]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"mb-2\">\r\n                        <label\r\n                            for=\"penanggungjawab\"\r\n                            class=\"block text-gray-700 text-sm font-bold mb-2\"\r\n                            >PENANGGUNG JAWAB :</label\r\n                        >\r\n                        <select\r\n                            class=\"\r\n                                border-2 border-opacity-75\r\n                                rounded-lg\r\n                                w-full\r\n                                py-2\r\n                                px-3\r\n                                text-gray-700\r\n                                leading-tight\r\n                                focus:outline-none focus:shadow-outline\r\n                            \"\r\n                            aria-placeholder=\"NAMA PENANGGUNGJAWAB\"\r\n                            v-model=\"penanggungjawab\"\r\n                        >\r\n                            <option\r\n                                v-for=\"user in dataUser\"\r\n                                :key=\"user\"\r\n                                :value=\"user\"\r\n                            >\r\n                                {{ user }}\r\n                            </option>\r\n                        </select>\r\n                    </div> "), _hoisted_16], 32
   /* HYDRATE_EVENTS */
-  )])])]);
+  ), $data.error != null ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.error), 1
+  /* TEXT */
+  )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]);
 }
 
 /***/ }),

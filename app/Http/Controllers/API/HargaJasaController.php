@@ -51,16 +51,39 @@ class HargaJasaController extends Controller
     //store the data to database
     public function add(Request $request)
     {
-        $hargaJasa = new HargaJasa([
-            "kode_pekerjaan" => $request->kode_pekerjaan,
-            "nama_pekerjaan" => $request->nama_pekerjaan,
-            "deskripsi_pekerjaan" => $request->deskripsi_pekerjaan,
-            "biaya_pekerjaan" => $request->biaya_pekerjaan,
-            "estimasi_waktu_pengerjaan" => $request->estimasi_waktu_pengerjaan,
-        ]);
-        $hargaJasa->save();
+        // $hargaJasa = new HargaJasa([
+        //     "kode_pekerjaan" => $request->kode_pekerjaan,
+        //     "nama_pekerjaan" => $request->nama_pekerjaan,
+        //     "deskripsi_pekerjaan" => $request->deskripsi_pekerjaan,
+        //     "biaya_pekerjaan" => $request->biaya_pekerjaan,
+        //     "estimasi_waktu_pengerjaan" => $request->estimasi_waktu_pengerjaan,
+        // ]);
+        // $hargaJasa->save();
 
-        return response()->json("Harga Berhasil Ditambahkan");
+        try {
+            $user = new HargaJasa();
+            $user->kode_pekerjaan = $request->kode_pekerjaan;
+            $user->nama_pekerjaan = $request->nama_pekerjaan;
+            $user->deskripsi_pekerjaan = $request->deskripsi_pekerjaan;
+            $user->biaya_pekerjaan = $request->biaya_pekerjaan;
+            $user->estimasi_waktu_pengerjaan =
+                $request->estimasi_waktu_pengerjaan;
+            $user->save();
+
+            $success = true;
+            $message = "Data berhasil diinputkan";
+        } catch (\Illuminate\Database\QueryException $ex) {
+            $success = false;
+            $message =
+                "Gagal Melakukan Input. Cek kembali data yang anda inputkan";
+        }
+
+        $response = [
+            "success" => $success,
+            "message" => $message,
+        ];
+
+        return response()->json($response);
     }
 
     //to generate the value of harga_jasa by id

@@ -184,6 +184,23 @@
                         SIMPAN DATA
                     </button>
                 </form>
+                <div
+                    role="alert"
+                    class="
+                        mt-2
+                        w-full
+                        bg-alert
+                        border border-borderalert
+                        text-red-700
+                        px-3
+                        py-2
+                        rounded
+                        relative
+                    "
+                    v-if="error != null"
+                >
+                    <p class="font-bold text-center">{{ error }}</p>
+                </div>
             </div>
         </div>
     </main>
@@ -204,6 +221,7 @@ export default {
             harga: "",
             deadline: "",
             status: "Aktif",
+            error: null,
         };
     },
     methods: {
@@ -220,7 +238,11 @@ export default {
                         status: this.status,
                     })
                     .then((response) => {
-                        this.$router.push({ name: "pekerjaanAktif" });
+                        if (response.data.success) {
+                            this.$router.push({ name: "pekerjaanAktif" });
+                        } else {
+                            this.error = response.data.message;
+                        }
                     })
                     .catch((error) => {
                         console.log(error);

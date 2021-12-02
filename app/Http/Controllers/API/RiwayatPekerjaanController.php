@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\PekerjaanAktif;
+use App\Models\Pengeluaran;
 use Illuminate\Http\Request;
 use App\Models\RiwayatPekerjaan;
 use Carbon\Carbon;

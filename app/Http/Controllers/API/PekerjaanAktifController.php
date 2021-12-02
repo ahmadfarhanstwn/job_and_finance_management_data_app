@@ -46,18 +46,42 @@ class PekerjaanAktifController extends Controller
     //menambahkan data baru
     public function add(Request $request)
     {
-        $pekerjaanBaru = new PekerjaanAktif([
-            "nama_pekerjaan" => $request->nama_pekerjaan,
-            "deskripsi_pekerjaan" => $request->deskripsi_pekerjaan,
-            "nama_pelanggan" => $request->nama_pelanggan,
-            "kontak_pelanggan" => $request->kontak_pelanggan,
-            "harga" => $request->harga,
-            "deadline" => $request->deadline,
-            "status" => $request->status,
-        ]);
-        $pekerjaanBaru->save();
+        try {
+            $user = new PekerjaanAktif();
+            $user->nama_pekerjaan = $request->nama_pekerjaan;
+            $user->deskripsi_pekerjaan = $request->deskripsi_pekerjaan;
+            $user->nama_pelanggan = $request->nama_pelanggan;
+            $user->kontak_pelanggan = $request->kontak_pelanggan;
+            $user->harga = $request->harga;
+            $user->deadline = $request->deadline;
+            $user->status = $request->status;
+            $user->save();
 
-        return response()->json("Berhasil Menambahkan Pekerjaan Baru");
+            $success = true;
+            $message = "Data berhasil diinputkan";
+        } catch (\Illuminate\Database\QueryException $ex) {
+            $success = false;
+            $message =
+                "Gagal Melakukan Input. Cek kembali data yang anda inputkan";
+        }
+
+        $response = [
+            "success" => $success,
+            "message" => $message,
+        ];
+
+        // $pekerjaanBaru = new PekerjaanAktif([
+        //     "nama_pekerjaan" => $request->nama_pekerjaan,
+        //     "deskripsi_pekerjaan" => $request->deskripsi_pekerjaan,
+        //     "nama_pelanggan" => $request->nama_pelanggan,
+        //     "kontak_pelanggan" => $request->kontak_pelanggan,
+        //     "harga" => $request->harga,
+        //     "deadline" => $request->deadline,
+        //     "status" => $request->status,
+        // ]);
+        // $pekerjaanBaru->save();
+
+        return response()->json($response);
     }
 
     //menampilkan data yang akan diupdate

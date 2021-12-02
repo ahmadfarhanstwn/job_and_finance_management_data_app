@@ -14,7 +14,7 @@ module.exports = {
             black: "#000000",
             goblin: "#00FF00",
             chelsea: "#0000FF",
-            tai: "#FFFF00",
+            tai: "#FFC300",
             munyuk: "#FF0000",
             greenforest: "#00D100",
         },

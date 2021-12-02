@@ -161,6 +161,23 @@
                         TAMBAH DATA
                     </button>
                 </form>
+                <div
+                    role="alert"
+                    class="
+                        mt-2
+                        w-full
+                        bg-alert
+                        border border-borderalert
+                        text-red-700
+                        px-3
+                        py-2
+                        rounded
+                        relative
+                    "
+                    v-if="error != null"
+                >
+                    <p class="font-bold text-center">{{ error }}</p>
+                </div>
             </div>
         </div>
     </main>
@@ -175,6 +192,7 @@ export default {
             deskripsi_pekerjaan: "",
             biaya_pekerjaan: "",
             estimasi_waktu_pengerjaan: "",
+            error: null,
         };
     },
     methods: {
@@ -190,7 +208,11 @@ export default {
                             this.estimasi_waktu_pengerjaan,
                     })
                     .then((response) => {
-                        this.$router.push({ name: "hargapekerjaan" });
+                        if (response.data.success) {
+                            this.$router.push({ name: "hargapekerjaan" });
+                        } else {
+                            this.error = response.data.message;
+                        }
                     })
                     .catch((error) => {
                         console.log(error);
